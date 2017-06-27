@@ -160,7 +160,7 @@ function clinical_cms_theme_register_required_plugins() {
 
 		// This is an example of how to include a plugin bundled with a theme.
 		array(
-			'name'               => 'Sldier Revolution', // The plugin name.
+			'name'               => 'Slider Revolution', // The plugin name.
 			'slug'               => 'revslider', // The plugin slug (typically the folder name).
 			'source'             => get_template_directory() . '/inc/tgmps/plugins/slider-revolution.zip', // The plugin source.
 			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
@@ -212,7 +212,7 @@ function clinical_cms_theme_register_required_plugins() {
 		),
 */
 	);
-*/
+
 	/*
 	 * Array of configuration settings. Amend each line as needed.
 	 *
