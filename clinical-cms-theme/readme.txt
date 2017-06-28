@@ -1,7 +1,7 @@
 === Clinical CMS Theme ===
 
 Contributors: automattic
-Tags:
+Tags: Clinical CMS
 
 Requires at least: 4.0
 Tested up to: 4.8
@@ -26,6 +26,8 @@ A light weight, yet powerful theme, with visual drag and drop design functionali
 = Does this theme support any plugins? =
 
 Clinical CMS Theme includes support for Infinite Scroll in Jetpack.
+Clinical CMS Theme includes support for Clinical CMS, Clinical Image Tools, Clinical Login Security, Clinical Anti-Spam
+Clinical CMS Theme includes support for Visual Composer, Clever Mega Menu, Revolution Slider, 
 
 == Changelog ==
 
