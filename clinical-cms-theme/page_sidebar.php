@@ -38,7 +38,7 @@ get_header(); ?>
 </div></div></div>  
 
 <div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"> 
-
+<?php
 get_sidebar();
 ?>
 </div></div></div></div>
