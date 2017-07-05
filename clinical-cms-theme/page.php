@@ -16,7 +16,7 @@ get_header(); ?>
 <div class="vc_row wpb_row vc_row-fluid">
     <div class="wpb_column vc_column_container vc_col-sm-2">
         <div class="vc_column-inner ">
-            <div class="wpb_wrapper"></div>
+            <div class="wpb_wrapper">LEFT PANEL</div>
         </div>
     </div>
     <div class="wpb_column vc_column_container vc_col-sm-8">
@@ -47,7 +47,7 @@ get_header(); ?>
     </div>
     <div class="wpb_column vc_column_container vc_col-sm-2">
         <div class="vc_column-inner ">
-            <div class="wpb_wrapper"></div>
+            <div class="wpb_wrapper">RIGHT PANEL</div>
         </div>
     </div>
 </div>
