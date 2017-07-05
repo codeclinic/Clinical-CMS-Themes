@@ -14,7 +14,8 @@
  */
 
 get_header(); ?>
-
+<div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner "><div class="wpb_wrapper">
+    
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
@@ -33,7 +34,13 @@ get_header(); ?>
 
 		</main><!-- #main -->
 	</div><!-- #primary -->
+    
+</div></div></div>  
 
-<?php
+<div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"> 
+
 get_sidebar();
+?>
+</div></div></div></div>
+<?php
 get_footer();
