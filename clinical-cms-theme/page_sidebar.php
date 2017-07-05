@@ -14,33 +14,60 @@
  */
 
 get_header(); ?>
-<div class="vc_row wpb_row vc_row-fluid"><div class="wpb_column vc_column_container vc_col-sm-9"><div class="vc_column-inner "><div class="wpb_wrapper">
-    
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+<div class="vc_row wpb_row vc_row-fluid">
+    <div class="wpb_column vc_column_container vc_col-sm-2">
+        <div class="vc_column-inner ">
+            <div class="wpb_wrapper"></div>
+        </div>
+    </div>
+    <div class="wpb_column vc_column_container vc_col-sm-8">
+        <div class="vc_column-inner ">
+            <div class="wpb_wrapper">
+                <div class="vc_row wpb_row vc_row-fluid">
+                    <div class="wpb_column vc_column_container vc_col-sm-9">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper">
 
-			<?php
-			while ( have_posts() ) : the_post();
+                                <div id="primary" class="content-area">
+                                    <main id="main" class="site-main">
 
-				get_template_part( 'template-parts/content', 'page' );
+                                        <?php
+                                        while ( have_posts() ) : the_post();
 
-				// If comments are open or we have at least one comment, load up the comment template.
-				if ( comments_open() || get_comments_number() ) :
-					comments_template();
-				endif;
+                                            get_template_part( 'template-parts/content', 'page' );
 
-			endwhile; // End of the loop.
-			?>
+                                            // If comments are open or we have at least one comment, load up the comment template.
+                                            if ( comments_open() || get_comments_number() ) :
+                                                comments_template();
+                                            endif;
 
-		</main><!-- #main -->
-	</div><!-- #primary -->
-    
-</div></div></div>  
+                                        endwhile; // End of the loop.
+                                        ?>
 
-<div class="wpb_column vc_column_container vc_col-sm-3"><div class="vc_column-inner "><div class="wpb_wrapper"> 
-<?php
-get_sidebar();
-?>
-</div></div></div></div>
+                                    </main><!-- #main -->
+                                </div><!-- #primary -->
+
+                            </div>
+                        </div>
+                    </div> 
+                    <div class="wpb_column vc_column_container vc_col-sm-3">
+                        <div class="vc_column-inner ">
+                            <div class="wpb_wrapper"> 
+                                <?php
+                                get_sidebar();
+                                ?>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wpb_column vc_column_container vc_col-sm-2">
+        <div class="vc_column-inner ">
+            <div class="wpb_wrapper"></div>
+        </div>
+    </div>
+</div>
 <?php
 get_footer();
