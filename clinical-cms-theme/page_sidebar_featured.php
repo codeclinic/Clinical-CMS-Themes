@@ -17,7 +17,7 @@ get_header(); ?>
 <div class="wpb_column vc_column_container vc_col-sm-12">
     <div class="vc_column-inner ">
         <div class="wpb_wrapper">
-            the_post_thumbnail( 'full' );
+            <?php the_post_thumbnail( 'full' ); ?>
         </div>
     </div>
 </div>
