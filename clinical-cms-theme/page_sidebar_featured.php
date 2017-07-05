@@ -14,7 +14,7 @@
  */
 
 get_header(); ?>
-<div class="vc_row wpb_row vc_row-fluid">
+<div class="vc_row wpb_row vc_row-fluid vc_row-has-fill vc_row-no-padding vc_general vc_parallax vc_parallax-content-moving-fade js-vc_parallax-o-fade">
     <div class="wpb_column vc_column_container vc_col-sm-12">
         <div class="vc_column-inner ">
             <div class="wpb_wrapper">
@@ -23,6 +23,7 @@ get_header(); ?>
         </div>
     </div>
 </div>
+<div class="vc_row-full-width vc_clearfix"></div>
 <div class="wpb_column vc_column_container vc_col-sm-2">
     <div class="vc_column-inner ">
         <div class="wpb_wrapper"></div>
