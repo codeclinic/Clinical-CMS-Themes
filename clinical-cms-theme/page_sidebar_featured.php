@@ -14,7 +14,7 @@
  */
 
 get_header(); ?>
-<?php do_shortcode('[vc_row full_width="stretch_row_content_no_spaces" parallax="content-moving-fade" parallax_image="224" css=".vc_custom_1499286787646{padding-top: 250px !important;padding-bottom: 250px !important;}"][vc_column][/vc_column][/vc_row]'); ?>
+<div data-vc-full-width="true" data-vc-full-width-init="true" data-vc-stretch-content="true" data-vc-parallax="1.5" data-vc-parallax-o-fade="on" data-vc-parallax-image="<?php the_post_thumbnail_url( 'full' ); ?>" class="vc_row wpb_row vc_row-fluid vc_row-has-fill vc_row-no-padding vc_general vc_parallax vc_parallax-content-moving-fade js-vc_parallax-o-fade" style="position: relative; left: -263.833px; box-sizing: border-box; width: 1583px;"><div class="wpb_column vc_column_container vc_col-sm-12 skrollable skrollable-before" data-5p-top-bottom="opacity:0;" data-30p-top-bottom="opacity:1;" style="opacity: 1;"><div class="vc_column-inner "><div class="wpb_wrapper"></div></div></div><div class="vc_parallax-inner skrollable skrollable-between" style="height: 150%; background-image: url(&quot;<?php the_post_thumbnail_url( 'full' ); ?>&quot;); top: -43.7225%;" data-bottom-top="top: -50%;" data-top-bottom="top: 0%;"></div></div>
 <div class="vc_row-full-width vc_clearfix"></div>
 <div class="wpb_column vc_column_container vc_col-sm-2">
     <div class="vc_column-inner ">
