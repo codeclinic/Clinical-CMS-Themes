@@ -90,8 +90,35 @@ add_action( 'after_setup_theme', 'clinical_cms_theme_content_width', 0 );
  */
 function clinical_cms_theme_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'clinical-cms-theme' ),
+		'name'          => esc_html__( 'Sidebar 1', 'clinical-cms-theme' ),
 		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.', 'clinical-cms-theme' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+    register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar 2', 'clinical-cms-theme' ),
+		'id'            => 'sidebar-1',
+		'description'   => esc_html__( 'Add widgets here.', 'clinical-cms-theme' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+    register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar 3', 'clinical-cms-theme' ),
+		'id'            => 'sidebar-3',
+		'description'   => esc_html__( 'Add widgets here.', 'clinical-cms-theme' ),
+		'before_widget' => '<section id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</section>',
+		'before_title'  => '<h2 class="widget-title">',
+		'after_title'   => '</h2>',
+	) );
+    register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar 4', 'clinical-cms-theme' ),
+		'id'            => 'sidebar-4',
 		'description'   => esc_html__( 'Add widgets here.', 'clinical-cms-theme' ),
 		'before_widget' => '<section id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</section>',
