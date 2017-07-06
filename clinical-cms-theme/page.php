@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Simple Page
+ * Template Name: Simple Minimal Page
  * The template for displaying all pages without sidebar
  *
  * This is the template that displays all pages by default.
@@ -17,20 +17,20 @@ get_header(); ?>
 <div id="primary" class="content-area">
     <div id="main" class="site-main">
 
-        <?php
-            while ( have_posts() ) : the_post();
+    <?php
+        while ( have_posts() ) : the_post();
 
-                get_template_part( 'template-parts/content', 'page' );
+            get_template_part( 'template-parts/content', 'page' );
 
-                // If comments are open or we have at least one comment, load up the comment template.
-                if ( comments_open() || get_comments_number() ) :
-                    comments_template();
-                endif;
+            // If comments are open or we have at least one comment, load up the comment template.
+            if ( comments_open() || get_comments_number() ) :
+                comments_template();
+            endif;
 
-            endwhile; // End of the loop.
-        ?>
-
-        </div>
+        endwhile; // End of the loop.
+     ?>
+        
     </div>
+</div>
 <?php
 get_footer();
