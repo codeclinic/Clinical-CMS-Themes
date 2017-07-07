@@ -148,12 +148,13 @@ function clinical_cms_theme_setup() {
         'id' => 'static_front_page',
     ) ); 
     // Create options that will appear 
-    $section->createOption(
+    $section->createOption( array(
+        'id' => 'static_front_page',
         'name' => 'Single Post Template',
         'id' => 'clinical_blog_template',
         'type' => 'select-pages',
         'desc' => 'Select a page'
-    ); 
+    ) ); 
 }
 
 
