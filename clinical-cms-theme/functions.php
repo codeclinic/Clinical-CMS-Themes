@@ -153,7 +153,6 @@ function clinical_cms_theme_setup() {
         'name' => 'Single Post Template',
         'id' => 'clinical_blog_template',
         'type' => 'select-pages',
-        'desc' => 'Select a page'
     ) ); 
 }
 
