@@ -128,6 +128,35 @@ function clinical_cms_theme_widgets_init() {
 }
 add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
 
+
+/**
+ * Load Titan Framework plugin checker
+ */
+require get_template_directory() . '/titan-framework-checker.php';
+
+/**
+ * Load Titan Framework options
+ */
+require get_template_directory() . '/titan-options.php';
+/**
+ * Create A MetaBox To Identify Blog Template
+ */
+add_action( 'tf_create_options', 'clinical_cms_theme_setup' );
+function clinical_cms_theme_setup() {
+    $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
+    $section = $titan->createThemeCustomizerSection( array(
+        'id' => 'static_front_page',
+    ) ); 
+    // Create options that will appear 
+    $section->createOption(
+        'name' => 'Single Post Template',
+        'id' => 'clinical_blog_template',
+        'type' => 'select-pages',
+        'desc' => 'Select a page'
+    ); 
+}
+
+
 /**
  * Enqueue scripts and styles.
  */
