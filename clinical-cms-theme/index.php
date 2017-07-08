@@ -18,6 +18,7 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 		<?php
+            echo "POSTS ID: " . $page_for_posts = get_option( 'page_for_posts' );
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) : ?>
