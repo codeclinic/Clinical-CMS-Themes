@@ -183,11 +183,11 @@ function clinical_cms_theme_content_page_for_posts(){
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				$output .= get_template_part( 'template-parts/content', get_post_format() );
+				$output .= load_template_part( 'template-parts/content', get_post_format() );
 			endwhile;
 			$output .= the_posts_navigation();
 		else :
-			$output .= get_template_part( 'template-parts/content', 'none' );
+			$output .= load_template_part( 'template-parts/content', 'none' );
 		endif;   
     return $output;
 }
@@ -218,7 +218,16 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
       */
    ) );
 }
-
+/**
+ *  Custom function to get template part as variable
+ */
+function load_template_part($template_name, $part_name=null) {
+    ob_start();
+    get_template_part($template_name, $part_name);
+    $var = ob_get_contents();
+    ob_end_clean();
+    return $var;
+}
 
 /**
  * Enqueue scripts and styles.
