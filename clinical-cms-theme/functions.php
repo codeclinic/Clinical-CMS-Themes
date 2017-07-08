@@ -202,8 +202,7 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
       "base" => "Clinical_CMS_Blog_Content",
       "class" => "",
       "category" => __( "Clinical CMS Components", "clinical-cms-theme"),
-      'admin_enqueue_js' => array(get_template_directory_uri().'/vc_extend/bartag.js'),
-      'admin_enqueue_css' => array(get_template_directory_uri().'/vc_extend/bartag.css'),
+      "show_settings_on_create" => false,
       /*
        "params" => array(
          array(
