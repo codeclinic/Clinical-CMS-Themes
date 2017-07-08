@@ -166,7 +166,6 @@ function clinical_cms_theme_editor_on_posts_page($post) {
 }
 add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0);
 
-
 /**
  * Enqueue scripts and styles.
  */
