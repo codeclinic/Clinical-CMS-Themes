@@ -133,7 +133,6 @@ add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
  * Load Titan Framework plugin checker
  */
 require get_template_directory() . '/titan-framework-checker.php';
-
 /**
  * Load Titan Framework options
  */
@@ -155,6 +154,17 @@ function clinical_cms_theme_setup() {
         'type' => 'select-pages',
     ) ); 
 }
+/**
+ *  Re-enable the content editor on blog overview page
+ */
+function clinical_cms_theme_editor_on_posts_page($post) {
+    if($post->ID != get_option('page_for_posts') || post_type_supports('page', 'editor'))
+            return;
+
+    remove_action('edit_form_after_title', '_wp_posts_page_notice');
+    add_post_type_support('page', 'editor');
+}
+add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0);
 
 
 /**
