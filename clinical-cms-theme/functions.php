@@ -171,9 +171,9 @@ add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0
 function clinical_cms_theme_content_page_for_posts(){
     $output;
     if ( have_posts() ) :
-			if ( is_home() && ! is_front_page() ) : 
+            if ( is_home() && ! is_front_page() ) : 
 				$output = '<header>
-					<h1 class="page-title screen-reader-text">' . single_post_title() . '</h1>
+					<h1 class="page-title screen-reader-text">' . single_post_title('', false) . '</h1>
 				</header>';
 			endif;
 			/* Start the Loop */
