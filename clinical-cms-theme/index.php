@@ -18,7 +18,11 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 		<?php
-            echo "POSTS ID: " . $page_for_posts = get_option( 'page_for_posts' );
+        $page_for_posts = get_option( 'page_for_posts' );
+        $content=apply_filters('the_content', get_post_field('post_content', $page_for_posts));
+        
+        echo $content;
+            
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) : ?>
