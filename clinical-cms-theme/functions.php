@@ -177,7 +177,7 @@ function clinical_cms_theme_content_page_for_posts(){
 					<h1 class="page-title screen-reader-text">' . single_post_title() . '</h1>
 				</header>';
 
-			<?php
+			
 			endif;
 
 			/* Start the Loop */
