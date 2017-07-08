@@ -18,18 +18,20 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 		<?php
+        //get the post page layout & content data
         $page_for_posts_id = get_option( 'page_for_posts' );
         $page_for_posts_obj = get_post( $page_for_posts_id );
-        echo "CONTENT" . apply_filters( 'the_content', $page_for_posts_obj->post_content );
-        
-            
+        echo apply_filters( 'the_content', $page_for_posts_obj->post_content );
+ ?>       
+<!--
+<?php
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) : ?>
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
-
+/
 			<?php
 			endif;
 
@@ -52,7 +54,8 @@ get_header(); ?>
 			get_template_part( 'template-parts/content', 'none' );
 
 		endif; ?>
-
+-->
+<?php  ?>
 		</main><!-- #main -->
 	</div><!-- #primary -->
 
