@@ -18,10 +18,10 @@ get_header(); ?>
 		<main id="main" class="site-main">
 
 		<?php
-        $page_for_posts = get_option( 'page_for_posts' );
-        $content=apply_filters('the_content', get_post_field('post_content', $page_for_posts));
+        $page_for_posts_id = get_option( 'page_for_posts' );
+        $page_for_posts_obj = get_post( $page_for_posts_id );
+        echo "CONTENT" . apply_filters( 'the_content', $page_for_posts_obj->post_content );
         
-        echo "CONTENT" . $content;
             
 		if ( have_posts() ) :
 
