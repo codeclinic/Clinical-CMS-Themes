@@ -128,107 +128,6 @@ function clinical_cms_theme_widgets_init() {
 }
 add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
 
-
-/**
- * Load Titan Framework plugin checker
- */
-require get_template_directory() . '/titan-framework-checker.php';
-/**
- * Load Titan Framework options
- */
-require get_template_directory() . '/titan-options.php';
-/**
- * Create A MetaBox To Identify Blog Template
- */
-add_action( 'tf_create_options', 'clinical_cms_theme_setup' );
-function clinical_cms_theme_setup() {
-    $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
-    $section = $titan->createThemeCustomizerSection( array(
-        'id' => 'static_front_page',
-    ) ); 
-    // Create options that will appear 
-    $section->createOption( array(
-        'id' => 'static_front_page',
-        'name' => 'Single Post Template',
-        'id' => 'clinical_blog_template',
-        'type' => 'select-pages',
-    ) ); 
-}
-/**
- *  Re-enable the content editor on blog overview page
- */
-function clinical_cms_theme_editor_on_posts_page($post) {
-    if($post->ID != get_option('page_for_posts') || post_type_supports('page', 'editor'))
-            return;
-
-    remove_action('edit_form_after_title', '_wp_posts_page_notice');
-    add_post_type_support('page', 'editor');
-}
-add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0);
-/**
- *  Function to display blog posts on page_for_posts
- */
-function clinical_cms_theme_content_page_for_posts(){
-    $output;
-    if ( have_posts() ) :
-            if ( is_home() && ! is_front_page() ) : 
-				$output = '<header>
-					<h1 class="page-title screen-reader-text">' . single_post_title('', false) . '</h1>
-				</header>';
-			endif;
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				$output .= load_template_part( 'template-parts/content', get_post_format() );
-			endwhile;
-			$output .= the_posts_navigation();
-		else :
-			$output .= load_template_part( 'template-parts/content', 'none' );
-		endif;   
-    return $output;
-}
-add_shortcode( 'Clinical_CMS_Blog_Content', 'clinical_cms_theme_content_page_for_posts' );
-/**
- *  Map Blog Content shortcode to Visual Composer
- */
-add_action( 'vc_before_init', 'Clinical_CMS_Blog_Content_VisComp_Map' );
-function Clinical_CMS_Blog_Content_VisComp_Map() {
-   vc_map( array(
-      "name" => __( "Clinical CMS Blog Content", "clinical-cms-theme" ),
-      "base" => "Clinical_CMS_Blog_Content",
-      "class" => "",
-      "category" => __( "Clinical CMS Components", "clinical-cms-theme"),
-      "show_settings_on_create" => false,
-      /*
-       "params" => array(
-         array(
-            "type" => "textfield",
-            "holder" => "div",
-            "class" => "",
-            "heading" => __( "Clinical CMS Blog Stream", "clinical-cms-theme" ),
-            "param_name" => "foo",
-            "value" => __( "Default param value", "clinical-cms-theme" ),
-            "description" => __( "Insert this block on your 'Page For Posts' page to set where the blog stream appears..", "clinical-cms-theme" )
-         )
-      )
-      */
-   ) );
-}
-/**
- *  Custom function to get template part as variable
- */
-function load_template_part($template_name, $part_name=null) {
-    ob_start();
-    get_template_part($template_name, $part_name);
-    $var = ob_get_contents();
-    ob_end_clean();
-    return $var;
-}
-
 /**
  * Enqueue scripts and styles.
  */
@@ -383,4 +282,113 @@ function clinical_cms_theme_register_required_plugins() {
 		'message'      => '',                      // Message to output right before the plugins table.
 	);
 	tgmpa( $plugins, $config );
+}
+
+/******************************************************************************************
+*                                                                                         *
+*                       CLINICAL CMS THEME SPECIFIC CUSTOMISATIONS                        *
+*                                                                                         *
+******************************************************************************************/
+/**
+ * Load Titan Framework plugin checker
+ */
+require get_template_directory() . '/titan-framework-checker.php';
+/**
+ * Load Titan Framework options
+ */
+require get_template_directory() . '/titan-options.php';
+
+/**
+ *  Custom function to get template part as variable
+ */
+function load_template_part($template_name, $part_name=null) {
+    ob_start();
+    get_template_part($template_name, $part_name);
+    $var = ob_get_contents();
+    ob_end_clean();
+    return $var;
+}
+
+/**
+ * Create A MetaBox To Identify Blog Template
+ */
+add_action( 'tf_create_options', 'clinical_cms_theme_setup' );
+function clinical_cms_theme_setup() {
+    $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
+    $section = $titan->createThemeCustomizerSection( array(
+        'id' => 'static_front_page',
+    ) ); 
+    // Create options that will appear 
+    $section->createOption( array(
+        'id' => 'static_front_page',
+        'name' => 'Single Post Template',
+        'id' => 'clinical_blog_template',
+        'type' => 'select-pages',
+    ) ); 
+}
+
+/**
+ *  Re-enable the content editor on blog overview page
+ */
+function clinical_cms_theme_editor_on_posts_page($post) {
+    if($post->ID != get_option('page_for_posts') || post_type_supports('page', 'editor'))
+            return;
+
+    remove_action('edit_form_after_title', '_wp_posts_page_notice');
+    add_post_type_support('page', 'editor');
+}
+add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0);
+
+/**
+ *  Function to display blog posts on page_for_posts
+ */
+function clinical_cms_theme_content_page_for_posts(){
+    $output;
+    if ( have_posts() ) :
+            if ( is_home() && ! is_front_page() ) : 
+				$output = '<header>
+					<h1 class="page-title screen-reader-text">' . single_post_title('', false) . '</h1>
+				</header>';
+			endif;
+			/* Start the Loop */
+			while ( have_posts() ) : the_post();
+				/*
+				 * Include the Post-Format-specific template for the content.
+				 * If you want to override this in a child theme, then include a file
+				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+				 */
+				$output .= load_template_part( 'template-parts/content', get_post_format() );
+			endwhile;
+			$output .= the_posts_navigation();
+		else :
+			$output .= load_template_part( 'template-parts/content', 'none' );
+		endif;   
+    return $output;
+}
+add_shortcode( 'Clinical_CMS_Blog_Content', 'clinical_cms_theme_content_page_for_posts' );
+/**
+ *  Map Blog Content shortcode to Visual Composer
+ */
+add_action( 'vc_before_init', 'Clinical_CMS_Blog_Content_VisComp_Map' );
+function Clinical_CMS_Blog_Content_VisComp_Map() {
+   vc_map( array(
+      "name" => __( "Clinical CMS Blog Content", "clinical-cms-theme" ),
+      "base" => "Clinical_CMS_Blog_Content",
+      "class" => "blog-body",
+      "category" => __( "Clinical CMS Components", "clinical-cms-theme"),
+      "show_settings_on_create" => false,
+      /*
+       "params" => array(
+         array(
+            "type" => "textfield",
+            "holder" => "div",
+            "class" => "",
+            "heading" => __( "Clinical CMS Blog Stream", "clinical-cms-theme" ),
+            "param_name" => "foo",
+            "value" => __( "Default param value", "clinical-cms-theme" ),
+            "description" => __( "Insert this block on your 'Page For Posts' page to set where the blog stream appears..", "clinical-cms-theme" )
+         )
+      )
+      */
+   ) );
 }
