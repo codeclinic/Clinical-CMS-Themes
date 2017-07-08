@@ -200,19 +200,19 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
    vc_map( array(
       "name" => __( "Clinical CMS Blog Content", "clinical-cms-theme" ),
       "base" => "Clinical_CMS_Blog_Content",
-      //"class" => "",
+      "class" => "",
       "category" => __( "Clinical CMS Components", "clinical-cms-theme"),
-      //'admin_enqueue_js' => array(get_template_directory_uri().'/vc_extend/bartag.js'),
-      //'admin_enqueue_css' => array(get_template_directory_uri().'/vc_extend/bartag.css'),
+      'admin_enqueue_js' => array(get_template_directory_uri().'/vc_extend/bartag.js'),
+      'admin_enqueue_css' => array(get_template_directory_uri().'/vc_extend/bartag.css'),
       "params" => array(
          array(
             "type" => "textfield",
-            //"holder" => "div",
-            //"class" => "",
+            "holder" => "div",
+            "class" => "",
             "heading" => __( "Clinical CMS Blog Stream", "clinical-cms-theme" ),
-            //"param_name" => "foo",
-            //"value" => __( "Default param value", "clinical-cms-theme" ),
-            "description" => __( "Insert this block on your 'Page For Posts' page to set where the blog stream appears.", "clinical-cms-theme" )
+            "param_name" => "foo",
+            "value" => __( "Default param value", "clinical-cms-theme" ),
+            "description" => __( "Insert this block on your 'Page For Posts' page to set where the blog stream appears..", "clinical-cms-theme" )
          )
       )
    ) );
