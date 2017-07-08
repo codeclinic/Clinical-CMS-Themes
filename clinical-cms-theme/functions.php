@@ -204,7 +204,8 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
       "category" => __( "Clinical CMS Components", "clinical-cms-theme"),
       'admin_enqueue_js' => array(get_template_directory_uri().'/vc_extend/bartag.js'),
       'admin_enqueue_css' => array(get_template_directory_uri().'/vc_extend/bartag.css'),
-      "params" => array(
+      /*
+       "params" => array(
          array(
             "type" => "textfield",
             "holder" => "div",
@@ -215,6 +216,7 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
             "description" => __( "Insert this block on your 'Page For Posts' page to set where the blog stream appears..", "clinical-cms-theme" )
          )
       )
+      */
    ) );
 }
 
