@@ -21,7 +21,7 @@ get_header(); ?>
         $page_for_posts = get_option( 'page_for_posts' );
         $content=apply_filters('the_content', get_post_field('post_content', $page_for_posts));
         
-        echo $content;
+        echo "CONTENT" . $content;
             
 		if ( have_posts() ) :
 
