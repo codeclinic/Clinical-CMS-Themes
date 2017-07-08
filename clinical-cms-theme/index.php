@@ -17,7 +17,7 @@ get_header(); ?>
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
-		<?php
+<?php
         //get the post page layout & content data
         $page_for_posts_id = get_option( 'page_for_posts' );
         $page_for_posts_obj = get_post( $page_for_posts_id );

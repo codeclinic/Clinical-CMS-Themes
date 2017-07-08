@@ -192,8 +192,31 @@ function clinical_cms_theme_content_page_for_posts(){
     return $output;
 }
 add_shortcode( 'Clinical_CMS_Blog_Content', 'clinical_cms_theme_content_page_for_posts' );
-
-
+/**
+ *  Map Blog Content shortcode to Visual Composer
+ */
+add_action( 'vc_before_init', 'Clinical_CMS_Blog_Content_VisComp_Map' );
+function Clinical_CMS_Blog_Content_VisComp_Map() {
+   vc_map( array(
+      "name" => __( "Clinical CMS Blog Content", "clinical-cms-theme" ),
+      "base" => "Clinical_CMS_Blog_Content",
+      //"class" => "",
+      "category" => __( "Clinical CMS Components", "clinical-cms-theme"),
+      //'admin_enqueue_js' => array(get_template_directory_uri().'/vc_extend/bartag.js'),
+      //'admin_enqueue_css' => array(get_template_directory_uri().'/vc_extend/bartag.css'),
+      "params" => array(
+         array(
+            "type" => "textfield",
+            //"holder" => "div",
+            //"class" => "",
+            "heading" => __( "Clinical CMS Blog Stream", "clinical-cms-theme" ),
+            //"param_name" => "foo",
+            //"value" => __( "Default param value", "clinical-cms-theme" ),
+            "description" => __( "Insert this block on your 'Page For Posts' page to set where the blog stream appears.", "clinical-cms-theme" )
+         )
+      )
+   ) );
+}
 
 
 /**
