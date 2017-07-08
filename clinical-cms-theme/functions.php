@@ -169,12 +169,13 @@ add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0
  *  Function to display blog posts on page_for_posts
  */
 function clinical_cms_theme_content_page_for_posts(){
+    $output;
     if ( have_posts() ) :
 
-			if ( is_home() && ! is_front_page() ) : ?>
-				<header>
-					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
-				</header>
+			if ( is_home() && ! is_front_page() ) : 
+				$output = '<header>
+					<h1 class="page-title screen-reader-text">' . single_post_title() . '</h1>
+				</header>';
 
 			<?php
 			endif;
@@ -187,17 +188,19 @@ function clinical_cms_theme_content_page_for_posts(){
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
-				get_template_part( 'template-parts/content', get_post_format() );
+				$output .= get_template_part( 'template-parts/content', get_post_format() );
 
 			endwhile;
 
-			the_posts_navigation();
+			$output .= the_posts_navigation();
 
 		else :
 
-			get_template_part( 'template-parts/content', 'none' );
+			$output .= get_template_part( 'template-parts/content', 'none' );
 
 		endif;
+    
+    return $output;
 }
 
 
