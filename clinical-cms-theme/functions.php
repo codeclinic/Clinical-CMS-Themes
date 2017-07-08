@@ -171,37 +171,27 @@ add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0
 function clinical_cms_theme_content_page_for_posts(){
     $output;
     if ( have_posts() ) :
-
 			if ( is_home() && ! is_front_page() ) : 
 				$output = '<header>
 					<h1 class="page-title screen-reader-text">' . single_post_title() . '</h1>
 				</header>';
-
-			
 			endif;
-
 			/* Start the Loop */
 			while ( have_posts() ) : the_post();
-
 				/*
 				 * Include the Post-Format-specific template for the content.
 				 * If you want to override this in a child theme, then include a file
 				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
 				 */
 				$output .= get_template_part( 'template-parts/content', get_post_format() );
-
 			endwhile;
-
 			$output .= the_posts_navigation();
-
 		else :
-
 			$output .= get_template_part( 'template-parts/content', 'none' );
-
-		endif;
-    
+		endif;   
     return $output;
 }
+add_shortcode( 'Clinical_CMS_Blog_Content', 'clinical_cms_theme_content_page_for_posts' );
 
 
 

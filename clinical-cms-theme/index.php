@@ -23,8 +23,6 @@ get_header(); ?>
         $page_for_posts_obj = get_post( $page_for_posts_id );
         echo apply_filters( 'the_content', $page_for_posts_obj->post_content );
  ?>   
-
-<?php echo clinical_cms_theme_content_page_for_posts() ?>
             
 		</main><!-- #main -->
 	</div><!-- #primary -->
