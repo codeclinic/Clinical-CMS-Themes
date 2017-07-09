@@ -305,16 +305,16 @@ function load_template_part($template_name, $part_name=null, $blogLayout=null) {
     ob_start();
     switch($blogLayout){
         case "Layout 1":
-            get_template_part($template_name, "blog-1");
+            get_template_part($template_name, "blog_1");
             break;
         case "Layout 2":
-            get_template_part($template_name, "blog-2");
+            get_template_part($template_name, "blog_2");
             break;
         case "Layout 3":
-            get_template_part($template_name, "blog-3");
+            get_template_part($template_name, "blog_3");
             break;
         case "Layout 4":
-            get_template_part($template_name, "blog-4");
+            get_template_part($template_name, "blog_4");
             break;
         default:
             get_template_part($template_name, $part_name);
@@ -375,7 +375,7 @@ function clinical_cms_theme_content_page_for_posts( $atts){
              * If you want to override this in a child theme, then include a file
              * called content-___.php (where ___ is the Post Format name) and that will be used instead.
              */
-            $output .= load_template_part( 'template-parts/content', get_post_format() );
+            $output .= load_template_part( 'template-parts/content', get_post_format(), $template );
         endwhile;
         $output .= the_posts_navigation();
     else :
