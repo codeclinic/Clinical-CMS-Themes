@@ -342,28 +342,26 @@ add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0
 /**
  *  Function to display blog posts on page_for_posts
  */
-function clinical_cms_theme_content_page_for_posts(){
+function clinical_cms_theme_content_page_for_posts( $template ){
     $output;
     if ( have_posts() ) :
-            if ( is_home() && ! is_front_page() ) : 
-				$output = '<header>
-					<h1 class="page-title screen-reader-text">' . single_post_title('', false) . '</h1>
-				</header>';
-			endif;
-			/* Start the Loop */
-			while ( have_posts() ) : the_post();
-				/*
-				 * Include the Post-Format-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-				 */
-				$output .= load_template_part( 'template-parts/content', get_post_format() );
-			endwhile;
-			$output .= the_posts_navigation();
-		else :
-			$output .= load_template_part( 'template-parts/content', 'none' );
-		endif;   
-    return $output;
+        if ( is_home() && ! is_front_page() ) : 
+            $output = '<header><h1 class="page-title screen-reader-text">' . single_post_title('', false) . '</h1></header>';
+        endif;
+        /* Start the Loop */
+        while ( have_posts() ) : the_post();
+            /*
+             * Include the Post-Format-specific template for the content.
+             * If you want to override this in a child theme, then include a file
+             * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+             */
+            $output .= load_template_part( 'template-parts/content', get_post_format() );
+        endwhile;
+        $output .= the_posts_navigation();
+    else :
+        $output .= load_template_part( 'template-parts/content', 'none' );
+    endif;   
+    return "TEMPLATE: " . $template . " " . $output;
 }
 add_shortcode( 'Clinical_CMS_Blog_Content', 'clinical_cms_theme_content_page_for_posts' );
 /**
@@ -387,9 +385,9 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
             "admin_label" => true,
             "value" => array(
                 'one'   => __( 'Layout 1', "clinical-cms-theme" ),
-                'two'   => __( 'Layout 2, "clinical-cms-theme" )',
-                'three' => __( 'Layout 3, "clinical-cms-theme" )',
-                'four'  => __( 'Layout 4, "clinical-cms-theme" )'
+                'two'   => __( 'Layout 2', "clinical-cms-theme" ),
+                'three' => __( 'Layout 3', "clinical-cms-theme" ),
+                'four'  => __( 'Layout 4', "clinical-cms-theme" ),
             ),
             'std'         => 'one', //default value
             "description" => __( "Select the blog stream layout template.", "clinical-cms-theme" )
