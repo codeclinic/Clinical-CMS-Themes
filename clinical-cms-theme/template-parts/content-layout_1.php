@@ -24,9 +24,9 @@
 		</div><!-- .entry-meta -->
 		<?php
 		endif; 
-        if ( has_post_thumbnail( $_post->ID ) ) {
-            echo '<a href="' . get_permalink( $_post->ID ) . '" title="' . esc_attr( $_post->post_title ) . '">';
-            echo get_the_post_thumbnail( $_post->ID, 'large' );
+        if ( has_post_thumbnail( $post->ID ) ) {
+            echo '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '">';
+            echo get_the_post_thumbnail( $post->ID, 'large' );
             echo '</a>';
         }
         ?>
