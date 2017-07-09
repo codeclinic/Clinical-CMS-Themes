@@ -384,6 +384,7 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
             "class" => "",
             "heading" => __( "Template", "clinical-cms-theme" ),
             "param_name" => "template",
+            "admin_label" => true,
             "value" => array(
                 'one'   => __( 'Layout 1', "clinical-cms-theme" ),
                 'two'   => __( 'Layout 2, "clinical-cms-theme" )',
