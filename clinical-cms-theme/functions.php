@@ -301,9 +301,25 @@ require get_template_directory() . '/titan-options.php';
 /**
  *  Custom function to get template part as variable
  */
-function load_template_part($template_name, $part_name=null) {
+function load_template_part($template_name, $part_name=null, $blogLayout=null) {
     ob_start();
-    get_template_part($template_name, $part_name);
+    switch($blogLayout){
+        case "Layout 1":
+            get_template_part($template_name, "blog-1");
+            break;
+        case "Layout 2":
+            get_template_part($template_name, "blog-2");
+            break;
+        case "Layout 3":
+            get_template_part($template_name, "blog-3");
+            break;
+        case "Layout 4":
+            get_template_part($template_name, "blog-4");
+            break;
+        case default:
+            get_template_part($template_name, $part_name);
+            break;
+    }
     $var = ob_get_contents();
     ob_end_clean();
     return $var;
@@ -344,7 +360,7 @@ add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0
  */
 function clinical_cms_theme_content_page_for_posts( $atts){
        extract(shortcode_atts(array(
-          'template' => 'one',
+          'template' => 'Layout 1',
        ), $atts));
     
     $output;
@@ -365,7 +381,7 @@ function clinical_cms_theme_content_page_for_posts( $atts){
     else :
         $output .= load_template_part( 'template-parts/content', 'none' );
     endif;   
-    return "TEMPLATE: " . $template . " " . $output;
+    return $output;
 }
 add_shortcode( 'Clinical_CMS_Blog_Content', 'clinical_cms_theme_content_page_for_posts' );
 /**
