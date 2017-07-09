@@ -377,14 +377,20 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
       "class" => "blog-body",
       "category" => __( "Clinical CMS Components", "clinical-cms-theme"),
       "show_settings_on_create" => true,
-       "params" => array(
+      "params" => array(
          array(
             "type" => "dropdown",
             "holder" => "div",
             "class" => "",
             "heading" => __( "Template", "clinical-cms-theme" ),
             "param_name" => "template",
-            "value" => array(1,2,3),
+            "value" => array(
+                'one'   => __( 'Layout 1', "clinical-cms-theme" ),
+                'two'   => __( 'Layout 2, "clinical-cms-theme" )',
+                'three' => __( 'Layout 3, "clinical-cms-theme" )',
+                'four'  => __( 'Layout 4, "clinical-cms-theme" )'
+            ),
+            'std'         => 'one', //default value
             "description" => __( "Select the blog stream layout template.", "clinical-cms-theme" )
          )
       )
