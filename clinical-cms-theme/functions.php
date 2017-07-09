@@ -342,7 +342,11 @@ add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0
 /**
  *  Function to display blog posts on page_for_posts
  */
-function clinical_cms_theme_content_page_for_posts( $template ){
+function clinical_cms_theme_content_page_for_posts( $atts){
+       extract(shortcode_atts(array(
+          'template' => 1,
+       ), $atts));
+    
     $output;
     if ( have_posts() ) :
         if ( is_home() && ! is_front_page() ) : 
