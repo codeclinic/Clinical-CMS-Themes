@@ -376,19 +376,17 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
       "base" => "Clinical_CMS_Blog_Content",
       "class" => "blog-body",
       "category" => __( "Clinical CMS Components", "clinical-cms-theme"),
-      "show_settings_on_create" => false,
-      /*
+      "show_settings_on_create" => true,
        "params" => array(
          array(
-            "type" => "textfield",
+            "type" => "dropdown",
             "holder" => "div",
             "class" => "",
-            "heading" => __( "Clinical CMS Blog Stream", "clinical-cms-theme" ),
-            "param_name" => "foo",
-            "value" => __( "Default param value", "clinical-cms-theme" ),
-            "description" => __( "Insert this block on your 'Page For Posts' page to set where the blog stream appears..", "clinical-cms-theme" )
+            "heading" => __( "Template", "clinical-cms-theme" ),
+            "param_name" => "template",
+            "value" => array(1,2,3),
+            "description" => __( "Select the blog stream layout template.", "clinical-cms-theme" )
          )
       )
-      */
    ) );
 }
