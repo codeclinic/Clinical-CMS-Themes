@@ -358,7 +358,7 @@ add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0
 /**
  *  Function to display blog posts on page_for_posts
  */
-function clinical_cms_theme_content_page_for_posts( $atts){
+function clinical_cms_theme_content_page_for_posts( $atts ){
        extract(shortcode_atts(array(
           'template' => 'Layout 1',
        ), $atts));
@@ -381,7 +381,7 @@ function clinical_cms_theme_content_page_for_posts( $atts){
     else :
         $output .= load_template_part( 'template-parts/content', 'none' );
     endif;   
-    return $output;
+    return "TEMPLATE: " . $template . $output;
 }
 add_shortcode( 'Clinical_CMS_Blog_Content', 'clinical_cms_theme_content_page_for_posts' );
 /**
