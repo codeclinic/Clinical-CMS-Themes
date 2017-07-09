@@ -305,17 +305,17 @@ function load_template_part($template_name, $part_name=null, $blogLayout=null) {
     ob_start();
     switch($blogLayout){
         case "Layout 1":
-            get_template_part($template_name, "layout_1");
-            break;
+            //get_template_part($template_name, "layout_1");
+            //break;
         case "Layout 2":
-            get_template_part($template_name, "layout_2");
-            break;
+            //get_template_part($template_name, "layout_2");
+            //break;
         case "Layout 3":
-            get_template_part($template_name, "layout_3");
-            break;
+            //get_template_part($template_name, "layout_3");
+            //break;
         case "Layout 4":
-            get_template_part($template_name, "layout_4");
-            break;
+            //get_template_part($template_name, "layout_4");
+            //break;
         default:
             get_template_part($template_name, $part_name);
             break;
