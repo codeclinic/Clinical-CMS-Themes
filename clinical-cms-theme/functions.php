@@ -305,16 +305,16 @@ function load_template_part($template_name, $part_name=null, $blogLayout=null) {
     ob_start();
     switch($blogLayout){
         case "Layout 1":
-            get_template_part($template_name, "blog_1");
+            get_template_part($template_name, "layout_1");
             break;
         case "Layout 2":
-            get_template_part($template_name, "blog_2");
+            get_template_part($template_name, "layout_2");
             break;
         case "Layout 3":
-            get_template_part($template_name, "blog_3");
+            get_template_part($template_name, "layout_3");
             break;
         case "Layout 4":
-            get_template_part($template_name, "blog_4");
+            get_template_part($template_name, "layout_4");
             break;
         default:
             get_template_part($template_name, $part_name);
@@ -381,7 +381,7 @@ function clinical_cms_theme_content_page_for_posts( $atts ){
     else :
         $output .= load_template_part( 'template-parts/content', 'none' );
     endif;   
-    return "TEMPLATE: " . $template . $output;
+    return $output;
 }
 add_shortcode( 'Clinical_CMS_Blog_Content', 'clinical_cms_theme_content_page_for_posts' );
 /**
