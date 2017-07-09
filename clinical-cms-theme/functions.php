@@ -344,7 +344,7 @@ add_action('edit_form_after_title', 'clinical_cms_theme_editor_on_posts_page', 0
  */
 function clinical_cms_theme_content_page_for_posts( $atts){
        extract(shortcode_atts(array(
-          'template' => 1,
+          'template' => 'one',
        ), $atts));
     
     $output;
@@ -388,12 +388,12 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
             "param_name" => "template",
             "admin_label" => true,
             "value" => array(
-                __( 'Layout 1', "clinical-cms-theme" ) => 'one',
-                __( 'Layout 2', "clinical-cms-theme" ) => 'two',
-                __( 'Layout 3', "clinical-cms-theme" ) => 'three',
-                __( 'Layout 4', "clinical-cms-theme" ) => 'four',
+                'one'   => __( 'Layout 1', "clinical-cms-theme" ),
+                'two'   => __( 'Layout 2', "clinical-cms-theme" ),
+                'three' => __( 'Layout 3', "clinical-cms-theme" ),
+                'four'  => __( 'Layout 4', "clinical-cms-theme" ),
             ),
-            'std'         => 'Layout 1', //default value
+            'std'         => 'one', //default value
             "description" => __( "Select the blog stream layout template.", "clinical-cms-theme" )
          )
       )
