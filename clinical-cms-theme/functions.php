@@ -316,7 +316,7 @@ function load_template_part($template_name, $part_name=null, $blogLayout=null) {
         case "Layout 4":
             get_template_part($template_name, "blog-4");
             break;
-        case default:
+        default:
             get_template_part($template_name, $part_name);
             break;
     }
