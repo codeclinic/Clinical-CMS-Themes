@@ -311,8 +311,8 @@ function load_template_part($template_name, $part_name=null, $blogLayout=null) {
             get_template_part($template_name, "layout_2");
             break;
         case "Layout 3":
-            //get_template_part($template_name, "layout_3");
-            //break;
+            get_template_part($template_name, "layout_3");
+            break;
         case "Layout 4":
             //get_template_part($template_name, "layout_4");
             //break;
@@ -407,7 +407,7 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
                 'one'   => __( 'Layout 1', "clinical-cms-theme" ),
                 'two'   => __( 'Layout 2', "clinical-cms-theme" ),
                 'three' => __( 'Layout 3', "clinical-cms-theme" ),
-                'four'  => __( 'Layout 4', "clinical-cms-theme" ),
+                //'four'  => __( 'Layout 4', "clinical-cms-theme" ),
             ),
             'std'         => 'one', //default value
             "description" => __( "Select the blog stream layout template.", "clinical-cms-theme" )
