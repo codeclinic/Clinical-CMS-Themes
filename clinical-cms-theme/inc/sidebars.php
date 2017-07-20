@@ -154,7 +154,7 @@ function clinical-cms-theme_sidebars_edit_columns($columns)
 }  
 add_filter("manage_edit-" . $themename . "_sidebars_columns", $themename . "_sidebars_edit_columns");
 
-function manage_clinical-cms-theme_sidebars_posts_custom_column($column)
+function manage_clinical_cms_theme_sidebars_posts_custom_column($column)
 {
 	global $post;
 	switch($column)
