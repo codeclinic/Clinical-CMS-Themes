@@ -24,10 +24,10 @@ function clinical_cms_theme_create_sidebar_post_type() {
         'supports' => array(
             'title', 
             'editor', 
-            'excerpt', 
-            'custom-fields', 
-            'thumbnail',
-            'page-attributes'
+            /*'excerpt',*/ 
+            /*'custom-fields',*/ 
+            /*'thumbnail',*/ 
+            /*'page-attributes'*/ 
         ),
     );
     register_post_type( 'sidebar_post', $args );
