@@ -289,7 +289,7 @@ function clinical_cms_theme_register_required_plugins() {
 *                       CLINICAL CMS THEME SPECIFIC CUSTOMISATIONS                        *
 *                                                                                         *
 ******************************************************************************************/
-global $themename = wp_get_theme();
+$themename = wp_get_theme();
 /**
  * Load Titan Framework plugin checker
  */
