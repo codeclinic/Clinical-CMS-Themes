@@ -5,16 +5,16 @@
  */
 function clinical_cms_theme_create_sidebar_post_type() {
     $labels = array( 
-        'name' => __( 'Sidebars' ),
-        'singular_name' => __( 'Sidebar' ),
-        'add_new' => __( 'New Sidebar' ),
-        'add_new_item' => __( 'Add New Sidebar' ),
-        'edit_item' => __( 'Edit Sidebar' ),
-        'new_item' => __( 'New Sidebar' ),
-        'view_item' => __( 'View Sidebar' ),
+        'name' => __( 'Clinical Sidebars' ),
+        'singular_name' => __( 'Clinical Sidebar' ),
+        'add_new' => __( 'New Clinical Sidebar' ),
+        'add_new_item' => __( 'Add New Clinical Sidebar' ),
+        'edit_item' => __( 'Edit Clinical Sidebar' ),
+        'new_item' => __( 'New Clinical Sidebar' ),
+        'view_item' => __( 'View Clinical Sidebar' ),
         'search_items' => __( 'Search Sidebars' ),
-        'not_found' =>  __( 'No Sidebars Found' ),
-        'not_found_in_trash' => __( 'No Sidebars found in Trash' ),
+        'not_found' =>  __( 'No Clinical Sidebars Found' ),
+        'not_found_in_trash' => __( 'No Clinical Sidebars found in Trash' ),
     );
     $args = array(
         'labels' => $labels,
