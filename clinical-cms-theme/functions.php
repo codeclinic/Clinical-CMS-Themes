@@ -289,7 +289,6 @@ function clinical_cms_theme_register_required_plugins() {
 *                       CLINICAL CMS THEME SPECIFIC CUSTOMISATIONS                        *
 *                                                                                         *
 ******************************************************************************************/
-$themename = wp_get_theme();
 /**
  * Load Dynamic Sidebars
  */
@@ -422,32 +421,3 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
    ) );
 }
 
-//register sidebars
-if(function_exists("register_sidebar"))
-{
-    //register custom sidebars
-    query_posts(array( 
-        'post_type' => $themename . '_sidebars',
-        'posts_per_page' => '-1',
-        'post_status' => 'publish',
-        'orderby' => 'menu_order',
-        'order' => 'ASC'
-    ));
-    if(have_posts()) : while (have_posts()) : the_post();
-        global $post;
-        $before_widget = get_post_meta($post->ID, "before_widget", true);
-        $after_widget = get_post_meta($post->ID, "after_widget", true);
-        $before_title = get_post_meta($post->ID, "before_title", true);
-        $after_title = get_post_meta($post->ID, "after_title", true);
-        register_sidebar(array(
-            "id" => $post->post_name,
-            "name" => get_the_title(),
-            'before_widget' => ($before_widget!='' && $before_widget!='empty' ? $before_widget : ''),
-            'after_widget' => ($after_widget!='' && $after_widget!='empty' ? $after_widget : ''),
-            'before_title' => ($before_title!='' && $before_title!='empty' ? $before_title : ''),
-            'after_title' => ($after_title!='' && $after_title!='empty' ? $after_title : '')
-        ));
-    endwhile; endif;
-    //Reset Query
-    wp_reset_query();
-}
