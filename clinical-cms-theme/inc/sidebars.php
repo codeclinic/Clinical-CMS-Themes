@@ -140,7 +140,7 @@ function theme_save_sidebars_postdata($post_id)
 add_action("save_post", "theme_save_sidebars_postdata");
 
 //custom sidebars items list
-function clinical-cms-theme_sidebars_edit_columns($columns)
+function clinical_cms_theme_sidebars_edit_columns($columns)
 {
 	$columns = array(  
 		"cb" => "<input type=\"checkbox\" />",  
@@ -171,7 +171,7 @@ function manage_clinical_cms_theme_sidebars_posts_custom_column($column)
 add_action("manage_" . $themename . "_sidebars_posts_custom_column", "manage_" . $themename . "_sidebars_posts_custom_column");
 
 // Register the column as sortable
-function clinical-cms-theme_sidebars_sortable_columns($columns) 
+function clinical_cms_theme_sidebars_sortable_columns($columns) 
 {
     $columns = array(
 		"title" => "title",
@@ -184,7 +184,7 @@ function clinical-cms-theme_sidebars_sortable_columns($columns)
 }
 add_filter("manage_edit-" . $themename . "_sidebars_sortable_columns", $themename . "_sidebars_sortable_columns");
 
-function clinical-cms-theme_sidebars_column_orderby($vars) 
+function clinical_cms_theme_sidebars_column_orderby($vars) 
 {
     if(isset($vars['orderby']) && isset($vars['hidden']) && 'hidden'==$vars['hidden']) 
 	{
