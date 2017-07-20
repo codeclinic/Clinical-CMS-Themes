@@ -291,6 +291,14 @@ function clinical_cms_theme_register_required_plugins() {
 ******************************************************************************************/
 $themename = wp_get_theme();
 /**
+ * Load Dynamic Sidebars
+ */
+require get_template_directory() . '/inc/sidebars.php';
+/**
+ * Load Dynamic Sidebars
+ */
+require get_template_directory() . '/viscomp_templates/vc_widget_sidebar.php';
+/**
  * Load Titan Framework plugin checker
  */
 require get_template_directory() . '/titan-framework-checker.php';
