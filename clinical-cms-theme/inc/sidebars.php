@@ -72,9 +72,23 @@ function clinical_cms_theme_sidebars() {
 function clinical_cms_theme_sidebar_metaboxes(){
     $titan = TitanFramework::getInstance( 'clinical' );
     $postMetaBox = $titan->createMetaBox( array(
-    'name' => 'Sidebar Type Selector',
-    'post_type' => 'sidebar_post',
-    'description' => esc_html__( 'Select the Sidebar type; Legacy Sidebars can be used in the widgets sections of WordPress and will ignore all content added here. Clinical Sidebars, can\'t be used for widgets but WILL show all content added in the content box opposite. These allow you to enter any content you want using Visual Composer.', 'clinical-cms-theme' ),
+        'name' => 'Sidebar Type Selector',
+        'post_type' => 'sidebar_post',
+        'desc' => esc_html__( 'Select the Sidebar type; Legacy Sidebars can be used in the widgets sections of WordPress and will ignore all content added here. Clinical Sidebars, can\'t be used for widgets but WILL show all content added in the content box opposite. These allow you to enter any content you want using Visual Composer.', 'clinical-cms-theme' ),
+        'priority' => 'high',
+        'context' => 'advanced',
+    ) );
+    $postMetaBox->createOption( array(
+        'name' => 'Sidebar Type',
+        'id' => 'clinical_sidebar_type',
+        'options' => array(
+        '1' => 'WP Legacy',
+        '2' => 'Clinical [recommended]',
+        ),
+        'type' => 'radio',
+        'desc' => esc_html__( 'Legacy = Widgets | Clinical = Visual Composer', 'clinical-cms-theme' ),
+        'priority' => 'high',
+        'default' => '2',
     ) );
 }
 add_action('after_setup_theme', 'clinical_cms_theme_sidebar_metaboxes');
