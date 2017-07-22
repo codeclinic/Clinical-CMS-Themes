@@ -340,7 +340,6 @@ function clinical_cms_theme_setup() {
     ) ); 
     // Create options that will appear 
     $section->createOption( array(
-        'id' => 'static_front_page',
         'name' => 'Single Post Template',
         'id' => 'clinical_blog_template',
         'type' => 'select-pages',
