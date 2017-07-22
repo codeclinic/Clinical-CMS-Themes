@@ -34,43 +34,11 @@ function clinical_cms_theme_create_sidebar_post_type() {
 } 
 add_action( 'init', 'clinical_cms_theme_create_sidebar_post_type' );
 
-function clinical_cms_theme_sidebars() {
-     
-    $args = array(
-        'post_type' => 'sidebar_post'
-    );
-     
-    $query = new WP_query ( $args );
-    if ( $query->have_posts() ) { ?>
- 
-        <?php while ( $query->have_posts() ) : $query->the_post(); /* start the loop */ ?>
-      
-        <aside id="post-<?php the_ID(); ?>" <?php post_class( 'sidebar-post' ); ?>>
-            <h3 class="sidebar-title"><a href="<?php the_permalink(); ?>" title="<?php printf( esc_attr__( 'Permalink to %s', 'compass' ), the_title_attribute( 'echo=0' ) ); ?>" rel="bookmark"><?php the_title(); ?></a></h3>
-      
-            <?php if ( has_post_thumbnail() ) { ?>
-                <a href="<?php the_permalink(); ?>">
-                    <?php the_post_thumbnail( 'medium', array(
-                        'class' => 'aligncenter',
-                        'alt'   => trim(strip_tags( $wp_postmeta->_wp_attachment_image_alt ))
-                    ) ); ?>
-                </a>
-            <?php } ?>
-             
-            <section class="sidebar-content">
-                <?php the_content(); ?>
-            </section><!-- .entry-content -->
-             
-        </aside>
-      
-        <?php endwhile; /* end the loop*/ ?>
-      
-        <?php rewind_posts();
-    }
-}
-
+/**
+ * Create Sidebar Type Selector
+ */
 function clinical_cms_theme_sidebar_metaboxes(){
-    $titan = TitanFramework::getInstance( 'clinical' );
+    $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
     $postMetaBox = $titan->createMetaBox( array(
         'name' => 'Sidebar Type Selector',
         'post_type' => 'sidebar_post',

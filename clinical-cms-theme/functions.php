@@ -89,42 +89,36 @@ add_action( 'after_setup_theme', 'clinical_cms_theme_content_width', 0 );
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function clinical_cms_theme_widgets_init() {
-	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar 1', 'clinical-cms-theme' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'clinical-cms-theme' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-    register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar 2', 'clinical-cms-theme' ),
-		'id'            => 'sidebar-1',
-		'description'   => esc_html__( 'Add widgets here.', 'clinical-cms-theme' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-    register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar 3', 'clinical-cms-theme' ),
-		'id'            => 'sidebar-3',
-		'description'   => esc_html__( 'Add widgets here.', 'clinical-cms-theme' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
-    register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar 4', 'clinical-cms-theme' ),
-		'id'            => 'sidebar-4',
-		'description'   => esc_html__( 'Add widgets here.', 'clinical-cms-theme' ),
-		'before_widget' => '<section id="%1$s" class="widget %2$s">',
-		'after_widget'  => '</section>',
-		'before_title'  => '<h2 class="widget-title">',
-		'after_title'   => '</h2>',
-	) );
+    //Get the Titan Framework instance
+    $titan = TitanFramework::getInstance( 'clinical' );
+    //Build the query
+    $query = new WP_Query(array(
+        'post_type' => 'sidebar_post',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    ));
+    //get the posts and build legacy sidebars
+    while ($query->have_posts()) {
+        $query->the_post();
+        //Get post id and check if this is legacy post/sidebar
+        $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
+        $csbt = $titan->getOption( ‘clinical_sidebar_type’, get_the_ID() );
+        
+        if($csbt == 1){
+            //if legacy sidebar/widget - register the sidebar
+            register_sidebar( array(
+                'name'          => esc_html__( 'Sidebar 1', 'clinical-cms-theme' ),
+                'id'            => the_title(),
+                'description'   => __( 'Add widgets here.', 'clinical-cms-theme' ),
+                'before_widget' => '<section id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<h2 class="widget-title">',
+                'after_title'   => '</h2>',
+            ) );
+        }
+    }
+    //reset the query
+    wp_reset_query();
 }
 add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
 
