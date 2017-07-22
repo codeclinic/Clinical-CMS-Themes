@@ -108,7 +108,7 @@ function clinical_cms_theme_widgets_init() {
             //if legacy sidebar/widget - register the sidebar
             register_sidebar( array(
                 'name'          => esc_html__( 'Sidebar 1', 'clinical-cms-theme' ),
-                'id'            => the_title(),
+                'id'            => get_the_title(),
                 'description'   => __( 'Add widgets here.', 'clinical-cms-theme' ),
                 'before_widget' => '<section id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</section>',
