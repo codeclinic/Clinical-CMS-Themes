@@ -102,7 +102,7 @@ function clinical_cms_theme_widgets_init() {
         $query->the_post();
         //Get post id and check if this is legacy post/sidebar
         $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
-        $csbt = $titan->getOption( ‘clinical_sidebar_type’, get_the_ID() );
+        $csbt = $titan->getOption( 'clinical_sidebar_type', get_the_ID() );
         
         if($csbt == 1){
             //if legacy sidebar/widget - register the sidebar
