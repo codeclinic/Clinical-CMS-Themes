@@ -29,7 +29,7 @@ function load_template_part($template_name, $part_name=null, $blogLayout=null) {
 /**
  * Create A MetaBox To Identify Blog Template
  */
-add_action( 'after_setup_theme', 'clinical_cms_theme_setup' );
+add_action( 'after_setup_theme', 'clinical_cms_theme_setup-customiser' );
 function clinical_cms_theme_setup() {
     $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
     $pages = $titan->createThemeCustomizerSection( array(
