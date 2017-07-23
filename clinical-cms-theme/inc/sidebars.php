@@ -68,7 +68,7 @@ add_action('after_setup_theme', 'clinical_cms_theme_sidebar_metaboxes');
  */
 function clinical_cms_theme_widgets_init() {
     //Get the Titan Framework instance
-    $titan = TitanFramework::getInstance( 'clinical' );
+    $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
     //Build the query
     $query = new WP_Query(array(
         'post_type' => 'sidebar_post',
@@ -79,14 +79,14 @@ function clinical_cms_theme_widgets_init() {
     while ($query->have_posts()) {
         $query->the_post();
         //Get post id and check if this is legacy post/sidebar
-        $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
-        $csbt = $titan->getOption( 'clinical_sidebar_type', get_the_ID() );
+        $postID = get_the_ID();
+        $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
         
         if($csbt == 1){
             //if legacy sidebar/widget - register the sidebar
             register_sidebar( array(
                 'name'          => esc_html( get_the_title() ),
-                'id'            => get_the_ID(),
+                'id'            => $postID,
                 'description'   => __( 'Add widgets here.', 'clinical-cms-theme' ),
                 'before_widget' => '<section id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</section>',
@@ -99,4 +99,56 @@ function clinical_cms_theme_widgets_init() {
     wp_reset_query();
 }
 add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
+
+
+/**
+ *  Function to display blog posts on page_for_posts
+ */
+function clinical_cms_legacy_sidebar( $atts ){
+    extract(shortcode_atts(array(
+        'legacy_ID' => 'Layout 1',
+    ), $atts));
+    
+    $output;
+    if ( is_active_sidebar( $legacy_ID ) ){
+        ob_start();
+        dynamic_sidebar( $legacy_ID );
+        $sidebar = ob_get_contents();
+        ob_end_clean();
+    }
+    return $sidebar;
+}
+add_shortcode( 'Clinical_CMS_Legacy_Sidebar', 'clinical_cms_legacy_sidebar' );
+
+/**
+ *  Map Blog Content shortcode to Visual Composer
+ */
+add_action( 'vc_before_init', 'Clinical_CMS_Legacy-Sidebar_VisComp_Map' );
+function Clinical_CMS_Blog_Content_VisComp_Map() {
+   vc_map( array(
+      "name" => __( "WP Legacy Sidebar", "clinical-cms-theme" ),
+      "base" => "Clinical_CMS_Legacy_Sidebar",
+      "class" => "Clinical_CMS_Legacy_Sidebar",
+      "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+      "show_settings_on_create" => true,
+      "params" => array(
+         array(
+            "type" => "dropdown",
+            "holder" => "div",
+            "class" => "",
+            "heading" => __( "WP legacy Sidebar", "clinical-cms-theme" ),
+            "param_name" => "legacy_ID",
+            "admin_label" => true,
+            "value" => array(
+                foreach ($GLOBALS['wp_registered_sidebars'] as $key => $value) {
+                    Key   => $value,
+                }
+            ),
+            //'std'         => 'one', //default value
+            "description" => __( "Select the WP Legacy sidebar to show.", "clinical-cms-theme" )
+         )
+      )
+   ) );
+}
+
 ?>
