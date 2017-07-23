@@ -60,4 +60,43 @@ function clinical_cms_theme_sidebar_metaboxes(){
     ) );
 }
 add_action('after_setup_theme', 'clinical_cms_theme_sidebar_metaboxes');
+
+/**
+ * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
+ */
+function clinical_cms_theme_widgets_init() {
+    //Get the Titan Framework instance
+    $titan = TitanFramework::getInstance( 'clinical' );
+    //Build the query
+    $query = new WP_Query(array(
+        'post_type' => 'sidebar_post',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    ));
+    //get the posts and build legacy sidebars
+    while ($query->have_posts()) {
+        $query->the_post();
+        //Get post id and check if this is legacy post/sidebar
+        $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
+        $csbt = $titan->getOption( 'clinical_sidebar_type', get_the_ID() );
+        
+        if($csbt == 1){
+            //if legacy sidebar/widget - register the sidebar
+            register_sidebar( array(
+                'name'          => esc_html( get_the_title() ),
+                'id'            => get_the_title(),
+                'description'   => __( 'Add widgets here.', 'clinical-cms-theme' ),
+                'before_widget' => '<section id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<h2 class="widget-title">',
+                'after_title'   => '</h2>',
+            ) );
+        }
+    }
+    //reset the query
+    wp_reset_query();
+}
+add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
 ?>
