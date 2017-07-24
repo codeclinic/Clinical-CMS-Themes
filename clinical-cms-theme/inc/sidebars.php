@@ -145,7 +145,7 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
             "heading" => __( "WP legacy Sidebar", "clinical-cms-theme" ),
             "param_name" => "legacy_ID",
             "admin_label" => true,
-            "value" => $arrSidebars,
+            "value" => array($arrSidebars),
             //'std'         => 'one', //default value
             "description" => __( "Select the WP Legacy sidebar to show.", "clinical-cms-theme" )
          )
