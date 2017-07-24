@@ -110,7 +110,7 @@ function clinical_cms_legacy_sidebar( $atts ){
     ), $atts));
     
     
-    echo "SIDEBARS: " . $legacy_Name;
+    var_dump($legacy_Name);
     
     $output;
     if ( is_active_sidebar( $legacy_Name ) ){
