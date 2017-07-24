@@ -123,8 +123,8 @@ add_shortcode( 'Clinical_CMS_Legacy_Sidebar', 'clinical_cms_legacy_sidebar' );
 /**
  *  Map Blog Content shortcode to Visual Composer
  */
-add_action( 'vc_before_init', 'Clinical_CMS_Legacy-Sidebar_VisComp_Map' );
-function Clinical_CMS_Blog_Content_VisComp_Map() {
+add_action( 'vc_before_init', 'Clinical_CMS_Legacy_Sidebar_VisComp_Map' );
+function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
    vc_map( array(
       "name" => __( "WP Legacy Sidebar", "clinical-cms-theme" ),
       "base" => "Clinical_CMS_Legacy_Sidebar",
@@ -139,11 +139,7 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
             "heading" => __( "WP legacy Sidebar", "clinical-cms-theme" ),
             "param_name" => "legacy_ID",
             "admin_label" => true,
-            "value" => array(
-                foreach ($GLOBALS['wp_registered_sidebars'] as $key => $value) {
-                    Key   => $value,
-                }
-            ),
+            "value" => $GLOBALS['wp_registered_sidebars'],
             //'std'         => 'one', //default value
             "description" => __( "Select the WP Legacy sidebar to show.", "clinical-cms-theme" )
          )
