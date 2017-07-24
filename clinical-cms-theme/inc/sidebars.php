@@ -109,6 +109,9 @@ function clinical_cms_legacy_sidebar( $atts ){
         'legacy_Name' => '',
     ), $atts));
     
+    
+    echo "SIDEBARS: " . $legacy_Name;
+    
     $output;
     if ( is_active_sidebar( $legacy_Name ) ){
         ob_start();
@@ -116,6 +119,7 @@ function clinical_cms_legacy_sidebar( $atts ){
         $sidebar = ob_get_contents();
         ob_end_clean();
     }
+    
     return $sidebar;
 }
 add_shortcode( 'Clinical_CMS_Legacy_Sidebar', 'clinical_cms_legacy_sidebar' );
@@ -130,27 +134,26 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
     foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
         $arrSidebars[] = $sidebar['name'];
     }
-    echo "SIDEBARS: " . $arrSidebars;
-   vc_map( array(
-      "name" => __( "WP Legacy Sidebar", "clinical-cms-theme" ),
-      "base" => "Clinical_CMS_Legacy_Sidebar",
-      "class" => "Clinical_CMS_Legacy_Sidebar",
-      "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
-      "show_settings_on_create" => true,
-      "params" => array(
-         array(
-            "type" => "dropdown",
-            "holder" => "div",
-            "class" => "",
-            "heading" => __( "WP legacy Sidebar", "clinical-cms-theme" ),
-            "param_name" => "legacy_Name",
-            "admin_label" => true,
-            "value" => $arrSidebars,
-            //'std'         => 'one', //default value
-            "description" => __( "Select the WP Legacy sidebar to show.", "clinical-cms-theme" )
-         )
-      )
-   ) );
+    vc_map( array(
+        "name" => __( "WP Legacy Sidebar", "clinical-cms-theme" ),
+        "base" => "Clinical_CMS_Legacy_Sidebar",
+        "class" => "Clinical_CMS_Legacy_Sidebar",
+        "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+        "show_settings_on_create" => true,
+        "params" => array(
+            array(
+                "type" => "dropdown",
+                "holder" => "div",
+                "class" => "legacy-sidebar",
+                "heading" => __( "WP legacy Sidebar", "clinical-cms-theme" ),
+                "param_name" => "legacy_Name",
+                "admin_label" => true,
+                "value" => $arrSidebars,
+                //'std'         => 'one', //default value
+                "description" => __( "Select the WP Legacy sidebar to show.", "clinical-cms-theme" )
+            )
+        )
+    ) );
 }
 
 ?>

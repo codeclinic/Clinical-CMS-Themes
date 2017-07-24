@@ -100,7 +100,7 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
          array(
             "type" => "dropdown",
             "holder" => "div",
-            "class" => "",
+            "class" => "blog-content",
             "heading" => __( "Template", "clinical-cms-theme" ),
             "param_name" => "template",
             "admin_label" => true,
