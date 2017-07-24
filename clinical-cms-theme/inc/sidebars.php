@@ -104,19 +104,24 @@ add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
 /**
  *  Function to display blog posts on page_for_posts
  */
-function clinical_cms_legacy_sidebar( $atts = [] ){
-    
+function clinical_cms_legacy_sidebar( $atts ){
+    /*
     extract(shortcode_atts(array(
         'legacy_name' => '',
     ), $atts));
+    */
+    $atts = shortcode_atts(
+    array(
+        'legacy_name' => 'no sidebar',
+    ), $atts, );
     
     
-    var_dump($legacy_name);
+    echo "ATTS: " . $atts['legacy_name';
     
     $output;
-    if ( is_active_sidebar( $legacy_name ) ){
+    if ( is_active_sidebar( $atts['legacy_name'] ) ){
         ob_start();
-        dynamic_sidebar( $legacy_name );
+        dynamic_sidebar( $atts['legacy_name' );
         $sidebar = ob_get_contents();
         ob_end_clean();
     }
