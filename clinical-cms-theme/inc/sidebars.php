@@ -113,7 +113,7 @@ function clinical_cms_legacy_sidebar( $atts ){
     $atts = shortcode_atts(
     array(
         'legacy_name' => 'no sidebar',
-    ), $atts, );
+    ), $atts );
     
     
     echo "ATTS: " . $atts['legacy_name';
