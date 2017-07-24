@@ -128,7 +128,7 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
     
     $arrSidebars;
     foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
-        $arrSidebars .= $sidebar['id'] . " => " . $sidebar['name'] . ",";
+        $arrSidebars .= "'" . $sidebar['id'] . "' => '" . $sidebar['name'] . "',";
     }
          
    vc_map( array(
