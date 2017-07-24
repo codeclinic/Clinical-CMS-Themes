@@ -126,9 +126,9 @@ add_shortcode( 'Clinical_CMS_Legacy_Sidebar', 'clinical_cms_legacy_sidebar' );
 add_action( 'vc_before_init', 'Clinical_CMS_Legacy_Sidebar_VisComp_Map' );
 function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
     
-    $arrSidebars = "";
+    $arrSidebars = [];
     foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
-        $arrSidebars .= "'" . $sidebar['id'] . "' => '" . $sidebar['name'] . "',";
+        $arrSidebars[] = $sidebar['name'];
     }
     echo "SIDEBARS: " . $arrSidebars;
    vc_map( array(
