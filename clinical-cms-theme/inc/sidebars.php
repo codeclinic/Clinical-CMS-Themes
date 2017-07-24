@@ -106,13 +106,13 @@ add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
  */
 function clinical_cms_legacy_sidebar( $atts ){
     extract(shortcode_atts(array(
-        'legacy_ID' => 'Layout 1',
+        'legacy_Name' => '',
     ), $atts));
     
     $output;
-    if ( is_active_sidebar( $legacy_ID ) ){
+    if ( is_active_sidebar( $legacy_Name ) ){
         ob_start();
-        dynamic_sidebar( $legacy_ID );
+        dynamic_sidebar( $legacy_Name );
         $sidebar = ob_get_contents();
         ob_end_clean();
     }
@@ -143,7 +143,7 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
             "holder" => "div",
             "class" => "",
             "heading" => __( "WP legacy Sidebar", "clinical-cms-theme" ),
-            "param_name" => "legacy_ID",
+            "param_name" => "legacy_Name",
             "admin_label" => true,
             "value" => $arrSidebars,
             //'std'         => 'one', //default value
