@@ -130,7 +130,7 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
     foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
         $arrSidebars .= "'" . $sidebar['id'] . "' => '" . $sidebar['name'] . "',";
     }
-         
+    echo "SIDEBARS: " . $arrSidebars;
    vc_map( array(
       "name" => __( "WP Legacy Sidebar", "clinical-cms-theme" ),
       "base" => "Clinical_CMS_Legacy_Sidebar",
