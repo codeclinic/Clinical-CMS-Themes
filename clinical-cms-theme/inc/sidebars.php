@@ -121,7 +121,7 @@ function clinical_cms_legacy_sidebar( $atts ){
     $output; 
     if ( is_active_sidebar( $atts['legacy_name'] ) ){
         ob_start();
-        dynamic_sidebar( $atts['legacy_name' );
+        dynamic_sidebar( $atts['legacy_name'] );
         $sidebar = ob_get_contents();
         ob_end_clean();
     }
