@@ -116,7 +116,7 @@ function clinical_cms_legacy_sidebar( $atts ){
     ), $atts );
     
     
-    echo "ATTS: " . $atts['legacy_name';
+    echo "ATTS: " . $atts['legacy_name'];
     
     $output; 
     if ( is_active_sidebar( $atts['legacy_name'] ) ){
