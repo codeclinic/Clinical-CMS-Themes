@@ -119,12 +119,12 @@ function clinical_cms_legacy_sidebar( $atts ){
     echo "ATTS: " . $atts['legacy_name'];
     
     $sidebar; 
-    if ( is_active_sidebar( $atts['legacy_name'] ) ){
+    //if ( is_active_sidebar( $atts['legacy_name'] ) ){
         ob_start();
         dynamic_sidebar( $atts['legacy_name'] );
         $sidebar = ob_get_contents();
         ob_end_clean();
-    }
+    //}
     
     return $sidebar;
 }
