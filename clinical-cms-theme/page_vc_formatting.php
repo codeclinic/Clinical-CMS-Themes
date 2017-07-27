@@ -40,6 +40,7 @@ get_header(); ?>
 
         </div>
     </div>
+</div>
 <!--
 <div class="wpb_column vc_column_container vc_col-sm-2">
     <div class="vc_column-inner">
@@ -50,5 +51,4 @@ get_header(); ?>
     <?php
     //get_sidebar();
     get_footer();
-    ?>
-</div>
+
