@@ -77,7 +77,7 @@ function clinical_cms_theme_widgets_init() {
     ));
     //get the posts and build legacy sidebars
     while ($query->have_posts()) {
-        $query->the_post();
+        $query->the_post(); 
         //Get post id and check if this is legacy post/sidebar
         $postID = get_the_ID();
         $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
@@ -86,7 +86,7 @@ function clinical_cms_theme_widgets_init() {
             //if legacy sidebar/widget - register the sidebar
             register_sidebar( array(
                 'name'          => esc_html( get_the_title() ),
-                'id'            => $postID,
+                /* 'id'            => $postID, */
                 'description'   => __( 'Add widgets here.', 'clinical-cms-theme' ),
                 'before_widget' => '<section id="%1$s" class="widget %2$s">',
                 'after_widget'  => '</section>',
