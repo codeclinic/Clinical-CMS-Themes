@@ -52,4 +52,3 @@ get_header(); ?>
     get_footer();
     ?>
 </div>
-<?php
