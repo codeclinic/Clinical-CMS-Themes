@@ -44,7 +44,7 @@ function clinical_cms_theme_sidebar_metaboxes(){
         'post_type' => 'sidebar_post',
         'desc' => esc_html__( 'Select the Sidebar type; Legacy Sidebars can be used in the widgets sections of WordPress and will ignore all content added here. Clinical Sidebars, can\'t be used for widgets but WILL show all content added in the content box opposite. These allow you to enter any content you want using Visual Composer.', 'clinical-cms-theme' ),
         'priority' => 'high',
-        'context' => 'advanced',
+        'context' => 'side',
     ) );
     $postMetaBox->createOption( array(
         'name' => 'Sidebar Type',
@@ -57,6 +57,18 @@ function clinical_cms_theme_sidebar_metaboxes(){
         'desc' => esc_html__( 'Legacy = Widgets | Clinical = Visual Composer', 'clinical-cms-theme' ),
         'priority' => 'high',
         'default' => '2',
+    ) );
+    $postMetaBox->createOption( array(
+        'name' => 'Display Axis',
+        'id' => 'clinical_display_axis',
+        'options' => array(
+        '1' => 'Vertical',
+        '2' => 'Horizontal',
+        ),
+        'type' => 'radio',
+        'desc' => esc_html__( 'Choose the layout arrangement', 'clinical-cms-theme' ),
+        'priority' => 'high',
+        'default' => '1',
     ) );
 }
 add_action('after_setup_theme', 'clinical_cms_theme_sidebar_metaboxes');
