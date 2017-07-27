@@ -115,14 +115,11 @@ function clinical_cms_legacy_sidebar( $atts ){
         'legacy_name' => 'no sidebar',
     ), $atts );
     
-    
-    echo "ATTS: " . $atts['legacy_name'];
-    
     $sidebar; 
     //if ( is_active_sidebar( $atts['legacy_name'] ) ){
         ob_start();
         dynamic_sidebar( $atts['legacy_name'] );
-        $sidebar = ob_get_contents();
+        $sidebar = '<aside id="secondary" class="widget-area">' . ob_get_contents() . '</aside><!-- #secondary -->';
         ob_end_clean();
     //}
     
@@ -151,7 +148,7 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
                 "type" => "dropdown",
                 "holder" => "div",
                 "class" => "legacy-sidebar",
-                "heading" => __( "WP legacy Sidebar", "clinical-cms-theme" ),
+                "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
                 "param_name" => "legacy_name",
                 "admin_label" => true,
                 "value" => $arrSidebars,
