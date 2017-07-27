@@ -1,5 +1,6 @@
 <?php
 /**
+ * Template Name: Blog Page with VC formating
  * The main template file
  *
  * This is the most generic template file in a WordPress theme
@@ -13,7 +14,7 @@
  */
 
 get_header(); ?>
-
+<div class="wpb_column vc_column_container vc_col-sm-12">
 	<div id="primary" class="content-area">
 		<main id="main" class="site-main">
 
@@ -28,5 +29,8 @@ get_header(); ?>
 	</div><!-- #primary -->
 
 <?php
-get_sidebar();
+//get_sidebar();
 get_footer();
+?>
+</div>
+<?php
