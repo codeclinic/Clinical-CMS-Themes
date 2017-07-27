@@ -44,7 +44,7 @@ function clinical_cms_theme_sidebar_metaboxes(){
         'post_type' => 'sidebar_post',
         'desc' => esc_html__( 'Select the Sidebar type; Legacy Sidebars can be used in the widgets sections of WordPress and will ignore all content added here. Clinical Sidebars, can\'t be used for widgets but WILL show all content added in the content box opposite. These allow you to enter any content you want using Visual Composer.', 'clinical-cms-theme' ),
         'priority' => 'high',
-        'context' => 'side',
+        'context' => 'normal',
     ) );
     $postMetaBox->createOption( array(
         'name' => 'Sidebar Type',
@@ -57,18 +57,6 @@ function clinical_cms_theme_sidebar_metaboxes(){
         'desc' => esc_html__( 'Legacy = Widgets | Clinical = Visual Composer', 'clinical-cms-theme' ),
         'priority' => 'high',
         'default' => '2',
-    ) );
-    $postMetaBox->createOption( array(
-        'name' => 'Display Axis',
-        'id' => 'clinical_display_axis',
-        'options' => array(
-        '1' => 'Vertical',
-        '2' => 'Horizontal',
-        ),
-        'type' => 'radio',
-        'desc' => esc_html__( 'Choose the layout arrangement', 'clinical-cms-theme' ),
-        'priority' => 'high',
-        'default' => '1',
     ) );
 }
 add_action('after_setup_theme', 'clinical_cms_theme_sidebar_metaboxes');
@@ -167,6 +155,20 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
                 "param_name" => "legacy_name",
                 "admin_label" => true,
                 "value" => $arrSidebars,
+                //'std'         => 'one', //default value
+                "description" => __( "Select the WP Legacy sidebar to show.", "clinical-cms-theme" )
+            ),
+            array(
+                "type" => "dropdown",
+                "holder" => "div",
+                "class" => "legacy-sidebar",
+                "heading" => __( "Display Axis", "clinical-cms-theme" ),
+                "param_name" => "display_axis",
+                "admin_label" => true,
+                "value" => array(
+                    "Horizontal" => "Horizontal",
+                    "Vertical" => "Vertical"
+                    ),
                 //'std'         => 'one', //default value
                 "description" => __( "Select the WP Legacy sidebar to show.", "clinical-cms-theme" )
             )
