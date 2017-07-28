@@ -115,6 +115,8 @@ function clinical_cms_legacy_sidebar( $atts ){
         'legacy_name' => 'no sidebar',
     ), $atts );
     
+    echo "SIDEBAR: ". $atts['legacy_name'];
+    
     $sidebar; 
     //if ( is_active_sidebar( $atts['legacy_name'] ) ){
         ob_start();
