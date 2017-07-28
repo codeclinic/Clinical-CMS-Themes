@@ -122,7 +122,7 @@ function clinical_cms_legacy_sidebar( $atts ){
         $sidebar = ob_get_contents();
         ob_end_clean();
     //}
-    $sidebar = '<aside id="secondary" class="widget-area">' . $sidebar . '</aside><!-- #secondary -->';
+    //$sidebar = '<aside id="secondary" class="widget-area">' . $sidebar . '</aside><!-- #secondary -->';
     return $sidebar;
 }
 add_shortcode( 'Clinical_CMS_Legacy_Sidebar', 'clinical_cms_legacy_sidebar' );
