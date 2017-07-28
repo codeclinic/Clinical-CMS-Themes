@@ -15,8 +15,8 @@
 
 get_header(); ?>
 <div class="wpb_column vc_column_container vc_col-sm-12">
-	<div id="primary" class="content-area">
-		<main id="main" class="site-main">
+	<div id="primary" class="content-area vc_column-inner">
+		<main id="main" class="site-main wpb_wrapper">
 
 <?php
         //get the post page layout & content data

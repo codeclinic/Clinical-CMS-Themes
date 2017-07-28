@@ -21,7 +21,7 @@ get_header(); ?>
     </div>
 </div>
 -->
-<!-- <div class="wpb_column vc_column_container vc_col-sm-12"> -->
+<div class="wpb_column vc_column_container vc_col-sm-12">
     <div id="primary" class="content-area vc_column-inner">
         <div id="main" class="site-main wpb_wrapper">
 
@@ -51,4 +51,8 @@ get_header(); ?>
     <?php
     //get_sidebar();
     get_footer();
+    ?>
+</div>
+<?php
+
 
