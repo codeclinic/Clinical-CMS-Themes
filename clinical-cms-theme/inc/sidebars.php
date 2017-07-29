@@ -122,7 +122,7 @@ function clinical_cms_legacy_sidebar( $atts ){
         $sidebar = ob_get_contents();
         ob_end_clean();
     //}
-    $sidebar = '<aside id="secondary" class=' . $atts['display_axis'] . 'widget-area">' . $sidebar . '</aside><!-- #secondary -->';
+    $sidebar = '<aside id="secondary" class=' . $atts['display_axis'] . ' widget-area">' . $sidebar . '</aside><!-- #secondary -->';
     return $sidebar;
 }
 add_shortcode( 'Clinical_CMS_Legacy_Sidebar', 'clinical_cms_legacy_sidebar' );
@@ -219,21 +219,10 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         $postID = get_the_ID();
         $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
         
-        //if($csbt == 2){
+        if($csbt == 2){
+            //if Clinical CMS sidebar
             $arrSidebarsMod[] = esc_html( get_the_title() );
-            //if legacy sidebar/widget - register the sidebar
-            /*
-            register_sidebar( array(
-                'name'          => esc_html( get_the_title() ),
-                'id'            => esc_html( get_the_title() ), 
-                'description'   => __( 'Add widgets here.', 'clinical-cms-theme' ),
-                'before_widget' => '<section id="%1$s" class="widget %2$s">',
-                'after_widget'  => '</section>',
-                'before_title'  => '<h2 class="widget-title">',
-                'after_title'   => '</h2>',
-            ) );
-            */
-        //}
+        }
     }
     //reset the query
     wp_reset_query();
