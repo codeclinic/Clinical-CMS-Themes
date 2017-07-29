@@ -219,6 +219,8 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         $postID = get_the_ID();
         $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
         
+        
+        echo "POST ID: " . $postID . " / TITLE: " . get_the_title();
         if($csbt == 2){
             $arrSidebars = esc_html( get_the_title() );
             //if legacy sidebar/widget - register the sidebar
