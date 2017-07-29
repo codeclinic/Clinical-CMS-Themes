@@ -215,7 +215,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         
         if($csbt == 2){
             //if Clinical CMS sidebar
-            $arrSidebarsMod[$postID] = get_the_title() . ",";
+            $arrSidebarsMod[$postID] = get_the_title();
         }
     }
     
@@ -238,7 +238,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
                 "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
                 "param_name" => "sidebar_name",
                 "admin_label" => true,
-                "value" => array( $arrSidebarsMod ),
+                "value" => array( $arrSidebarsMod[] ),
                 //'std'         => 'one', //default value
                 "description" => __( "Select the Clinical sidebar to show.", "clinical-cms-theme" )
             )
