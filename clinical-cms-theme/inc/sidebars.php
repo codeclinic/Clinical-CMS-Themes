@@ -220,7 +220,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
         
         //if($csbt == 2){
-            $arrSidebars = esc_html( get_the_title() );
+            $arrSidebars[] = esc_html( get_the_title() );
             //if legacy sidebar/widget - register the sidebar
             /*
             register_sidebar( array(
