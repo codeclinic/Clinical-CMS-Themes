@@ -187,8 +187,11 @@ function clinical_cms_clinical_sidebar( $atts ){
     ), $atts );
     
     $sidebar; 
-    $mypost = get_post($atts['vc_sidebar_id']);
-    $sidebar = apply_filters( 'the_content', $mypost->post_content );
+    $post = get_post($atts['vc_sidebar_id']);
+    
+    echo "ATTS ID: " .  . " / POST CONTENTS: " . $post;
+    
+    $sidebar = apply_filters( 'the_content', $post->post_content );
     return $sidebar;
 }
 add_shortcode( 'Clinical_CMS_Clinical_Sidebar', 'clinical_cms_clinical_sidebar' );
