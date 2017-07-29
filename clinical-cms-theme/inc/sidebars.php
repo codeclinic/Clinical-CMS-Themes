@@ -213,16 +213,18 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         $postID = get_the_ID();
         $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
         
+        $counter = 0;
         if($csbt == 2){
             //if Clinical CMS sidebar
-            $arrSidebarsMod = array( $postID => esc_html( get_the_title() ) );
+            $arrSidebarsMod[$counter]['$postID'] = esc_html( get_the_title() );
+            $counter++;
         }
     }
     //reset the query
     wp_reset_query();
     
-    var_dump($arrSidebarsMod);
     
+    var_dump($arrSidebarsMod);
     vc_map( array(
         "name" => __( "Clinical CMS Sidebar", "clinical-cms-theme" ),
         "base" => "Clinical_CMS_Clinical_Sidebar",
