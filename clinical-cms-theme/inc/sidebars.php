@@ -122,7 +122,7 @@ function clinical_cms_legacy_sidebar( $atts ){
         $sidebar = ob_get_contents();
         ob_end_clean();
     //}
-    $sidebar = '<aside id="secondary" class=' . $atts['display_axis'] . ' widget-area">' . $sidebar . '</aside><!-- #secondary -->';
+    $sidebar = '<aside id="secondary" class=' . $atts["display_axis"] . ' widget-area">' . $sidebar . '</aside><!-- #secondary -->';
     return $sidebar;
 }
 add_shortcode( 'Clinical_CMS_Legacy_Sidebar', 'clinical_cms_legacy_sidebar' );
@@ -224,7 +224,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
     wp_reset_query();
     
     
-    var_dump($arrSidebarsMod);
+    //var_dump($arrSidebarsMod);
     vc_map( array(
         "name" => __( "Clinical CMS Sidebar", "clinical-cms-theme" ),
         "base" => "Clinical_CMS_Clinical_Sidebar",
