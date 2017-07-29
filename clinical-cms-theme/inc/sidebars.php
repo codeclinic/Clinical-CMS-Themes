@@ -189,7 +189,7 @@ function clinical_cms_clinical_sidebar( $atts ){
     $sidebar; 
     $post = get_post($atts['vc_sidebar_id']);
     
-    echo "ATTS ID: " .  . " / POST CONTENTS: " . $post;
+    echo "ATTS ID: " . $atts['vc_sidebar_id'] . " / POST CONTENTS: " . $post;
     
     $sidebar = apply_filters( 'the_content', $post->post_content );
     return $sidebar;
