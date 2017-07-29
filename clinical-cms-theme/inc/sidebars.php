@@ -235,6 +235,8 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
             */
         }
     }
+    
+    var_dump($arrSidebars);
     //reset the query
     wp_reset_query();
     
