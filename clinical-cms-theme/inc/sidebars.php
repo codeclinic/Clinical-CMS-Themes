@@ -212,7 +212,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         'posts_per_page' => -1,
     ));
     //get the posts and build Clinical VC sidebars
-    $arrSidebars = [];
+    $arrSidebarsMod = [];
     while ($query->have_posts()) {
         $query->the_post(); 
         //Get post id and check if this is legacy post/sidebar
@@ -220,7 +220,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
         
         //if($csbt == 2){
-            $arrSidebars[] = esc_html( get_the_title() );
+            $arrSidebarsMod[] = esc_html( get_the_title() );
             //if legacy sidebar/widget - register the sidebar
             /*
             register_sidebar( array(
@@ -252,7 +252,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
                 "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
                 "param_name" => "sidebar_name",
                 "admin_label" => true,
-                "value" => $arrSidebars,
+                "value" => $arrSidebarsMod,
                 //'std'         => 'one', //default value
                 "description" => __( "Select the Clinical sidebar to show.", "clinical-cms-theme" )
             )
