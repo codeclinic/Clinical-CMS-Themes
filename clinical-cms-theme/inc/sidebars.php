@@ -239,7 +239,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
                 "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
                 "param_name" => "sidebar_name",
                 "admin_label" => true,
-                "value" => $arrSidebarsMod,
+                "value" => array( $arrSidebarsMod ),
                 //'std'         => 'one', //default value
                 "description" => __( "Select the Clinical sidebar to show.", "clinical-cms-theme" )
             )
