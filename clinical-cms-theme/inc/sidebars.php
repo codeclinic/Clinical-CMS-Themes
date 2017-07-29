@@ -215,7 +215,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         
         if($csbt == 2){
             //if Clinical CMS sidebar
-            $arrSidebarsMod[get_the_ID()] = get_the_title()
+            $arrSidebarsMod[$postID] = get_the_title();
         }
     }
     
