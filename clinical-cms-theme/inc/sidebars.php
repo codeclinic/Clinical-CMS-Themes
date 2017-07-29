@@ -42,7 +42,7 @@ function clinical_cms_theme_sidebar_metaboxes(){
     $postMetaBox = $titan->createMetaBox( array(
         'name' => 'Sidebar Type Selector',
         'post_type' => 'sidebar_post',
-        'desc' => esc_html__( 'Select the Sidebar type; Legacy Sidebars can be used in the widgets sections of WordPress and will ignore all content added here. Clinical Sidebars, can\'t be used for widgets but WILL show all content added in the content box opposite. These allow you to enter any content you want using Visual Composer.', 'clinical-cms-theme' ),
+        'desc' => esc_html__( 'Select the Sidebar type; Legacy Sidebars can be used in the widgets sections of WordPress and will ignore all content added here. Clinical Sidebars, <!-- can\'t be used for widgets but WILL show all content added in the content box qbove. These --> allow you to enter any content you want using Visual Composer.', 'clinical-cms-theme' ),
         'priority' => 'high',
         'context' => 'normal',
     ) );
@@ -100,9 +100,8 @@ function clinical_cms_theme_widgets_init() {
 }
 add_action( 'widgets_init', 'clinical_cms_theme_widgets_init' );
 
-
 /**
- *  Function to display blog posts on page_for_posts
+ *  Function to display sidebars
  */
 function clinical_cms_legacy_sidebar( $atts ){
     /*
@@ -113,6 +112,7 @@ function clinical_cms_legacy_sidebar( $atts ){
     $atts = shortcode_atts(
     array(
         'legacy_name' => 'no sidebar',
+        'display_axis' => 'vertical',
     ), $atts );
     
     $sidebar; 
@@ -122,13 +122,13 @@ function clinical_cms_legacy_sidebar( $atts ){
         $sidebar = ob_get_contents();
         ob_end_clean();
     //}
-    $sidebar = '<aside id="secondary" class="widget-area">' . $sidebar . '</aside><!-- #secondary -->';
+    $sidebar = '<aside id="secondary" class=' . $display_axis . 'widget-area">' . $sidebar . '</aside><!-- #secondary -->';
     return $sidebar;
 }
 add_shortcode( 'Clinical_CMS_Legacy_Sidebar', 'clinical_cms_legacy_sidebar' );
 
 /**
- *  Map Blog Content shortcode to Visual Composer
+ *  Map WP Legacy Sidebars Content shortcode to Visual Composer
  */
 add_action( 'vc_before_init', 'Clinical_CMS_Legacy_Sidebar_VisComp_Map' );
 function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
@@ -172,5 +172,92 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
         )
     ) );
 }
+/**
+ *  Function to display clinical sidebars
+ */
+function clinical_cms_clinical_sidebar( $atts ){
+    /*
+    extract(shortcode_atts(array(
+        'legacy_name' => '',
+    ), $atts));
+    */
+    $atts = shortcode_atts(
+    array(
+        'sidebar_name' => 'no sidebar',
+    ), $atts );
+    
+    $sidebar; 
+    //if ( is_active_sidebar( $atts['legacy_name'] ) ){
+        ob_start();
+        dynamic_sidebar( $atts['legacy_name'] );
+        $sidebar = ob_get_contents();
+        ob_end_clean();
+    //}
+    $sidebar = '<aside id="secondary" class="clinical widget-area">' . $sidebar . '</aside><!-- #secondary -->';
+    return $sidebar;
+}
+add_shortcode( 'Clinical_CMS_Clinical_Sidebar', 'clinical_cms_clinical_sidebar' );
 
+/**
+ *  Map Clinical Sidebars Content shortcode to Visual Composer
+ */
+function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
+    
+//Get the Titan Framework instance
+    $titan = TitanFramework::getInstance( 'clinical-cms-theme' );
+    //Build the query
+    $query = new WP_Query(array(
+        'post_type' => 'sidebar_post',
+        'post_status' => 'publish',
+        'posts_per_page' => -1,
+    ));
+    //get the posts and build Clinical VC sidebars
+    $arrSidebars = [];
+    while ($query->have_posts()) {
+        $query->the_post(); 
+        //Get post id and check if this is legacy post/sidebar
+        $postID = get_the_ID();
+        $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
+        
+        if($csbt == 2){
+            $arrSidebars = esc_html( get_the_title() );
+            //if legacy sidebar/widget - register the sidebar
+            /*
+            register_sidebar( array(
+                'name'          => esc_html( get_the_title() ),
+                'id'            => esc_html( get_the_title() ), 
+                'description'   => __( 'Add widgets here.', 'clinical-cms-theme' ),
+                'before_widget' => '<section id="%1$s" class="widget %2$s">',
+                'after_widget'  => '</section>',
+                'before_title'  => '<h2 class="widget-title">',
+                'after_title'   => '</h2>',
+            ) );
+            */
+        }
+    }
+    //reset the query
+    wp_reset_query();
+    
+    vc_map( array(
+        "name" => __( "Clinical CMS Sidebar", "clinical-cms-theme" ),
+        "base" => "Clinical_CMS_Clinical_Sidebar",
+        "class" => "Clinical_CMS_Clinical_Sidebar",
+        "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+        "show_settings_on_create" => true,
+        "params" => array(
+            array(
+                "type" => "dropdown",
+                "holder" => "div",
+                "class" => "clinical-sidebar",
+                "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
+                "param_name" => "sidebar_name",
+                "admin_label" => true,
+                "value" => $arrSidebars,
+                //'std'         => 'one', //default value
+                "description" => __( "Select the Clinical sidebar to show.", "clinical-cms-theme" )
+            )
+        )
+    ) );
+}
+add_action( 'vc_before_init', 'Clinical_CMS_Clinical_Sidebar_VisComp_Map' );
 ?>
