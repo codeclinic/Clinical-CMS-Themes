@@ -206,8 +206,9 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         'posts_per_page' => -1,
     ));
     //get the posts and build Clinical VC sidebars
-    $arrSidebarsMod = [];
-    $counter = 0;
+    //$arrSidebarsMod = [];
+    //$counter = 0;
+    $tmp = "";
     while ($query->have_posts()) {
         $query->the_post(); 
         //Get post id and check if this is legacy post/sidebar
@@ -216,9 +217,10 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         
         if($csbt == 2){
             //if Clinical CMS sidebar
-            $arrSidebarsMod[$counter] = array();
-            $arrSidebarsMod[$counter][$postID] = esc_html( get_the_title() );
-            $counter++;
+            //$arrSidebarsMod[$counter] = array();
+            //$arrSidebarsMod[$counter][$postID] = esc_html( get_the_title() );
+            //$counter++;
+            $tmp .= "'$postID' => '" . esc_html( get_the_title() ) . ""', ";
         }
     }
     //reset the query
