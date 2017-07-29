@@ -213,9 +213,11 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
         $postID = get_the_ID();
         $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
         
+        $counter = 0;
         if($csbt == 2){
             //if Clinical CMS sidebar
-            $arrSidebarsMod[] = esc_html( get_the_title() );
+            $arrSidebarsMod[$counter]['$postID'] = esc_html( get_the_title() );
+            $counter++;
         }
     }
     //reset the query
