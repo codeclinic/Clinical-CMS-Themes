@@ -111,7 +111,7 @@ function clinical_cms_legacy_sidebar( $atts ){
     */
     $atts = shortcode_atts(
     array(
-        'legacy_name' => 0,
+        'legacy_name' => 'nrnrnrn',
         'display_axis' => 'vertical',
     ), $atts );
     
@@ -183,7 +183,7 @@ function clinical_cms_clinical_sidebar( $atts ){
     */
     $atts = shortcode_atts(
     array(
-        'vc_sidebar_name' => 0,
+        'vc_sidebar_name' => 'cddcsdcsd',
     ), $atts );
     
     $sidebar; 
