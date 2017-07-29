@@ -207,13 +207,13 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
     ));
     //get the posts and build Clinical VC sidebars
     $arrSidebarsMod = [];
+    $counter = 0;
     while ($query->have_posts()) {
         $query->the_post(); 
         //Get post id and check if this is legacy post/sidebar
         $postID = get_the_ID();
         $csbt = $titan->getOption( 'clinical_sidebar_type', $postID );
         
-        $counter = 0;
         if($csbt == 2){
             //if Clinical CMS sidebar
             $arrSidebarsMod[$counter]['$postID'] = esc_html( get_the_title() );
@@ -223,8 +223,8 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
     //reset the query
     wp_reset_query();
     
-    
     var_dump($arrSidebarsMod);
+    
     vc_map( array(
         "name" => __( "Clinical CMS Sidebar", "clinical-cms-theme" ),
         "base" => "Clinical_CMS_Clinical_Sidebar",
