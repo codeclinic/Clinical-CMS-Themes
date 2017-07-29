@@ -223,7 +223,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
     wp_reset_query();
     
     
-    //var_dump($arrSidebarsMod);
+    var_dump($arrSidebarsMod);
     vc_map( array(
         "name" => __( "Clinical CMS Sidebar", "clinical-cms-theme" ),
         "base" => "Clinical_CMS_Clinical_Sidebar",
