@@ -111,14 +111,14 @@ function clinical_cms_legacy_sidebar( $atts ){
     */
     $atts = shortcode_atts(
     array(
-        'legacy_id' => 0,
+        'legacy_name' => 0,
         'display_axis' => 'vertical',
     ), $atts );
     
     $sidebar; 
     //if ( is_active_sidebar( $atts['legacy_name'] ) ){
         ob_start();
-        dynamic_sidebar( $atts['legacy_id'] );
+        dynamic_sidebar( $atts['legacy_name'] );
         $sidebar = ob_get_contents();
         ob_end_clean();
     //}
@@ -149,7 +149,7 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
                 "holder" => "div",
                 "class" => "legacy-sidebar",
                 "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
-                "param_name" => "legacy_id",
+                "param_name" => "legacy_name",
                 "admin_label" => true,
                 "value" => $arrSidebars,
                 //'std'         => 'one', //default value
@@ -183,13 +183,13 @@ function clinical_cms_clinical_sidebar( $atts ){
     */
     $atts = shortcode_atts(
     array(
-        'vc_sidebar_id' => 0,
+        'vc_sidebar_name' => 0,
     ), $atts );
     
     $sidebar; 
-    $post = get_post($atts['vc_sidebar_id']);
+    $post = get_page_by_title( $atts['vc_sidebar_name'] );
     
-    echo "ATTS ID: " . $atts['vc_sidebar_id'] . " / POST CONTENTS: " . $post;
+    echo "ATTS ID: " . $atts['vc_sidebar_name'] . " / POST CONTENTS: " . $post;
     
     $sidebar = apply_filters( 'the_content', $post->post_content );
     return $sidebar;
@@ -238,7 +238,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
                 "holder" => "div",
                 "class" => "clinical-sidebar",
                 "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
-                "param_name" => "vc_sidebar_id",
+                "param_name" => "vc_sidebar_name",
                 "admin_label" => true,
                 "value" => $arrSidebarsMod ,
                 //'std'         => 'one', //default value
