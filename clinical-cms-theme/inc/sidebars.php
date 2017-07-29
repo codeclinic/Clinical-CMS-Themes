@@ -187,7 +187,7 @@ function clinical_cms_clinical_sidebar( $atts ){
     ), $atts );
     
     $sidebar; 
-    $mypost = get_post(244);
+    $mypost = get_post($atts['vc_sidebar_id']);
     $sidebar = apply_filters( 'the_content', $mypost->post_content );
     return $sidebar;
 }
