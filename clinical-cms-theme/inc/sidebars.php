@@ -111,14 +111,14 @@ function clinical_cms_legacy_sidebar( $atts ){
     */
     $atts = shortcode_atts(
     array(
-        'legacy_name' => 'no sidebar',
+        'legacy_id' => 0,
         'display_axis' => 'vertical',
     ), $atts );
     
     $sidebar; 
     //if ( is_active_sidebar( $atts['legacy_name'] ) ){
         ob_start();
-        dynamic_sidebar( $atts['legacy_name'] );
+        dynamic_sidebar( $atts['legacy_id'] );
         $sidebar = ob_get_contents();
         ob_end_clean();
     //}
@@ -135,7 +135,7 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
     
     $arrSidebars = [];
     foreach ( $GLOBALS['wp_registered_sidebars'] as $sidebar ) {
-        $arrSidebars[] = $sidebar['name'];
+        $arrSidebars[$sidebar['id']] = $sidebar['name'];
     }
     vc_map( array(
         "name" => __( "WP Legacy Sidebar", "clinical-cms-theme" ),
@@ -149,7 +149,7 @@ function Clinical_CMS_Legacy_Sidebar_VisComp_Map() {
                 "holder" => "div",
                 "class" => "legacy-sidebar",
                 "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
-                "param_name" => "legacy_name",
+                "param_name" => "legacy_id",
                 "admin_label" => true,
                 "value" => $arrSidebars,
                 //'std'         => 'one', //default value
@@ -183,11 +183,12 @@ function clinical_cms_clinical_sidebar( $atts ){
     */
     $atts = shortcode_atts(
     array(
-        'sidebar_name' => 'no sidebar',
+        'vc_sidebar_id' => 0,
     ), $atts );
     
     $sidebar; 
-    
+    $mypost = get_post(244);
+    $sidebar = apply_filters( 'the_content', $mypost->post_content );
     return $sidebar;
 }
 add_shortcode( 'Clinical_CMS_Clinical_Sidebar', 'clinical_cms_clinical_sidebar' );
@@ -222,8 +223,6 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
     //reset the query
     wp_reset_query();
     
-    
-    var_dump($arrSidebarsMod);
     vc_map( array(
         "name" => __( "Clinical CMS Sidebar", "clinical-cms-theme" ),
         "base" => "Clinical_CMS_Clinical_Sidebar",
@@ -236,7 +235,7 @@ function Clinical_CMS_Clinical_Sidebar_VisComp_Map() {
                 "holder" => "div",
                 "class" => "clinical-sidebar",
                 "heading" => __( "Display Sidebar", "clinical-cms-theme" ),
-                "param_name" => "sidebar_name",
+                "param_name" => "vc_sidebar_id",
                 "admin_label" => true,
                 "value" => $arrSidebarsMod ,
                 //'std'         => 'one', //default value
