@@ -259,7 +259,11 @@ require get_template_directory() . '/titan-options.php';
  */
 require get_template_directory() . '/inc/sidebars.php';
 /**
- * Load Dynamic Sidebars
+ * Load Blog Template & Content
  */
 require get_template_directory() . '/inc/blog.php';
+/**
+ * Load Comments
+ */
+require get_template_directory() . '/inc/comments.php';
 
