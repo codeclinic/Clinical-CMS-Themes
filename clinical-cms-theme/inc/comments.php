@@ -14,7 +14,10 @@ function clinical_cms_comments( /*$atts*/ ){
     
     // If comments are open or we have at least one comment, load up the comment template.
     if ( comments_open() || get_comments_number() ) :
-        $tmp_comments = comments_template();
+        ob_start();
+        comments_template();
+        $tmp_comments = ob_get_contents();
+        ob_end_clean();    
         return $tmp_comments;
     endif;
     
