@@ -189,8 +189,6 @@ function clinical_cms_clinical_sidebar( $atts ){
     $sidebar; 
     $post = get_page_by_title( $atts['vc_sidebar_name'], OBJECT, "sidebar_post" );
     
-    echo "ATTS ID: " . $atts['vc_sidebar_name'] . " / POST CONTENTS: " . $post->post_content;
-    
     $sidebar = apply_filters( 'the_content', $post->post_content );
     return $sidebar;
 }
