@@ -77,8 +77,8 @@ function clinical_cms_theme_content_page_for_posts( $atts ){
              */
             $output .= load_template_part( 'template-parts/content', get_post_format(), $template );
         endwhile;
-        //$output .= the_posts_navigation();
-        $output .= get_the_posts_navigation();
+        $output .= the_posts_navigation();
+        //$output .= get_the_posts_navigation();
     else :
         $output .= load_template_part( 'template-parts/content', 'none' );
     endif;   
