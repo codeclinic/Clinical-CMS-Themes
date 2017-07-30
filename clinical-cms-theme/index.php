@@ -25,7 +25,7 @@ get_header(); ?>
         
         echo "PAGE FOR POSTS: " . $page_for_posts_id . "<br/>";
             
-        echo apply_filters( 'the_content', $page_for_posts_obj->post_content );
+        echo /*apply_filters( 'the_content',*/ $page_for_posts_obj->post_content /*)*/;
  ?>   
 <?php
 		if ( have_posts() ) :
