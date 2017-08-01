@@ -188,52 +188,36 @@ if(!function_exists('clinical_cms_theme_blog_header')) {
 
 // Mapping 
 vc_map( array(
-    "name" => __("Carousel Content", "mozel"),
-    "base" => "carousel_content",
-    "as_parent" => array('only' => 'single_carousel_content'),
+    "name" => __("Clinical CMS Blog Block", "clinical-cms-theme"),
+    "base" => "Clinical_CMS_Theme_Blog_Block",
+    "as_parent" => array('only' => 'clinical_cms_theme_blog_header'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
     "js_view" => 'VcColumnView',
-    "category" =>array('Mozel', 'Content')
+      "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 
 vc_map( array(
-    "name" => __("Single Carousel Content", "mozel"),
-    "base" => "single_carousel_content",
+    "name" => __("Single Carousel Content", "clinical-cms-theme"),
+    "base" => "Clinical_Cms_Theme_Blog_Header",
     "content_element" => true,
-    "as_child" => array('only' => 'carousel_content'),
-    "show_settings_on_create" => true,
-    "params" => array(
-        array(
-            "type" => "textfield",
-            "heading" => __("Title", "mozel"),
-            "param_name" => "title"
-        ), 
-        array(
-            "type" => "textarea",
-            "heading" => __("Description", "mozel"),
-            "param_name" => "description"
-        ),
-        array(
-			'type' => 'vc_link',
-			'heading' => __( 'Button', 'mozel' ),
-			'param_name' => 'url',
-		),
-        array(
-			'type' => 'attach_image',
-			'heading' => __( 'Add Image', 'mozel' ),
-			'param_name' => 'img',
-		)
-    ),
+    "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
+    "show_settings_on_create" => false,
+    "is_container" => true,
+    "js_view" => 'VcColumnView',
     ) );
 
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
-    class WPBakeryShortCode_Carousel_Content extends WPBakeryShortCodesContainer {
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Block extends WPBakeryShortCodesContainer {
+    }
+    class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Header extends WPBakeryShortCodesContainer {
     }
 }
+/*
 if ( class_exists( 'WPBakeryShortCode' ) ) {
     class WPBakeryShortCode_Single_Carousel_Content extends WPBakeryShortCode {
     }
 }
+*/
 ?>
