@@ -204,20 +204,20 @@ vc_map( array(
     "content_element" => true,
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     "show_settings_on_create" => false,
-    "is_container" => true,
+    "is_container" => false,
     "js_view" => 'VcColumnView',
     ) );
 
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Block extends WPBakeryShortCodesContainer {
     }
-    class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Header extends WPBakeryShortCodesContainer {
-    }
+    //class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Header extends WPBakeryShortCodesContainer {
+    //}
 }
-/*
+
 if ( class_exists( 'WPBakeryShortCode' ) ) {
-    class WPBakeryShortCode_Single_Carousel_Content extends WPBakeryShortCode {
+    class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Header extends WPBakeryShortCode {
     }
 }
-*/
+
 ?>
