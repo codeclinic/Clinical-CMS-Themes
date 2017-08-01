@@ -78,7 +78,7 @@ function clinical_cms_theme_content_page_for_posts( $atts ){
             $output .= load_template_part( 'template-parts/content', get_post_format(), $template );
         endwhile;
         //$output .= the_posts_navigation();
-        $output .= get_the_posts_navigation();
+        //$output .= get_the_posts_navigation();
     else :
         $output .= load_template_part( 'template-parts/content', 'none' );
     endif;   
@@ -115,6 +115,31 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
             "description" => __( "Select the blog stream layout template.", "clinical-cms-theme" )
          )
       )
+   ) );
+}
+/**
+ *  Function to display blog navigation / paging on page_for_posts
+ */
+function clinical_cms_theme_nav_page_for_posts(){
+    $output;
+    if ( have_posts() ) :
+        $output .= get_the_posts_navigation();
+    }
+    return $output;
+}
+add_shortcode( 'Clinical_CMS_Blog_Nav', 'clinical_cms_theme_nav_page_for_posts' );
+
+/**
+ *  Map Blog Navigation shortcode to Visual Composer
+ */
+add_action( 'vc_before_init', 'Clinical_CMS_Blog_Nav_VisComp_Map' );
+function Clinical_CMS_Blog_Nav_VisComp_Map() {
+   vc_map( array(
+      "name" => __( "Clinical CMS Blog Navigation", "clinical-cms-theme" ),
+      "base" => "Clinical_CMS_Blog_Nav",
+      "class" => "blog-nav",
+      "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+      "show_settings_on_create" => false,
    ) );
 }
 ?>
