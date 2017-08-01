@@ -122,7 +122,7 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
  */
 function clinical_cms_theme_nav_page_for_posts(){
     $output;
-    if ( have_posts() ) :
+    if ( have_posts() ){
         $output .= get_the_posts_navigation();
     }
     return $output;
