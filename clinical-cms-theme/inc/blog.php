@@ -171,7 +171,7 @@ function Clinical_CMS_Blog_Nav_VisComp_Map() {
 
 if(!function_exists('clinical_cms_theme_blog_block')){
     function clinical_cms_theme_blog_block( $atts, $content = null ) {
-       return '<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>' . do_shortcode($content) . '</article><!-- #post-<?php the_ID(); ?> -->';
+       return '<article id="post-' . the_ID() . '" ' . post_class() . ' >' . do_shortcode($content) . '</article><!-- #post-' . the_ID(); ?> . ' -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Block', 'clinical_cms_theme_blog_block');
 }
