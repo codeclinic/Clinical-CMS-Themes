@@ -177,10 +177,10 @@ if(!function_exists('clinical_cms_theme_blog_block')){
 }
 
 if(!function_exists('clinical_cms_theme_blog_header')) {
-	function clinical_cms_theme_blog_header( $atts, $content =  null) {
+	function clinical_cms_theme_blog_headers( $atts, $content =  null) {
        return '<header class="entry-header">' . do_shortcode($content) . '</header><!-- .entry-header -->';
 	}
-	add_shortcode('Clinical_Cms_Theme_Blog_Header', 'clinical_cms_theme_blog_header');		
+	add_shortcode('Clinical_Cms_Theme_Blog_Headers', 'clinical_cms_theme_blog_headers');		
 }
 
 
@@ -200,13 +200,15 @@ vc_map( array(
 
 vc_map( array(
     "name" => __("Single Carousel Content", "clinical-cms-theme"),
-    "base" => "Clinical_Cms_Theme_Blog_Header",
-    "content_element" => true,
+    "base" => "Clinical_Cms_Theme_Blog_Headers",
+    "content_element" => false,
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     "show_settings_on_create" => false,
+    /*
     "is_container" => false,
     "js_view" => 'VcColumnView',
-    ) );
+    */
+) );
 
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Block extends WPBakeryShortCodesContainer {
