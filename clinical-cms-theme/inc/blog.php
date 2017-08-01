@@ -125,6 +125,9 @@ function clinical_cms_theme_nav_page_for_posts(){
     if ( have_posts() ){
         $output .= get_the_posts_navigation();
     }
+    
+    echo "NAVIGATION: " . $output;
+    
     return $output;
 }
 add_shortcode( 'Clinical_CMS_Blog_Nav', 'clinical_cms_theme_nav_page_for_posts' );
