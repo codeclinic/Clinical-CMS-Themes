@@ -186,7 +186,7 @@ if(!function_exists('single_carousel_content')) {
 		), $atts));
         
         $url = ($url=='||') ? '' : $url;
-		$url = ps_build_link( $url );
+		$url = vc_build_link( $url );
 		$a_link = $url['url'];
 		$a_title = ($url['title'] == '') ? '' : 'title="'.$url['title'].'"';
 		$a_target = ($url['target'] == '') ? '' : 'target="'.$url['target'].'"';
