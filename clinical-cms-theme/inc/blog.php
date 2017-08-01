@@ -27,7 +27,7 @@ function load_template_part($template_name, $part_name=null, $blogLayout=null) {
 }
 
 /**
- * Create A MetaBox To Identify Blog Template
+ * Create A Customizer Element To Identify Blog Template
  */
 add_action( 'after_setup_theme', 'clinical_cms_theme_setup_customiser' );
 function clinical_cms_theme_setup_customiser() {
@@ -169,53 +169,18 @@ function Clinical_CMS_Blog_Nav_VisComp_Map() {
 
 
 
-if(!function_exists('carousel_content')){
-    function carousel_content( $atts, $content = null ) {
-       return '<div class="owl-carousel content-carousel content-slider">'.do_shortcode($content).'</div>';
+if(!function_exists('clinical_cms_theme_blog_block')){
+    function clinical_cms_theme_blog_block( $atts, $content = null ) {
+       return '<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>' . do_shortcode($content) . '</article><!-- #post-<?php the_ID(); ?> -->';
     }
-    add_shortcode('carousel_content', 'carousel_content');
+    add_shortcode('Clinical_CMS_Theme_Blog_Block', 'clinical_cms_theme_blog_block');
 }
 
-if(!function_exists('single_carousel_content')) {
-	function single_carousel_content( $atts, $content =  null) {
-		extract(shortcode_atts(array(
-			'title' => 'Flexible & Customizable',
-			'description' => '',
-			'url' => '',
-			'img' => ''
-		), $atts));
-        
-        $url = ($url=='||') ? '' : $url;
-		$url = vc_build_link( $url );
-		$a_link = $url['url'];
-		$a_title = ($url['title'] == '') ? '' : 'title="'.$url['title'].'"';
-		$a_target = ($url['target'] == '') ? '' : 'target="'.$url['target'].'"';
-        $button = $a_link ? '<a class="btn btn-md btn-black" href="'.$a_link. '" '.$a_title.' '.$a_target.'>'.$url['title'].'</a>' : '';
-
-        $image = wp_get_attachment_image_src( $img, 'full');
-		$image_src = $image['0'];
-        
-        
-        $output = '<div class="item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 mb-sm-30">
-                                <img src="'.$image_src.'" alt="" />
-                            </div>
-                            <div class="col-md-5 col-md-offset-1">
-                                <h3>'.$title.'</h3>
-                                <div class="spacer-15"></div>
-                                '.$description.'
-                                <div class="spacer-15"></div>
-                                '.$button.'
-                            </div>
-                        </div>
-                    </div>
-                </div>'; 
-        
-        return $output;
+if(!function_exists('clinical_cms_theme_blog_header')) {
+	function clinical_cms_theme_blog_header( $atts, $content =  null) {
+       return '<header class="entry-header">' . do_shortcode($content) . '</header><!-- .entry-header -->';
 	}
-	add_shortcode('single_carousel_content', 'single_carousel_content');		
+	add_shortcode('Clinical_Cms_Theme_Blog_Header', 'clinical_cms_theme_blog_header');		
 }
 
 
