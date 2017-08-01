@@ -121,7 +121,7 @@ function Clinical_CMS_Blog_Content_VisComp_Map() {
  *  Function to display blog navigation / paging on page_for_posts
  */
 function clinical_cms_theme_nav_page_for_posts(){
-    $output;
+    $output = "";
     if ( have_posts() ){
         $output .= get_the_posts_navigation();
     }
