@@ -176,46 +176,11 @@ if(!function_exists('clinical_cms_theme_blog_block')){
     add_shortcode('Clinical_CMS_Theme_Blog_Block', 'clinical_cms_theme_blog_block');
 }
 
-if(!function_exists('single_carousel_content')) {
-	function single_carousel_content( $atts, $content =  null) {
-		extract(shortcode_atts(array(
-			'title' => 'Flexible & Customizable',
-			'description' => '',
-			'url' => '',
-			'img' => ''
-		), $atts));
-        
-        $url = ($url=='||') ? '' : $url;
-		$url = ps_build_link( $url );
-		$a_link = $url['url'];
-		$a_title = ($url['title'] == '') ? '' : 'title="'.$url['title'].'"';
-		$a_target = ($url['target'] == '') ? '' : 'target="'.$url['target'].'"';
-        $button = $a_link ? '<a class="btn btn-md btn-black" href="'.$a_link. '" '.$a_title.' '.$a_target.'>'.$url['title'].'</a>' : '';
-
-        $image = wp_get_attachment_image_src( $img, 'full');
-		$image_src = $image['0'];
-        
-        
-        $output = '<div class="item">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-6 mb-sm-30">
-                                <img src="'.$image_src.'" alt="" />
-                            </div>
-                            <div class="col-md-5 col-md-offset-1">
-                                <h3>'.$title.'</h3>
-                                <div class="spacer-15"></div>
-                                '.$description.'
-                                <div class="spacer-15"></div>
-                                '.$button.'
-                            </div>
-                        </div>
-                    </div>
-                </div>'; 
-        
-        return $output;
+if(!function_exists('clinical_cms_theme_blog_header')) {
+	function clinical_cms_theme_blog_header( $atts, $content =  null) {
+        return '<header class="entry-header">' . do_shortcode($content) . '</header>';
 	}
-	add_shortcode('single_carousel_content', 'single_carousel_content');		
+	add_shortcode('Clinical_CMS_Theme_Blog_Header', 'single_carousel_content');		
 }
 
 
@@ -238,7 +203,6 @@ vc_map( array(
     "name" => __("Clinical CMS Blog Header", "mozel"),
     "base" => "Clinical_CMS_Theme_Blog_Header",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
-    "icon" => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE9ElEQVRYhcWXb2hVZRjAf+977rn37i4359rFocM5myixHKktWxLUIJWkJKgQJJXKIirrgxJhmBAoFFZfpD8QiEUhFKJ9iFAqK6eIf6aSto1ay5mbOrfp7s6957xPH87dubu72+51CD1wOIdznj+/933e93mfo27sqk4AIf4fcUPp4PkB7GJ0vB7Ew3Q1++/Cd6DL70bZsUBN3CHM5RPgOQURFDRyXVFHdMXnqOg0nJ/exHQ1Y9dvwF74albwYTH9nQwdWIP0d+T3XQhAuHErqqgck+jBvbAXq7oJu2HzmMEBdEkV4YZNhbguZAYUuuwuAKSvA8Qgg1dJ/vxWrmYsjr3wFZS20NPm3i4AQCn/blz/1n0S031ybIdzn0CVVmds8khBKbglEbkl9UkD6MoGoiu/JLryC1RZYdNdIIDKvpROPw9/trBqHye67BOsGUuwZjxA9LHdWLMeBm2P7ye4RkW7sas6BYR0RR3hxq3ostpRegrsYpRSeBePkGzeTtGT+wAQEdSIXIvrgGWjlEbEQOpmdjQRTM8ZnMNbkL4/IV2IwC7293lRef45SwcU45E69h4qFidUtxalFCoUGaGmITwlx9ya2Uh0+ackvn4UxPN3gY7XB8HFTWC6W0BMYKQrF6O0zyqJqySPf4Tbth+53gaA2/otVs0KdFntuLXBjx5GT61BT52DKp2NXG/zAZQVDnRSxz8kderjEUYRYutb/ODJAWTgH1LHd2b5NT1nMD1n/JGXzkZFSkBM8C5LtI294LkgzTl1QJID2dCzlwWA5ur58UeXFrt+A/b8pxERhvavzpwbgDVzKWJcUid3ZXgmcqYr7yOydJsPZjzctv15AdzWfcHijDyyE10+P+Nv+iKiK/dg1a7KBhg96mEJL9qIipQgIqSOvR/kfCIxXUdwz+72nRdPx17wfNZ3pTTh+zent3cawFw5hzh9Y7iTtJFCxSryBg+CjNAVciujjsVRU6oyALgJkr+96+/dEeL88g7m5mUAQnVr0RV1eYNbs5qwapYDYHrbSR17fwxCFeyWYA24F/Yy9M0qvH9PZOh7//BPvXROhx1PJKE5K1BKISI4B19DbnRNrA9gVT2EjteTavksp3p5HYcY3LPEB0oN5gVQZbW+7s1LmCvnsr+NkcYQgHhJwos3Yt/7EnKzOzh2c0WQ5A3M1d9xW/dhuo4A/rSH5qzA+XUbyi72gxXdSdEzhzKm2gryLiKIO5QBMJdPYPo70SVVqJKqvKO04vcQmvcU7tndqFgFVs1ylFIkj+7IjNYKo6bOHtPe9JxB+v7KAOA5DB1YQ7hhk9/JZDUTClVa7R8wqQSS7EfF4iilsOuezcyNSFYvIF4SGegcFdng9bSQat7B8A4LKqH0d+D88PIYvIrY+tMQnoLpPsXQ/tXoygYiTR+gi6f7fnvbcQ5uRAa7MwADnSS+ahp3FodlUv8D5tJRnO/WYde/gJAuUnlW+20FADDXzuMcemOy5oHcWkumb/8PVGEe04tLx+sJN76NOLlnh/f3j36nPHy0G5OjM0kAwfS0YM18EGXZ2HXrcjW8JG77AYhMRcXiPlBPS0EABaXAObwFc709N7AIpq8D5/sXkd5WwotfBx3C6z5Nqnl7QQBBU5pf0/K7HSvT+fod0kWCU3PaPPCcdJEp6P/ADQHj1d1sEQ+53jahW7mWv2MaDfAfS6vje9Yi8HUAAAAASUVORK5CYII=",
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
@@ -254,7 +218,7 @@ if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
 }
 
 if ( class_exists( 'WPBakeryShortCode' ) ) {
-    class WPBakeryShortCode_Single_Carousel_Content extends WPBakeryShortCode {
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header extends WPBakeryShortCode {
     }
 }
 
