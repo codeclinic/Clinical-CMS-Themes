@@ -180,7 +180,7 @@ if(!function_exists('clinical_cms_theme_blog_header')) {
 	function clinical_cms_theme_blog_header( $atts, $content =  null) {
         return '<header class="entry-header">' . do_shortcode($content) . '</header>';
 	}
-	add_shortcode('Clinical_CMS_Theme_Blog_Header', 'single_carousel_content');		
+	add_shortcode('Clinical_CMS_Theme_Blog_Header', 'clinical_cms_theme_blog_header');		
 }
 
 
