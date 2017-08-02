@@ -198,7 +198,7 @@ if(!function_exists('clinical_cms_theme_blog_Title')) {
 
 // Mapping 
 vc_map( array(
-    "name" => __("Clinical CMS Blog Block", "clinical-cms-theme"),
+    "name" => __("Clinical CMS Blog Block", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Block",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header'),
     "content_element" => true,
