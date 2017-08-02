@@ -237,31 +237,13 @@ vc_map( array(
 vc_map( array(
     "name" => __("Clinical CMS Blog Header", "mozel"),
     "base" => "Clinical_CMS_Theme_Blog_Header",
-    "content_element" => true,
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
-    "show_settings_on_create" => true,
-    "params" => array(
-        array(
-            "type" => "textfield",
-            "heading" => __("Title", "mozel"),
-            "param_name" => "title"
-        ), 
-        array(
-            "type" => "textarea",
-            "heading" => __("Description", "mozel"),
-            "param_name" => "description"
-        ),
-        array(
-			'type' => 'vc_link',
-			'heading' => __( 'Button', 'mozel' ),
-			'param_name' => 'url',
-		),
-        array(
-			'type' => 'attach_image',
-			'heading' => __( 'Add Image', 'mozel' ),
-			'param_name' => 'img',
-		)
-    ),
+    "icon" => "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAE9ElEQVRYhcWXb2hVZRjAf+977rn37i4359rFocM5myixHKktWxLUIJWkJKgQJJXKIirrgxJhmBAoFFZfpD8QiEUhFKJ9iFAqK6eIf6aSto1ay5mbOrfp7s6957xPH87dubu72+51CD1wOIdznj+/933e93mfo27sqk4AIf4fcUPp4PkB7GJ0vB7Ew3Q1++/Cd6DL70bZsUBN3CHM5RPgOQURFDRyXVFHdMXnqOg0nJ/exHQ1Y9dvwF74albwYTH9nQwdWIP0d+T3XQhAuHErqqgck+jBvbAXq7oJu2HzmMEBdEkV4YZNhbguZAYUuuwuAKSvA8Qgg1dJ/vxWrmYsjr3wFZS20NPm3i4AQCn/blz/1n0S031ybIdzn0CVVmds8khBKbglEbkl9UkD6MoGoiu/JLryC1RZYdNdIIDKvpROPw9/trBqHye67BOsGUuwZjxA9LHdWLMeBm2P7ye4RkW7sas6BYR0RR3hxq3ostpRegrsYpRSeBePkGzeTtGT+wAQEdSIXIvrgGWjlEbEQOpmdjQRTM8ZnMNbkL4/IV2IwC7293lRef45SwcU45E69h4qFidUtxalFCoUGaGmITwlx9ya2Uh0+ackvn4UxPN3gY7XB8HFTWC6W0BMYKQrF6O0zyqJqySPf4Tbth+53gaA2/otVs0KdFntuLXBjx5GT61BT52DKp2NXG/zAZQVDnRSxz8kderjEUYRYutb/ODJAWTgH1LHd2b5NT1nMD1n/JGXzkZFSkBM8C5LtI294LkgzTl1QJID2dCzlwWA5ur58UeXFrt+A/b8pxERhvavzpwbgDVzKWJcUid3ZXgmcqYr7yOydJsPZjzctv15AdzWfcHijDyyE10+P+Nv+iKiK/dg1a7KBhg96mEJL9qIipQgIqSOvR/kfCIxXUdwz+72nRdPx17wfNZ3pTTh+zent3cawFw5hzh9Y7iTtJFCxSryBg+CjNAVciujjsVRU6oyALgJkr+96+/dEeL88g7m5mUAQnVr0RV1eYNbs5qwapYDYHrbSR17fwxCFeyWYA24F/Yy9M0qvH9PZOh7//BPvXROhx1PJKE5K1BKISI4B19DbnRNrA9gVT2EjteTavksp3p5HYcY3LPEB0oN5gVQZbW+7s1LmCvnsr+NkcYQgHhJwos3Yt/7EnKzOzh2c0WQ5A3M1d9xW/dhuo4A/rSH5qzA+XUbyi72gxXdSdEzhzKm2gryLiKIO5QBMJdPYPo70SVVqJKqvKO04vcQmvcU7tndqFgFVs1ylFIkj+7IjNYKo6bOHtPe9JxB+v7KAOA5DB1YQ7hhk9/JZDUTClVa7R8wqQSS7EfF4iilsOuezcyNSFYvIF4SGegcFdng9bSQat7B8A4LKqH0d+D88PIYvIrY+tMQnoLpPsXQ/tXoygYiTR+gi6f7fnvbcQ5uRAa7MwADnSS+ahp3FodlUv8D5tJRnO/WYde/gJAuUnlW+20FADDXzuMcemOy5oHcWkumb/8PVGEe04tLx+sJN76NOLlnh/f3j36nPHy0G5OjM0kAwfS0YM18EGXZ2HXrcjW8JG77AYhMRcXiPlBPS0EABaXAObwFc709N7AIpq8D5/sXkd5WwotfBx3C6z5Nqnl7QQBBU5pf0/K7HSvT+fod0kWCU3PaPPCcdJEp6P/ADQHj1d1sEQ+53jahW7mWv2MaDfAfS6vje9Yi8HUAAAAASUVORK5CYII=",
+    "content_element" => true,
+    "show_settings_on_create" => false,
+    "is_container" => true,
+    "js_view" => 'VcColumnView',
+      "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
