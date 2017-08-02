@@ -220,7 +220,7 @@ vc_map( array(
 vc_map( array(
     "name" => __("Clinical CMS Blog Title", "mozel"),
     "base" => "Clinical_CMS_Theme_Blog_Title",
-    "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Header'),
+    "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     "content_element" => true, // set this parameter when element will has a content
     "show_settings_on_create" => false,
     "is_container" => false, // set this param when you need to add a content element in this element
