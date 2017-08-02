@@ -226,7 +226,7 @@ if(!function_exists('single_carousel_content')) {
 vc_map( array(
     "name" => __("Clinical CMS Blog Block", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Block",
-    "as_parent" => array('only' => 'single_carousel_content'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
@@ -235,8 +235,8 @@ vc_map( array(
 ) );
 
 vc_map( array(
-    "name" => __("Single Carousel Content", "mozel"),
-    "base" => "single_carousel_content",
+    "name" => __("Clinical CMS Blog Header", "mozel"),
+    "base" => "Clinical_CMS_Theme_Blog_Header",
     "content_element" => true,
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     "show_settings_on_create" => true,
