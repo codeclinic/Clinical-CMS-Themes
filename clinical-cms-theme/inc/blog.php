@@ -181,9 +181,9 @@ if(!function_exists('clinical_cms_theme_blog_header_open')) {
         return '<header class="entry-header">
 		< ? php
 		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
+			the_title( \'<h1 class="entry-title">\', \'</h1>\' );
 		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+			the_title( \'<h2 class="entry-title"><a href="\' . esc_url( get_permalink() ) . \'" rel="bookmark">\', \'</a></h2>\' );
 		endif';
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Header_Open', 'clinical_cms_theme_blog_header_open');		
