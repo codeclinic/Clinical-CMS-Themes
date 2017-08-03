@@ -31,8 +31,15 @@
             echo '</a>';
         }
         ? >
-	</header><!-- .entry-header -->
+	</header><!-- .entry-header -- >
 -->
+<?php    
+    
+        //get the post page layout & content data
+        //$page_for_posts_id = get_option( 'page_for_posts' );
+        $page_for_posts_obj = get_post( 68 );
+        echo apply_filters( 'the_content', $page_for_posts_obj->post_content );
+?>   
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
