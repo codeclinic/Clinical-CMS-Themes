@@ -190,9 +190,9 @@ if(!function_exists('clinical_cms_theme_blog_header_close')) {
 if(!function_exists('clinical_cms_theme_blog_title')) {
 	function clinical_cms_theme_blog_title( $atts, $content =  null) {
         if ( is_singular() ) :
-			return esc_html( '<h1 class="entry-title">' . get_the_title() . '</h1>' );
+			return '<h1 class="entry-title">' . get_the_title() . '</h1>';
 		else :
-			return esc_html( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>' );
+			return '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
 		endif;
         
         //return "cheese";
