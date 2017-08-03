@@ -202,13 +202,22 @@ if(!function_exists('clinical_cms_theme_blog_title')) {
 	add_shortcode('Clinical_CMS_Theme_Blog_Title', 'clinical_cms_theme_blog_title');		
 }
 if( !function_exists('clinical_cms_theme_blog_meta') ) {
-	function clinical_cms_theme_blog_header_meta( $atts, $content =  null) {
+	function clinical_cms_theme_blog_meta( $atts, $content =  null) {
         if ( 'post' === get_post_type() ){
             return '<div class="entry-meta">' . clinical_cms_theme_posted_on() . '</div><!-- .entry-meta -- >';
         }
         return '';
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Meta', 'clinical_cms_theme_blog_meta');		
+}
+if( !function_exists('clinical_cms_theme_blog_thumb') ) {
+	function clinical_cms_theme_blog_header_thumb( $atts, $content =  null) {
+        if ( has_post_thumbnail( $post->ID ) ) {
+            return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
+        }
+        return '';
+	}
+	add_shortcode('Clinical_CMS_Theme_Blog_Thumb', 'clinical_cms_theme_blog_thumb');		
 }
 
 
@@ -219,7 +228,7 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
 vc_map( array(
     "name" => __("Clinical CMS Blog Block", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Block",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header_Open, Clinical_CMS_Theme_Blog_Header_Close, Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header_Open, Clinical_CMS_Theme_Blog_Header_Close, Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => false,
@@ -260,6 +269,16 @@ vc_map( array(
 vc_map( array(
     "name" => __("Clinical CMS Blog Meta", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Meta",
+    "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
+    //"content_element" => false, // set this parameter when element will has a content
+    "show_settings_on_create" => false,
+    //"is_container" => false, // set this param when you need to add a content element in this element
+    //"js_view" => 'VcColumnView',
+    "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+) );
+vc_map( array(
+    "name" => __("Clinical CMS Blog Image", "clinical-cms-theme"),
+    "base" => "Clinical_CMS_Theme_Blog_Thumb",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"content_element" => false, // set this parameter when element will has a content
     "show_settings_on_create" => false,
