@@ -200,7 +200,7 @@ if(!function_exists('clinical_cms_theme_blog_Title')) {
 vc_map( array(
     "name" => __("Clinical CMS Blog Block", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Block",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header', 'only' => 'Clinical_CMS_Theme_Blog_Header'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header, Clinical_CMS_Theme_Blog_Title'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
@@ -211,7 +211,7 @@ vc_map( array(
     "name" => __("Clinical CMS Blog Header", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Header",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title'),
+    //"as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
