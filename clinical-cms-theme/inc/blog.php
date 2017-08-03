@@ -211,8 +211,8 @@ vc_map( array(
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header_Open, Clinical_CMS_Theme_Blog_Header_Close, Clinical_CMS_Theme_Blog_Title'),
     "content_element" => true,
     "show_settings_on_create" => false,
-    "is_container" => true,
-    "js_view" => 'VcColumnView',
+    "is_container" => false,
+    //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
