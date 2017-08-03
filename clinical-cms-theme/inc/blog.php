@@ -175,19 +175,19 @@ if(!function_exists('clinical_cms_theme_blog_block')){
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Block', 'clinical_cms_theme_blog_block');
 }
-if(!function_exists('clinical_cms_theme_blog_header')) {
+if(!function_exists('clinical_cms_theme_blog_header_open')) {
 	function clinical_cms_theme_blog_header( $atts, $content =  null) {
         return '<header class="entry-header">' /* . do_shortcode($content) . '</header>' */;
 	}
-	add_shortcode('Clinical_CMS_Theme_Blog_Header_Start', 'clinical_cms_theme_blog_header_start');		
+	add_shortcode('Clinical_CMS_Theme_Blog_Header_Open', 'clinical_cms_theme_blog_header_open');		
 }
-if(!function_exists('clinical_cms_theme_blog_header')) {
+if(!function_exists('clinical_cms_theme_blog_header_close')) {
 	function clinical_cms_theme_blog_header( $atts, $content =  null) {
         return /*'<header class="entry-header">' . do_shortcode($content) . */ '</header>';
 	}
-	add_shortcode('Clinical_CMS_Theme_Blog_Header_Start', 'clinical_cms_theme_blog_header_start');		
+	add_shortcode('Clinical_CMS_Theme_Blog_Header_Close', 'clinical_cms_theme_blog_header_close');		
 }
-if(!function_exists('clinical_cms_theme_blog_Title')) {
+if(!function_exists('clinical_cms_theme_blog_title')) {
 	function clinical_cms_theme_blog_title( $atts, $content =  null) {
         if ( is_singular() ) :
 			return get_the_title( '<h1 class="entry-title">', '</h1>' );
@@ -206,7 +206,7 @@ if(!function_exists('clinical_cms_theme_blog_Title')) {
 vc_map( array(
     "name" => __("Clinical CMS Blog Block", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Block",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header_Start, Clinical_CMS_Theme_Blog_Header_Close, Clinical_CMS_Theme_Blog_Title'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header_Open, Clinical_CMS_Theme_Blog_Header_Close, Clinical_CMS_Theme_Blog_Title'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
@@ -215,12 +215,12 @@ vc_map( array(
 ) );
 vc_map( array(
     "name" => __("Clinical CMS OPEN Blog Header", "clinical-cms-theme"),
-    "base" => "Clinical_CMS_Theme_Blog_Header_Start",
+    "base" => "Clinical_CMS_Theme_Blog_Header_Open",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title'),
-    "content_element" => true,
+    "content_element" => false,
     "show_settings_on_create" => false,
-    "is_container" => true,
+    "is_container" => false,
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
@@ -228,9 +228,9 @@ vc_map( array(
     "name" => __("Clinical CMS CLOSE Blog Header", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Header_Close",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
-    "content_element" => true,
+    "content_element" => false,
     "show_settings_on_create" => false,
-    "is_container" => true,
+    "is_container" => false,
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
@@ -250,10 +250,14 @@ vc_map( array(
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Block extends WPBakeryShortCodesContainer {
     }
-    class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Header extends WPBakeryShortCodesContainer {
-    }
+    //class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Header extends WPBakeryShortCodesContainer {
+    //}
 }
 if ( class_exists( 'WPBakeryShortCode' ) ) {
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header_Open extends WPBakeryShortCode {
+    }
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header_Close extends WPBakeryShortCode {
+    }
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Title extends WPBakeryShortCode {
     }
 }
