@@ -206,7 +206,7 @@ if(!function_exists('clinical_cms_theme_blog_Title')) {
 vc_map( array(
     "name" => __("Clinical CMS Blog Block", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Block",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header_Start, Clinical_CMS_Theme_Blog_Header_Close, Clinical_CMS_Theme_Blog_Title'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Header_Start', 'Clinical_CMS_Theme_Blog_Header_Close', 'only' => 'Clinical_CMS_Theme_Blog_Title'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
@@ -237,7 +237,7 @@ vc_map( array(
 vc_map( array(
     "name" => __("Clinical CMS Blog Title", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Title",
-    "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Header'),
+    "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     "content_element" => false, // set this parameter when element will has a content
     "show_settings_on_create" => false,
     "is_container" => false, // set this param when you need to add a content element in this element
