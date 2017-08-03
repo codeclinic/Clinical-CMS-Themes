@@ -34,11 +34,14 @@
 	</header><!-- .entry-header -- >
 -->
 <?php    
-    
         //get the post page layout & content data
         //$page_for_posts_id = get_option( 'page_for_posts' );
+        ob_start();
         $page_for_posts_obj = get_post( 68 );
         apply_filters( 'the_content', $page_for_posts_obj->post_content );
+        $blogLayout = ob_get_contents();
+        ob_end_clean();
+        echo $blogLayout;
 ?>   
 	<div class="entry-content">
 		<?php
