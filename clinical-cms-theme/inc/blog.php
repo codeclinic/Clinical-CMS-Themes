@@ -171,21 +171,27 @@ function Clinical_CMS_Blog_Nav_VisComp_Map() {
 
 if(!function_exists('clinical_cms_theme_blog_block')){
     function clinical_cms_theme_blog_block( $atts, $content = null ) {
-        $i = 0;
-        $i++;
-        return '<article id="post-' . get_the_ID() . '" class="' . join( ' ', get_post_class() ) . ' int-' . $i . '" >' . do_shortcode($content) . '</article><!-- #post-' . get_the_ID() . ' -->';
+        return '<article id="post-' . get_the_ID() . '" class="' . join( ' ', get_post_class() ) . '" >' . do_shortcode($content) . '</article><!-- #post-' . get_the_ID() . ' -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Block', 'clinical_cms_theme_blog_block');
 }
 if(!function_exists('clinical_cms_theme_blog_header_open')) {
 	function clinical_cms_theme_blog_header_open( $atts, $content =  null) {
-        return '<header class="entry-header">' /* . do_shortcode($content) . '</header>' */;
+        //return '<header class="entry-header">' /* . do_shortcode($content) . '</header>' */;
+        return '<header class="entry-header">
+		< ? php
+		if ( is_singular() ) :
+			the_title( '<h1 class="entry-title">', '</h1>' );
+		else :
+			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
+		endif';
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Header_Open', 'clinical_cms_theme_blog_header_open');		
 }
 if(!function_exists('clinical_cms_theme_blog_header_close')) {
 	function clinical_cms_theme_blog_header_close( $atts, $content =  null) {
-        return /*'<header class="entry-header">' . do_shortcode($content) . */ '</header>';
+        //return /*'<header class="entry-header">' . do_shortcode($content) . */ '</header>';
+        return '</header><!-- .entry-header -- >';
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Header_Close', 'clinical_cms_theme_blog_header_close');		
 }
@@ -204,7 +210,7 @@ if(!function_exists('clinical_cms_theme_blog_title')) {
 if( !function_exists('clinical_cms_theme_blog_meta') ) {
 	function clinical_cms_theme_blog_meta( $atts, $content =  null) {
         if ( 'post' === get_post_type() ){
-            return '<div class="entry-meta">' . clinical_cms_theme_posted_on() . '</div><!-- .entry-meta -- >';
+            return '<div class="entry-meta">' clinical_cms_theme_posted_on() . '</div><!-- .entry-meta -- >';
         }
         return '';
 	}
