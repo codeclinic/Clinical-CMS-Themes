@@ -22,7 +22,7 @@
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			< ? php clinical_cms_theme_posted_on(); ?>
-		</div><!-- .entry-meta -->
+		</div><!-- .entry-meta -- >
 		< ? php
 		endif; 
         if ( has_post_thumbnail( $post->ID ) ) {
