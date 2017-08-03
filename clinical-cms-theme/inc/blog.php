@@ -218,30 +218,30 @@ vc_map( array(
     "base" => "Clinical_CMS_Theme_Blog_Header_Open",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title'),
-    "content_element" => false,
+    //"content_element" => false,
     "show_settings_on_create" => false,
-    "is_container" => false,
-    "js_view" => 'VcColumnView',
+    //"is_container" => false,
+    //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
     "name" => __("Clinical CMS CLOSE Blog Header", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Header_Close",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
-    "content_element" => false,
+    //"content_element" => false,
     "show_settings_on_create" => false,
-    "is_container" => false,
-    "js_view" => 'VcColumnView',
+    //"is_container" => false,
+    //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
     "name" => __("Clinical CMS Blog Title", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Title",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
-    "content_element" => false, // set this parameter when element will has a content
+    //"content_element" => false, // set this parameter when element will has a content
     "show_settings_on_create" => false,
-    "is_container" => false, // set this param when you need to add a content element in this element
-    "js_view" => 'VcColumnView',
+    //"is_container" => false, // set this param when you need to add a content element in this element
+    //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 
