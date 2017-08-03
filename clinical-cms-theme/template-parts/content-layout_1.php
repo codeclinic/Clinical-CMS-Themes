@@ -37,7 +37,7 @@
         //echo apply_filters( 'the_content','[vc_row full_width="stretch_row_content_no_spaces" parallax="content-moving-fade" css=".vc_custom_1499539750144{padding-top: 200px !important;padding-bottom: 200px !important;}"][vc_column][/vc_column][/vc_row][vc_row][vc_column width="1/6"][/vc_column][vc_column width="2/3"][vc_row_inner][vc_column_inner width="5/6"][Clinical_CMS_Theme_Blog_Block][Clinical_CMS_Theme_Blog_Header_Open][Clinical_CMS_Theme_Blog_Header_Close][/Clinical_CMS_Theme_Blog_Block][/vc_column_inner][vc_column_inner width="1/6"][vc_column_text]This would bethe sidebar zone[/vc_column_text][Clinical_CMS_Blog_Nav][/vc_column_inner][/vc_row_inner][/vc_column][vc_column width="1/6"][/vc_column][/vc_row][vc_row][vc_column][/vc_column][/vc_row]');
     
         $page_for_posts_obj = get_post( 68 );
-        echo /* apply_filters( 'the_content',*/ $page_for_posts_obj->post_content /*)*/;
+        echo apply_filters( 'the_content', $page_for_posts_obj->post_content );
  ?>
 	<div class="entry-content">
 		<?php
