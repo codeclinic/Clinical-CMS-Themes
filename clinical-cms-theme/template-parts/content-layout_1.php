@@ -10,8 +10,9 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+<!--
 	<header class="entry-header">
-		<?php
+		< ? php
 		if ( is_singular() ) :
 			the_title( '<h1 class="entry-title">', '</h1>' );
 		else :
@@ -20,18 +21,18 @@
 
 		if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
-			<?php clinical_cms_theme_posted_on(); ?>
+			< ? php clinical_cms_theme_posted_on(); ?>
 		</div><!-- .entry-meta -->
-		<?php
+		< ? php
 		endif; 
         if ( has_post_thumbnail( $post->ID ) ) {
             echo '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '">';
             echo get_the_post_thumbnail( $post->ID, 'large' );
             echo '</a>';
         }
-        ?>
+        ? >
 	</header><!-- .entry-header -->
-
+-->
 	<div class="entry-content">
 		<?php
 			the_content( sprintf(
