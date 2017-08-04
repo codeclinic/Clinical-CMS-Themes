@@ -191,51 +191,51 @@ if(!function_exists('clinical_cms_theme_blog_header_close')) {
 }
 if(!function_exists('clinical_cms_theme_blog_title')) {
 	function clinical_cms_theme_blog_title( $atts, $content =  null) {
-        /*
         if ( is_singular() ) :
 			return '<h1 class="entry-title">' . get_the_title() . '</h1>';
 		else :
 			return '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
 		endif;
-        */
+        /*
         return '<?php
 		if ( is_singular() ) :
 			the_title( \'<h1 class="entry-title">\', \'</h1>\' );
 		else :
 			the_title( \'<h2 class="entry-title"><a href="\' . esc_url( get_permalink() ) . \'" rel="bookmark">\', \'</a></h2>\' );
 		endif ?>';
+        */
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Title', 'clinical_cms_theme_blog_title');		
 }
 if( !function_exists('clinical_cms_theme_blog_meta') ) {
 	function clinical_cms_theme_blog_meta( $atts, $content =  null) {
-        /*
         if ( 'post' === get_post_type() ){
             return '<div class="entry-meta">' . clinical_cms_theme_posted_on() . '</div><!-- .entry-meta -- >';
         }
         return '';
-        */
+        /*
         return '<?php if ( \'post\' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php clinical_cms_theme_posted_on(); ?>
 		</div><!-- .entry-meta -- >
         <?php endif; ?>';
+        */
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Meta', 'clinical_cms_theme_blog_meta');		
 }
 if( !function_exists('clinical_cms_theme_blog_thumb') ) {
 	function clinical_cms_theme_blog_header_thumb( $atts, $content =  null) {
-        /*
         if ( has_post_thumbnail( $post->ID ) ) {
             return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
         }
         return '';
-        */
+        /*
        return '<?php if ( has_post_thumbnail( $post->ID ) ) {
             echo \'<a href="\' . get_permalink( $post->ID ) . \'" title="\' . esc_attr( $post->post_title ) . \'">\';
             echo get_the_post_thumbnail( $post->ID, \'large\' );
             echo \'</a>\';
         } ?>';
+        */
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Thumb', 'clinical_cms_theme_blog_thumb');		
 }
