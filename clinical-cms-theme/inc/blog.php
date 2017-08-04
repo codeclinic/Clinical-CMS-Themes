@@ -224,7 +224,7 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
 	add_shortcode('Clinical_CMS_Theme_Blog_Meta', 'clinical_cms_theme_blog_meta');		
 }
 if( !function_exists('clinical_cms_theme_blog_thumb') ) {
-	function clinical_cms_theme_blog_header_thumb( $atts, $content =  null) {
+	function clinical_cms_theme_blog_thumb( $atts, $content =  null) {
         if ( has_post_thumbnail( $post->ID ) ) {
             return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
         }
