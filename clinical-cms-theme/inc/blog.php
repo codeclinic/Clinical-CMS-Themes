@@ -362,9 +362,9 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
     }
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Meta extends WPBakeryShortCode {
     }
-    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header_Open extends WPBakeryShortCode {
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Body_Open extends WPBakeryShortCode {
     }
-    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header_Close extends WPBakeryShortCode {
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Body_Close extends WPBakeryShortCode {
     }
 }
 
