@@ -210,7 +210,11 @@ if(!function_exists('clinical_cms_theme_blog_title')) {
 if( !function_exists('clinical_cms_theme_blog_meta') ) {
 	function clinical_cms_theme_blog_meta( $atts, $content =  null) {
         if ( 'post' === get_post_type() ){
-            return '<div class="entry-meta">' . clinical_cms_theme_posted_on() . '</div><!-- .entry-meta -- >';
+            ob_start();
+            clinical_cms_theme_posted_on();
+            $postedOn = ob_get_contents();
+            ob_end_clean();
+            return '<div class="entry-meta">' . $postedOn . '</div><!-- .entry-meta -- >';
         }
         return '';
         /*
