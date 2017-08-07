@@ -263,7 +263,7 @@ vc_map( array(
     "name" => __("Clinical Post Header", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Header",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb, Clinical_CMS_Theme_Blog_Tools'),
-    "content_element" => false,
+    "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
     "js_view" => 'VcColumnView',
@@ -315,7 +315,7 @@ vc_map( array(
     "name" => __("Clinical Post Body", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Body",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Contents'),
-    "content_element" => false,
+    "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
     "js_view" => 'VcColumnView',
@@ -335,7 +335,7 @@ vc_map( array(
     "name" => __("Clinical Post Footer", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Footer",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Tools'),
-    "content_element" => false, // set this parameter when element will has a content
+    "content_element" => true, // set this parameter when element will has a content
     "show_settings_on_create" => false,
     "is_container" => true, // set this param when you need to add a content element in this element
     "js_view" => 'VcColumnView',
