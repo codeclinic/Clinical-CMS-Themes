@@ -199,7 +199,6 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
 if( !function_exists('clinical_cms_theme_blog_thumb') ) {
 	function clinical_cms_theme_blog_thumb( $atts, $content =  null) {
         if ( has_post_thumbnail( $post->ID ) ) {
-            var_dump(get_intermediate_image_sizes());
             return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
         }
         return;
@@ -264,10 +263,10 @@ vc_map( array(
     "name" => __("Clinical Post Header", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Header",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb, Clinical_CMS_Theme_Blog_Tools'),
-    "content_element" => true,
+    "content_element" => false,
     "show_settings_on_create" => false,
     "is_container" => true,
-    //"js_view" => 'VcColumnView',
+    "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
@@ -316,10 +315,10 @@ vc_map( array(
     "name" => __("Clinical Post Body", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Body",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Contents'),
-    "content_element" => true,
+    "content_element" => false,
     "show_settings_on_create" => false,
     "is_container" => true,
-    //"js_view" => 'VcColumnView',
+    "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
@@ -336,10 +335,10 @@ vc_map( array(
     "name" => __("Clinical Post Footer", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Footer",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Tools'),
-    "content_element" => true, // set this parameter when element will has a content
+    "content_element" => false, // set this parameter when element will has a content
     "show_settings_on_create" => false,
     "is_container" => true, // set this param when you need to add a content element in this element
-    //"js_view" => 'VcColumnView',
+    "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
