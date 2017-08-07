@@ -169,7 +169,7 @@ function Clinical_CMS_Blog_Nav_VisComp_Map() {
   
 if(!function_exists('clinical_cms_theme_blog_header')){
     function clinical_cms_theme_blog_header( $atts, $content = null ) {
-        return '<header class="entry-header">' . do_shortcode($content) . '</header><!-- .entry-header -- >';
+        return '<header class="entry-header">' . do_shortcode($content) . '</header><!-- .entry-header -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Header', 'clinical_cms_theme_blog_header');
 }    
@@ -190,7 +190,7 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
             clinical_cms_theme_posted_on();
             $postedOn = ob_get_contents();
             ob_end_clean();
-            return '<div class="entry-meta">' . $postedOn . '</div><!-- .entry-meta -- >';
+            return '<div class="entry-meta">' . $postedOn . '</div><!-- .entry-meta -->';
         }
         return;
 	}
@@ -209,8 +209,7 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
 //BODY CONTENT
 if( !function_exists('clinical_cms_theme_blog_body') ) {
     function clinical_cms_theme_blog_body( $atts, $content = null ) {
-        //return '<div class="entry-content">' . do_shortcode($content) . '</div><!-- .entry-content -->';
-        return "CHEEEEEEEEEESSSEEE!!!!!!";
+        return '<div class="entry-content">' . do_shortcode($content) . '</div><!-- .entry-content -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Body', 'clinical_cms_theme_blog_body');
 }
