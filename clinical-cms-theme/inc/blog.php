@@ -299,7 +299,6 @@ vc_map( array(
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-            array(
                 "type" => "dropdown",
                 "holder" => "div",
                 "class" => "thumb-sizes",
