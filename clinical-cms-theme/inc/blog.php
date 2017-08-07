@@ -294,7 +294,7 @@ vc_map( array(
     "base" => "Clinical_CMS_Theme_Blog_Thumb",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"content_element" => false, // set this parameter when element will has a content
-    "show_settings_on_create" => false,
+    "show_settings_on_create" => true,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
