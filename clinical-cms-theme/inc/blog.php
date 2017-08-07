@@ -213,12 +213,13 @@ if(!function_exists('clinical_cms_theme_blog_body')){
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Body', 'clinical_cms_theme_blog_body');
 }
+/*
 if(!function_exists('clinical_cms_theme_blog_content')){
     function clinical_cms_theme_blog_content( $atts, $content = null ) {
         apply_filters('the_content',
             get_the_content( sprintf(
                 wp_kses(
-                    /* translators: %s: Name of current post. Only visible to screen readers */
+                    /* translators: %s: Name of current post. Only visible to screen readers * /
                     __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'clinical-cms-theme' ),
                     array(
                         'span' => array(
@@ -236,7 +237,7 @@ if(!function_exists('clinical_cms_theme_blog_content')){
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Content', 'clinical_cms_theme_blog_content');
 }
-
+*/
 
 
 
@@ -284,7 +285,7 @@ vc_map( array(
 vc_map( array(
     "name" => __("Clinical CMS Blog Body", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Body",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Content'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Contents'),
     "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => false,
@@ -293,7 +294,7 @@ vc_map( array(
 ) );
 vc_map( array(
     "name" => __("Clinical CMS Blog Content", "clinical-cms-theme"),
-    "base" => "Clinical_CMS_Theme_Blog_Content",
+    "base" => "Clinical_CMS_Theme_Blog_Contents",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Body'),
     //"content_element" => false, // set this parameter when element will has a content
     "show_settings_on_create" => false,
@@ -313,6 +314,10 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Title extends WPBakeryShortCode {
     }
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Meta extends WPBakeryShortCode {
+    }
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Thumb extends WPBakeryShortCode {
+    }
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Contents extends WPBakeryShortCode {
     }
 }
 
