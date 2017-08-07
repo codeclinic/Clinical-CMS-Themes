@@ -267,3 +267,5 @@ require get_template_directory() . '/inc/blog.php';
  */
 require get_template_directory() . '/inc/comments.php';
 
+
+            var_dump(get_intermediate_image_sizes());
