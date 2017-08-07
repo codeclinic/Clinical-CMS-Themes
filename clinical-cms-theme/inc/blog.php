@@ -250,17 +250,17 @@ if( !function_exists('clinical_cms_theme_blog_footer') ) {
 
 // Mapping 
 vc_map( array(
-    "name" => __("Clinical CMS Blog Header", "clinical-cms-theme"), 
+    "name" => __("Clinical Blog Header", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Header",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb'),
-    "content_element" => false,
+    "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
-    "name" => __("Clinical CMS Blog Title", "clinical-cms-theme"),
+    "name" => __("Clinical Blog Title", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Title",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"content_element" => false, // set this parameter when element will has a content
@@ -270,7 +270,7 @@ vc_map( array(
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
-    "name" => __("Clinical CMS Blog Meta", "clinical-cms-theme"),
+    "name" => __("Clinical Blog Meta", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Meta",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"content_element" => false, // set this parameter when element will has a content
@@ -280,7 +280,7 @@ vc_map( array(
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
-    "name" => __("Clinical CMS Blog Image", "clinical-cms-theme"),
+    "name" => __("Clinical Blog Image", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Thumb",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"content_element" => false, // set this parameter when element will has a content
@@ -290,17 +290,17 @@ vc_map( array(
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
-    "name" => __("Clinical CMS Blog Body", "clinical-cms-theme"), 
+    "name" => __("Clinical Blog Body", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Body",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Contents'),
-    "content_element" => false,
+    "content_element" => true,
     "show_settings_on_create" => false,
     "is_container" => true,
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
-    "name" => __("Clinical CMS Blog Contents", "clinical-cms-theme"),
+    "name" => __("Clinical Blog Contents", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Contents",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Body'),
     //"content_element" => false, // set this parameter when element will has a content
@@ -310,7 +310,7 @@ vc_map( array(
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
 vc_map( array(
-    "name" => __("Clinical CMS Blog Footer", "clinical-cms-theme"),
+    "name" => __("Clinical Blog Footer", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Footer",
     //"as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Footer'),
     //"content_element" => false, // set this parameter when element will has a content
@@ -335,8 +335,8 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
     }
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Contents extends WPBakeryShortCode {
     }
-    //class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Contents extends WPBakeryShortCode {
-    //}
+    class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Footer extends WPBakeryShortCode {
+    }
 }
 
 ?>
