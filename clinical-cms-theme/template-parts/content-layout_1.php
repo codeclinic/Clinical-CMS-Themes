@@ -62,7 +62,7 @@
 -->
 <!--
 	<footer class="entry-footer">
-		<? p h p clinical_cms_theme_entry_footer(); ? >
+		<?php /* clinical_cms_theme_entry_footer(); */ ?>
 	</footer><!-- .entry-footer -->
 -->
 </article><!-- #post-<?php the_ID(); ?> -->
