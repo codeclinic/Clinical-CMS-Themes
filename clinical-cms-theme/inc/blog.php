@@ -216,8 +216,8 @@ if(!function_exists('clinical_cms_theme_blog_body')){
 
 if(!function_exists('clinical_cms_theme_blog_contents')){
     function clinical_cms_theme_blog_contents( $atts, $content = null ) {
-        apply_filters('the_content',
-            get_the_content( sprintf(
+        //apply_filters('the_content',
+            the_content( sprintf(
                 wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
                     __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'clinical-cms-theme' ),
@@ -229,7 +229,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                 ),
 				get_the_title()
 			 ) );
-        );
+        //);
         wp_link_pages( array(
             'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
             'after'  => '</div>',
