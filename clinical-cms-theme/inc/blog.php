@@ -252,7 +252,7 @@ if(!function_exists('clinical_cms_theme_blog_body_open')) {
 if(!function_exists('clinical_cms_theme_blog_body_close')) {
 	function clinical_cms_theme_blog_body_close( $atts, $content =  null) {
         //return /*'<header class="entry-header">' . do_shortcode($content) . */ '</header>';
-        return '</header><!-- .entry-header -- >';
+        return '</div><!-- .entry-content -->';
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Body_Close', 'clinical_cms_theme_blog_body_close');		
 }
