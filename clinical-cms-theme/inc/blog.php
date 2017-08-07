@@ -199,6 +199,7 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
 if( !function_exists('clinical_cms_theme_blog_thumb') ) {
 	function clinical_cms_theme_blog_thumb( $atts, $content =  null) {
         if ( has_post_thumbnail( $post->ID ) ) {
+            var_dump(get_intermediate_image_sizes());
             return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '">' . get_the_post_thumbnail( $post->ID, 'large' ) . '</a>';
         }
         return;
@@ -298,7 +299,7 @@ vc_map( array(
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
-    "params" => array(
+    /*"params" => array(
                 "type" => "dropdown",
                 "holder" => "div",
                 "class" => "thumb-sizes",
@@ -309,6 +310,7 @@ vc_map( array(
                 //'std'         => 'one', //default value
                 "description" => __( "Select the required image size.", "clinical-cms-theme" )
             ),
+        */
 ) );
 vc_map( array(
     "name" => __("Clinical Post Body", "clinical-cms-theme"), 
