@@ -248,7 +248,11 @@ if( !function_exists('clinical_cms_theme_blog_footer') ) {
 }
 if( !function_exists('clinical_cms_theme_blog_tools') ) {
     function clinical_cms_theme_blog_tools( $atts, $content = null ) {
-        return clinical_cms_theme_entry_footer();
+        ob_start();
+        clinical_cms_theme_entry_footer();
+        $postTools = ob_get_contents();
+        ob_end_clean();
+        return $postTools;
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Tools', 'clinical_cms_theme_blog_tools');
 }
