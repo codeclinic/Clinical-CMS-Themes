@@ -213,8 +213,6 @@ if( !function_exists('clinical_cms_theme_blog_body') ) {
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Body', 'clinical_cms_theme_blog_body');
 }
-
-
 if(!function_exists('clinical_cms_theme_blog_contents')){
     function clinical_cms_theme_blog_contents( $atts, $content = null ) {
         ob_start();
@@ -241,7 +239,13 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
     add_shortcode('Clinical_CMS_Theme_Blog_Contents', 'clinical_cms_theme_blog_contents');
 }
 
-
+//FOOTER CONTENT
+if( !function_exists('clinical_cms_theme_blog_footer') ) {
+    function clinical_cms_theme_blog_footer( $atts, $content = null ) {
+        return '<footer class="entry-footer">' . clinical_cms_theme_entry_footer() . '</footer><!-- .entry-footer -->';
+    }
+    add_shortcode('Clinical_CMS_Theme_Blog_Footer', 'clinical_cms_theme_blog_footer');
+}
 
 
 // Mapping 
@@ -305,7 +309,16 @@ vc_map( array(
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
-
+vc_map( array(
+    "name" => __("Clinical CMS Blog Footer", "clinical-cms-theme"),
+    "base" => "Clinical_CMS_Theme_Blog_Footer",
+    //"as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Footer'),
+    //"content_element" => false, // set this parameter when element will has a content
+    "show_settings_on_create" => false,
+    //"is_container" => false, // set this param when you need to add a content element in this element
+    //"js_view" => 'VcColumnView',
+    "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+) );
 
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header extends WPBakeryShortCodesContainer {
@@ -322,6 +335,8 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
     }
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Contents extends WPBakeryShortCode {
     }
+    //class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Contents extends WPBakeryShortCode {
+    //}
 }
 
 ?>
