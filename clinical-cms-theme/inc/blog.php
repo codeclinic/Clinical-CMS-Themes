@@ -295,7 +295,7 @@ vc_map( array(
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Contents'),
     "content_element" => true,
     "show_settings_on_create" => false,
-    "is_container" => true,
+    "is_container" => false,
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
 ) );
