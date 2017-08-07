@@ -298,18 +298,18 @@ vc_map( array(
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
-    /*"params" => array(
+    "params" => array(
                 "type" => "dropdown",
                 "holder" => "div",
                 "class" => "thumb-sizes",
                 "heading" => __( "Image Size", "clinical-cms-theme" ),
                 "param_name" => "size",
                 "admin_label" => true,
-                "value" => get_intermediate_image_sizes(),
+                "value" => array(get_intermediate_image_sizes()),
                 //'std'         => 'one', //default value
                 "description" => __( "Select the required image size.", "clinical-cms-theme" )
             ),
-        */
+        
 ) );
 vc_map( array(
     "name" => __("Clinical Post Body", "clinical-cms-theme"), 
