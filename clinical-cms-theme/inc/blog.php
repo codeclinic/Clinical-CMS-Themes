@@ -337,7 +337,7 @@ vc_map( array(
 ) );
 vc_map( array(
     "name" => __("Clinical CMS CLOSE Blog Header", "clinical-cms-theme"),
-    "base" => "Clinical_CMS_Theme_Blog_Header_Close",
+    "base" => "Clinical_CMS_Theme_Blog_Body_Close",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"content_element" => false,
     "show_settings_on_create" => false,
