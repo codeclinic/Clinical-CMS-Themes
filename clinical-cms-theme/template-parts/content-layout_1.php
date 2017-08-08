@@ -10,10 +10,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-
 <?php  
         $page_for_posts_obj = get_post( 68 );
         echo apply_filters( 'the_content', $page_for_posts_obj->post_content );
 ?>
-
 </article><!-- #post-<?php the_ID(); ?> -->
