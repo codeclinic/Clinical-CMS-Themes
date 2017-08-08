@@ -169,16 +169,26 @@ function Clinical_CMS_Blog_Nav_VisComp_Map() {
   
 if(!function_exists('clinical_cms_theme_blog_header')){
     function clinical_cms_theme_blog_header( $atts, $content = null ) {
-        return '<header class="entry-header">' . do_shortcode($content) . '</header><!-- .entry-header -->';
+        $css = '';
+        extract(shortcode_atts(array(
+            'css' => ''
+        ), $atts));
+        $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, vc_shortcode_custom_css_class( $css, ' ' ), $this->settings['base'], $atts );
+        return '<header class="entry-header ' . $css_class . '">' . do_shortcode($content) . '</header><!-- .entry-header -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Header', 'clinical_cms_theme_blog_header');
 }    
 if(!function_exists('clinical_cms_theme_blog_title')) {
 	function clinical_cms_theme_blog_title( $atts, $content =  null) {
+        $css = '';
+        extract(shortcode_atts(array(
+            'css' => ''
+        ), $atts));
+        $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, vc_shortcode_custom_css_class( $css, ' ' ), $this->settings['base'], $atts );
         if ( is_singular() ) :
-			return '<h1 class="entry-title">' . get_the_title() . '</h1>';
+			return '<h1 class="entry-title ' . $css_class . '">' . get_the_title() . '</h1>';
 		else :
-			return '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
+			return '<h2 class="entry-title ' . $css_class . '"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
 		endif;
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Title', 'clinical_cms_theme_blog_title');		
@@ -269,30 +279,48 @@ vc_map( array(
     "base" => "Clinical_CMS_Theme_Blog_Header",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb, Clinical_CMS_Theme_Blog_Tools'),
     "content_element" => true,
-    "show_settings_on_create" => false,
+    "show_settings_on_create" => true,
     "is_container" => true,
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+    "params" => array(
+                    'type' => 'css_editor',
+                    'heading' => __( 'Css', 'my-text-domain' ),
+                    'param_name' => 'css',
+                    'group' => __( 'Design options', 'my-text-domain' ),
+                ),   
 ) );
 vc_map( array(
     "name" => __("Clinical Post Title", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Title",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"content_element" => false, // set this parameter when element will has a content
-    "show_settings_on_create" => false,
+    "show_settings_on_create" => true,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+    "params" => array(
+                    'type' => 'css_editor',
+                    'heading' => __( 'Css', 'my-text-domain' ),
+                    'param_name' => 'css',
+                    'group' => __( 'Design options', 'my-text-domain' ),
+                ),   
 ) );
 vc_map( array(
     "name" => __("Clinical Post Meta", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Meta",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
     //"content_element" => false, // set this parameter when element will have content
-    "show_settings_on_create" => false,
+    "show_settings_on_create" => true,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+    "params" => array(
+                    'type' => 'css_editor',
+                    'heading' => __( 'Css', 'my-text-domain' ),
+                    'param_name' => 'css',
+                    'group' => __( 'Design options', 'my-text-domain' ),
+                ),   
 ) );
 vc_map( array(
     "name" => __("Clinical Post Image", "clinical-cms-theme"),
@@ -305,16 +333,22 @@ vc_map( array(
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
                     array(
-                    "type" => "dropdown",
-                    "holder" => "div",
-                    "class" => "thumb-sizes",
-                    "heading" => __( "Image Size", "clinical-cms-theme" ),
-                    "param_name" => "size",
-                    "admin_label" => true,
-                    "value" => get_intermediate_image_sizes(),
-                    //'std'         => 'one', //default value
-                    "description" => __( "Select the required image size.", "clinical-cms-theme" )
-                    )
+                            "type" => "dropdown",
+                            "holder" => "div",
+                            "class" => "thumb-sizes",
+                            "heading" => __( "Image Size", "clinical-cms-theme" ),
+                            "param_name" => "size",
+                            "admin_label" => true,
+                            "value" => get_intermediate_image_sizes(),
+                            //'std'         => 'one', //default value
+                            "description" => __( "Select the required image size.", "clinical-cms-theme" )
+                        ),
+                    array(
+                            'type' => 'css_editor',
+                            'heading' => __( 'Css', 'my-text-domain' ),
+                            'param_name' => 'css',
+                            'group' => __( 'Design options', 'my-text-domain' ),
+                        ),
                 ),      
 ) );
 vc_map( array(
@@ -322,40 +356,64 @@ vc_map( array(
     "base" => "Clinical_CMS_Theme_Blog_Body",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Contents'),
     "content_element" => true,
-    "show_settings_on_create" => false,
+    "show_settings_on_create" => true,
     "is_container" => true,
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+    "params" => array(
+                    'type' => 'css_editor',
+                    'heading' => __( 'Css', 'my-text-domain' ),
+                    'param_name' => 'css',
+                    'group' => __( 'Design options', 'my-text-domain' ),
+                ),   
 ) );
 vc_map( array(
     "name" => __("Clinical Post Contents", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Contents",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Body'),
     //"content_element" => false, // set this parameter when element will have content
-    "show_settings_on_create" => false,
+    "show_settings_on_create" => true,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+    "params" => array(
+                    'type' => 'css_editor',
+                    'heading' => __( 'Css', 'my-text-domain' ),
+                    'param_name' => 'css',
+                    'group' => __( 'Design options', 'my-text-domain' ),
+                ),   
 ) );
 vc_map( array(
     "name" => __("Clinical Post Footer", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Footer",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Tools'),
     "content_element" => true, // set this parameter when element will have content
-    "show_settings_on_create" => false,
+    "show_settings_on_create" => true,
     "is_container" => true, // set this param when you need to add a content element in this element
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+    "params" => array(
+                    'type' => 'css_editor',
+                    'heading' => __( 'Css', 'my-text-domain' ),
+                    'param_name' => 'css',
+                    'group' => __( 'Design options', 'my-text-domain' ),
+                ),   
 ) );
 vc_map( array(
     "name" => __("Clinical Post Tools", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Tools",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Header, Clinical_CMS_Theme_Blog_Footer'),
     //"content_element" => false, // set this parameter when element will have content
-    "show_settings_on_create" => false,
+    "show_settings_on_create" => true,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+    "params" => array(
+                    'type' => 'css_editor',
+                    'heading' => __( 'Css', 'my-text-domain' ),
+                    'param_name' => 'css',
+                    'group' => __( 'Design options', 'my-text-domain' ),
+                ),   
 ) );
 
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
