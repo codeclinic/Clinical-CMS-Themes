@@ -173,8 +173,7 @@ if(!function_exists('clinical_cms_theme_blog_header')){
         extract(shortcode_atts(array(
             'css' => ''
         ), $atts));
-        $css_class = apply_filters( VC_SHORTCODE_CUSTOM_CSS_FILTER_TAG, vc_shortcode_custom_css_class( $css, ' ' ), $this->settings['base'], $atts );
-        return '<header class="entry-header ' . esc_attr( $css_class ) . '">' . do_shortcode($content) . '</header><!-- .entry-header -->';
+        return '<header class="entry-header ' . esc_attr( $css ) . '">' . do_shortcode($content) . '</header><!-- .entry-header -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Header', 'clinical_cms_theme_blog_header');
 }    
