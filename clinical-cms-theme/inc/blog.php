@@ -165,7 +165,11 @@ function Clinical_CMS_Blog_Nav_VisComp_Map() {
 
 
 
-
+add_filter('vc_shortcodes_css_class', 'change_element_class_name', 10, 2);
+function change_element_class_name($class_string, $tag) {
+   // modify $class_string variable to your needs. You can use $tag variable to determine what element is currently rendered.
+   return $class_string;
+}
   
 if(!function_exists('clinical_cms_theme_blog_header')){
     function clinical_cms_theme_blog_header( $atts, $content = null ) {
@@ -173,6 +177,7 @@ if(!function_exists('clinical_cms_theme_blog_header')){
         extract(shortcode_atts(array(
             'css' => ''
         ), $atts));
+        $css_class = apply_filters( vc_shortcodes_css_class(), $width_class, $this->settings['base'], $atts );
         return '<header class="entry-header ' . esc_attr( $css ) . '">' . do_shortcode($content) . '</header><!-- .entry-header -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Header', 'clinical_cms_theme_blog_header');
