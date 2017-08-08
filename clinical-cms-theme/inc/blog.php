@@ -177,7 +177,7 @@ if(!function_exists('clinical_cms_theme_blog_header')){
         extract(shortcode_atts(array(
             'css' => ''
         ), $atts));
-        $css_class = apply_filters( vc_shortcodes_css_class(), $width_class, $this->settings['base'], $atts );
+        $css_class = apply_filters( vc_shortcodes_css_class, $width_class, $this->settings['base'], $atts );
         return '<header class="entry-header ' . esc_attr( $css ) . '">' . do_shortcode($content) . '</header><!-- .entry-header -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Header', 'clinical_cms_theme_blog_header');
