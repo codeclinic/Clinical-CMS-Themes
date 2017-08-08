@@ -37,7 +37,7 @@ function clinical_cms_theme_setup_customiser() {
     ) ); 
     // Create options that will appear 
     $pages->createOption( array(
-        'name' => 'Single Post Template',
+        'name' => 'Blog Overview Template',
         'id' => 'clinical_blog_layout',
         'type' => 'select-pages',
     ) ); 
@@ -283,7 +283,7 @@ vc_map( array(
     "name" => __("Clinical Post Meta", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Meta",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
-    //"content_element" => false, // set this parameter when element will has a content
+    //"content_element" => false, // set this parameter when element will have content
     "show_settings_on_create" => false,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
@@ -293,23 +293,24 @@ vc_map( array(
     "name" => __("Clinical Post Image", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Thumb",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Block'),
-    //"content_element" => false, // set this parameter when element will has a content
+    //"content_element" => false, // set this parameter when element will have content
     "show_settings_on_create" => true,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                "type" => "dropdown",
-                "holder" => "div",
-                "class" => "thumb-sizes",
-                "heading" => __( "Image Size", "clinical-cms-theme" ),
-                "param_name" => "size",
-                "admin_label" => true,
-                "value" => array(get_intermediate_image_sizes()),
-                //'std'         => 'one', //default value
-                "description" => __( "Select the required image size.", "clinical-cms-theme" )
-            ),
-        
+                    array(
+                    "type" => "dropdown",
+                    "holder" => "div",
+                    "class" => "thumb-sizes",
+                    "heading" => __( "Image Size", "clinical-cms-theme" ),
+                    "param_name" => "size",
+                    "admin_label" => true,
+                    "value" => get_intermediate_image_sizes(),
+                    //'std'         => 'one', //default value
+                    "description" => __( "Select the required image size.", "clinical-cms-theme" )
+                    )
+                ),      
 ) );
 vc_map( array(
     "name" => __("Clinical Post Body", "clinical-cms-theme"), 
@@ -325,7 +326,7 @@ vc_map( array(
     "name" => __("Clinical Post Contents", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Contents",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Body'),
-    //"content_element" => false, // set this parameter when element will has a content
+    //"content_element" => false, // set this parameter when element will have content
     "show_settings_on_create" => false,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
@@ -335,7 +336,7 @@ vc_map( array(
     "name" => __("Clinical Post Footer", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Footer",
     "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Tools'),
-    "content_element" => true, // set this parameter when element will has a content
+    "content_element" => true, // set this parameter when element will have content
     "show_settings_on_create" => false,
     "is_container" => true, // set this param when you need to add a content element in this element
     "js_view" => 'VcColumnView',
@@ -345,7 +346,7 @@ vc_map( array(
     "name" => __("Clinical Post Tools", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Tools",
     "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Header, Clinical_CMS_Theme_Blog_Footer'),
-    //"content_element" => false, // set this parameter when element will has a content
+    //"content_element" => false, // set this parameter when element will have content
     "show_settings_on_create" => false,
     //"is_container" => false, // set this param when you need to add a content element in this element
     //"js_view" => 'VcColumnView',
