@@ -173,8 +173,8 @@ if(!function_exists('clinical_cms_theme_blog_header')){
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '',
-            'padding'		=> '',
+            'margin'		=> '0',
+            'padding'		=> '0',
             'class'				=> ''
             ), $atts));
         
@@ -254,8 +254,8 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '',
-            'padding'		=> '',
+            'margin'		=> '0',
+            'padding'		=> '0',
             'class'				=> '',
             'size' => 'large',
             'link'          => false,
@@ -285,8 +285,8 @@ if( !function_exists('clinical_cms_theme_blog_body') ) {
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '',
-            'padding'		=> '',
+            'margin'		=> '0',
+            'padding'		=> '0',
             'class'				=> ''
             ), $atts));
         
@@ -308,8 +308,8 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '',
-            'padding'		=> '',
+            'margin'		=> '0',
+            'padding'		=> '0',
             'class'				=> ''
             ), $atts));
         
@@ -352,8 +352,8 @@ if( !function_exists('clinical_cms_theme_blog_footer') ) {
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '',
-            'padding'		=> '',
+            'margin'		=> '0',
+            'padding'		=> '0',
             'class'				=> ''
             ), $atts));
         
