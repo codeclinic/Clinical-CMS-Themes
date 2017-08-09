@@ -258,6 +258,7 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
             'padding'		=> '',
             'class'				=> '',
             'size' => 'large',
+            'link'          => true,
             ), $atts));
         
         $styles ='';
@@ -268,7 +269,8 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
         if($color) $styles .= 'color:' . $color  . ';';
         
         if ( has_post_thumbnail( $post->ID ) ) {
-            return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '" style="' . $styles . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+            if($link) return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '" style="display:block;' . $styles . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</a>';
+            return '<div style="' . $styles . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</div>';
         }
         return;
 	}
@@ -609,6 +611,13 @@ vc_map( array(
 			"heading" => __("Custom Class ", "themeum"),
 			"param_name" => "class",
 			"value" => "",
+			),
+
+		array(
+			"type" => "checkbox",
+			"heading" => __("Link To Post? ", "themeum"),
+			"param_name" => "link",
+			"value" => false,
 			),
     
                 ),      
