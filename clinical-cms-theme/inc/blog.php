@@ -182,7 +182,7 @@ if(!function_exists('clinical_cms_theme_blog_header')){
         if(margin) $styles .= 'margin:' . $margin .';';
         if(padding) $styles .= 'padding:' . $padding .';';
         if($position) $styles .= 'text-align:'. $position .';';
-        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
         return '<header class="entry-header ' . esc_attr( $class ) . '" style="' . $styles . '">' . do_shortcode($content) . '</header><!-- .entry-header -->';
@@ -206,7 +206,7 @@ if(!function_exists('clinical_cms_theme_blog_title')) {
         if(margin) $styles .= 'margin:' . $margin .';';
         if(padding) $styles .= 'padding:' . $padding .';';
         if($position) $styles .= 'text-align:'. $position .';';
-        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
         if ( is_singular() ) :
@@ -233,7 +233,7 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
         if(margin) $styles .= 'margin:' . $margin .';';
         if(padding) $styles .= 'padding:' . $padding .';';
         if($position) $styles .= 'text-align:'. $position .';';
-        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
         if ( 'post' === get_post_type() ){
@@ -264,7 +264,7 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
         if(margin) $styles .= 'margin:' . $margin .';';
         if(padding) $styles .= 'padding:' . $padding .';';
         if($position) $styles .= 'text-align:'. $position .';';
-        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
         if ( has_post_thumbnail( $post->ID ) ) {
@@ -292,7 +292,7 @@ if( !function_exists('clinical_cms_theme_blog_body') ) {
         if(margin) $styles .= 'margin:' . $margin .';';
         if(padding) $styles .= 'padding:' . $padding .';';
         if($position) $styles .= 'text-align:'. $position .';';
-        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
         return '<div class="entry-content" style="' . $styles . '">' . do_shortcode($content) . '</div><!-- .entry-content -->';
@@ -315,7 +315,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if(margin) $styles .= 'margin:' . $margin .';';
         if(padding) $styles .= 'padding:' . $padding .';';
         if($position) $styles .= 'text-align:'. $position .';';
-        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
         ob_start();
@@ -359,7 +359,7 @@ if( !function_exists('clinical_cms_theme_blog_footer') ) {
         if(margin) $styles .= 'margin:' . $margin .';';
         if(padding) $styles .= 'padding:' . $padding .';';
         if($position) $styles .= 'text-align:'. $position .';';
-        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
         return '<footer class="entry-footer" style="' . $styles . '">' . do_shortcode($content) . '</footer><!-- .entry-footer -->';
