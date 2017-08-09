@@ -256,7 +256,7 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
             'size'				=> '16px',
             'margin'		=> '0',
             'padding'		=> '0',
-            'class'				=> ''
+            'class'				=> '',
             'size' => 'large',
             ), $atts));
         
