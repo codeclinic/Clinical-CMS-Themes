@@ -173,8 +173,8 @@ if(!function_exists('clinical_cms_theme_blog_header')){
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '0',
-            'padding'		=> '0',
+            'margin'		=> '',
+            'padding'		=> '',
             'class'				=> ''
             ), $atts));
         
@@ -224,8 +224,8 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '0',
-            'padding'		=> '0',
+            'margin'		=> '',
+            'padding'		=> '',
             'class'				=> ''
             ), $atts));
         
@@ -254,8 +254,8 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '0',
-            'padding'		=> '0',
+            'margin'		=> '',
+            'padding'		=> '',
             'class'				=> '',
             'size' => 'large',
             ), $atts));
@@ -283,8 +283,8 @@ if( !function_exists('clinical_cms_theme_blog_body') ) {
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '0',
-            'padding'		=> '0',
+            'margin'		=> '',
+            'padding'		=> '',
             'class'				=> ''
             ), $atts));
         
@@ -306,8 +306,8 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '0',
-            'padding'		=> '0',
+            'margin'		=> '',
+            'padding'		=> '',
             'class'				=> ''
             ), $atts));
         
@@ -350,8 +350,8 @@ if( !function_exists('clinical_cms_theme_blog_footer') ) {
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '0',
-            'padding'		=> '0',
+            'margin'		=> '',
+            'padding'		=> '',
             'class'				=> ''
             ), $atts));
         
