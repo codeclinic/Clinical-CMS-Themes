@@ -258,7 +258,7 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
             'padding'		=> '',
             'class'				=> '',
             'size' => 'large',
-            'link'          => true,
+            'link'          => false,
             ), $atts));
         
         $styles ='';
@@ -617,7 +617,7 @@ vc_map( array(
 			"type" => "checkbox",
 			"heading" => __("Link To Post? ", "themeum"),
 			"param_name" => "link",
-			"value" => false,
+			"value" => 0,
 			),
     
                 ),      
