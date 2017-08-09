@@ -165,41 +165,83 @@ function Clinical_CMS_Blog_Nav_VisComp_Map() {
 
 
 
-add_filter('vc_shortcodes_css_class', 'change_element_class_name', 10, 2);
-function change_element_class_name($class_string, $tag) {
-   // modify $class_string variable to your needs. You can use $tag variable to determine what element is currently rendered.
-   return $class_string;
-}
   
 if(!function_exists('clinical_cms_theme_blog_header')){
     function clinical_cms_theme_blog_header( $atts, $content = null ) {
-        $css = '';
+
         extract(shortcode_atts(array(
-            'css' => ''
-        ), $atts));
-        $css_class = apply_filters( vc_shortcodes_css_class, $width_class, $this->settings['base'], $atts );
-        return '<header class="entry-header ' . esc_attr( $css ) . '">' . do_shortcode($content) . '</header><!-- .entry-header -->';
+            'position'			=> 'left',
+            'color'				=> '#333',
+            'size'				=> '16px',
+            'margin'		=> '0',
+            'padding'		=> '0',
+            'class'				=> ''
+            ), $atts));
+        
+        $styles ='';
+        if(margin) $styles .= 'margin:' . $margin .';';
+        if(padding) $styles .= 'padding:' . $padding .';';
+        if($position) $styles .= 'text-align:'. $position .';';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($color) $styles .= 'color:' . $color  . ';';
+        
+        return '<header class="entry-header ' . esc_attr( $class ) . '" style="' . $styles . '">' . do_shortcode($content) . '</header><!-- .entry-header -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Header', 'clinical_cms_theme_blog_header');
 }    
+
 if(!function_exists('clinical_cms_theme_blog_title')) {
 	function clinical_cms_theme_blog_title( $atts, $content =  null) {
+        
+        extract(shortcode_atts(array(
+            'position'			=> 'left',
+            'color'				=> '#333',
+            'size'				=> '16px',
+            'margin'		=> '10px 0 10px 0',
+            'padding'		=> '10px 0 10px 0',
+            'class'				=> ''
+            ), $atts));
+        
+        $styles ='';
+        if(margin) $styles .= 'margin:' . $margin .';';
+        if(padding) $styles .= 'padding:' . $padding .';';
+        if($position) $styles .= 'text-align:'. $position .';';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($color) $styles .= 'color:' . $color  . ';';
+        
         if ( is_singular() ) :
-			return '<h1 class="entry-title ' . $css_class . '">' . get_the_title() . '</h1>';
+			return '<h1 class="entry-title ' . $css_class . '" style="' . $styles . '">' . get_the_title() . '</h1>';
 		else :
-			return '<h2 class="entry-title ' . $css_class . '"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
+			return '<h2 class="entry-title ' . $css_class . '" style="' . $styles . '"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
 		endif;
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Title', 'clinical_cms_theme_blog_title');		
 }
 if( !function_exists('clinical_cms_theme_blog_meta') ) {
 	function clinical_cms_theme_blog_meta( $atts, $content =  null) {
+        
+        extract(shortcode_atts(array(
+            'position'			=> 'left',
+            'color'				=> '#333',
+            'size'				=> '16px',
+            'margin'		=> '0',
+            'padding'		=> '0',
+            'class'				=> ''
+            ), $atts));
+        
+        $styles ='';
+        if(margin) $styles .= 'margin:' . $margin .';';
+        if(padding) $styles .= 'padding:' . $padding .';';
+        if($position) $styles .= 'text-align:'. $position .';';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($color) $styles .= 'color:' . $color  . ';';
+        
         if ( 'post' === get_post_type() ){
             ob_start();
             clinical_cms_theme_posted_on();
             $postedOn = ob_get_contents();
             ob_end_clean();
-            return '<div class="entry-meta">' . $postedOn . '</div><!-- .entry-meta -->';
+            return '<div class="entry-meta" style="' . $styles . '">' . $postedOn . '</div><!-- .entry-meta -->';
         }
         return;
 	}
@@ -207,13 +249,26 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
 }
 if( !function_exists('clinical_cms_theme_blog_thumb') ) {
 	function clinical_cms_theme_blog_thumb( $atts, $content =  null) {
-        $atts = shortcode_atts(
-        array(
+        
+        extract(shortcode_atts(array(
+            'position'			=> 'left',
+            'color'				=> '#333',
+            'size'				=> '16px',
+            'margin'		=> '0',
+            'padding'		=> '0',
+            'class'				=> ''
             'size' => 'large',
-        ), $atts );
+            ), $atts));
+        
+        $styles ='';
+        if(margin) $styles .= 'margin:' . $margin .';';
+        if(padding) $styles .= 'padding:' . $padding .';';
+        if($position) $styles .= 'text-align:'. $position .';';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($color) $styles .= 'color:' . $color  . ';';
         
         if ( has_post_thumbnail( $post->ID ) ) {
-            return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '">' . get_the_post_thumbnail( $post->ID, $atts['size'] ) . '</a>';
+            return '<a href="' . get_permalink( $post->ID ) . '" title="' . esc_attr( $post->post_title ) . '" style="' . $styles . '">' . get_the_post_thumbnail( $post->ID, $size ) . '</a>';
         }
         return;
 	}
@@ -223,17 +278,51 @@ if( !function_exists('clinical_cms_theme_blog_thumb') ) {
 //BODY CONTENT
 if( !function_exists('clinical_cms_theme_blog_body') ) {
     function clinical_cms_theme_blog_body( $atts, $content = null ) {
-        return '<div class="entry-content">' . do_shortcode($content) . '</div><!-- .entry-content -->';
+        
+        extract(shortcode_atts(array(
+            'position'			=> 'left',
+            'color'				=> '#333',
+            'size'				=> '16px',
+            'margin'		=> '0',
+            'padding'		=> '0',
+            'class'				=> ''
+            ), $atts));
+        
+        $styles ='';
+        if(margin) $styles .= 'margin:' . $margin .';';
+        if(padding) $styles .= 'padding:' . $padding .';';
+        if($position) $styles .= 'text-align:'. $position .';';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($color) $styles .= 'color:' . $color  . ';';
+        
+        return '<div class="entry-content" style="' . $styles . '">' . do_shortcode($content) . '</div><!-- .entry-content -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Body', 'clinical_cms_theme_blog_body');
 }
 if(!function_exists('clinical_cms_theme_blog_contents')){
     function clinical_cms_theme_blog_contents( $atts, $content = null ) {
+        
+        extract(shortcode_atts(array(
+            'position'			=> 'left',
+            'color'				=> '#333',
+            'size'				=> '16px',
+            'margin'		=> '0',
+            'padding'		=> '0',
+            'class'				=> ''
+            ), $atts));
+        
+        $styles ='';
+        if(margin) $styles .= 'margin:' . $margin .';';
+        if(padding) $styles .= 'padding:' . $padding .';';
+        if($position) $styles .= 'text-align:'. $position .';';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($color) $styles .= 'color:' . $color  . ';';
+        
         ob_start();
         the_content( sprintf(
             wp_kses(
                 /* translators: %s: Name of current post. Only visible to screen readers */
-                __( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'clinical-cms-theme' ),
+                __( 'Continue reading<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                 array(
                     'span' => array(
                     'class' => array(),
@@ -243,7 +332,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             get_the_title()
          ) );
         wp_link_pages( array(
-            'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
+            'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
             'after'  => '</div>',
         ) );
         $postContent = ob_get_contents();
@@ -256,17 +345,36 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
 //FOOTER CONTENT
 if( !function_exists('clinical_cms_theme_blog_footer') ) {
     function clinical_cms_theme_blog_footer( $atts, $content = null ) {
-        return '<footer class="entry-footer">' . do_shortcode($content) . '</footer><!-- .entry-footer -->';
+        
+        extract(shortcode_atts(array(
+            'position'			=> 'left',
+            'color'				=> '#333',
+            'size'				=> '16px',
+            'margin'		=> '0',
+            'padding'		=> '0',
+            'class'				=> ''
+            ), $atts));
+        
+        $styles ='';
+        if(margin) $styles .= 'margin:' . $margin .';';
+        if(padding) $styles .= 'padding:' . $padding .';';
+        if($position) $styles .= 'text-align:'. $position .';';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height: normal;';
+        if($color) $styles .= 'color:' . $color  . ';';
+        
+        return '<footer class="entry-footer" style="' . $styles . '">' . do_shortcode($content) . '</footer><!-- .entry-footer -->';
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Footer', 'clinical_cms_theme_blog_footer');
 }
 if( !function_exists('clinical_cms_theme_blog_tools') ) {
     function clinical_cms_theme_blog_tools( $atts, $content = null ) {
+        
         ob_start();
         clinical_cms_theme_entry_footer();
         $postTools = ob_get_contents();
         ob_end_clean();
         return $postTools;
+        
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Tools', 'clinical_cms_theme_blog_tools');
 }
@@ -283,10 +391,49 @@ vc_map( array(
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                    'type' => 'css_editor',
-                    'heading' => __( 'Css', 'my-text-domain' ),
-                    'param_name' => 'css',
-                    'group' => __( 'Design options', 'my-text-domain' ),
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
                 ),   
 ) );
 vc_map( array(
@@ -299,10 +446,49 @@ vc_map( array(
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                    'type' => 'css_editor',
-                    'heading' => __( 'Css', 'my-text-domain' ),
-                    'param_name' => 'css',
-                    'group' => __( 'Design options', 'my-text-domain' ),
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
                 ),   
 ) );
 vc_map( array(
@@ -315,10 +501,49 @@ vc_map( array(
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                    'type' => 'css_editor',
-                    'heading' => __( 'Css', 'my-text-domain' ),
-                    'param_name' => 'css',
-                    'group' => __( 'Design options', 'my-text-domain' ),
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
                 ),   
 ) );
 vc_map( array(
@@ -331,23 +556,61 @@ vc_map( array(
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                    array(
-                            "type" => "dropdown",
-                            "holder" => "div",
-                            "class" => "thumb-sizes",
-                            "heading" => __( "Image Size", "clinical-cms-theme" ),
-                            "param_name" => "size",
-                            "admin_label" => true,
-                            "value" => get_intermediate_image_sizes(),
-                            //'std'         => 'one', //default value
-                            "description" => __( "Select the required image size.", "clinical-cms-theme" )
-                        ),
-                    array(
-                            'type' => 'css_editor',
-                            'heading' => __( 'Css', 'my-text-domain' ),
-                            'param_name' => 'css',
-                            'group' => __( 'Design options', 'my-text-domain' ),
-                        ),
+    
+        array(
+            "type" => "dropdown",
+            "holder" => "div",
+            "class" => "thumb-sizes",
+            "heading" => __( "Image Size", "clinical-cms-theme" ),
+            "param_name" => "size",
+            "admin_label" => true,
+            "value" => get_intermediate_image_sizes(),
+            //'std'         => 'one', //default value
+            "description" => __( "Select the required image size.", "clinical-cms-theme" )
+            ),		
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
                 ),      
 ) );
 vc_map( array(
@@ -360,10 +623,49 @@ vc_map( array(
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                    'type' => 'css_editor',
-                    'heading' => __( 'Css', 'my-text-domain' ),
-                    'param_name' => 'css',
-                    'group' => __( 'Design options', 'my-text-domain' ),
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
                 ),   
 ) );
 vc_map( array(
@@ -376,10 +678,49 @@ vc_map( array(
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                    'type' => 'css_editor',
-                    'heading' => __( 'Css', 'my-text-domain' ),
-                    'param_name' => 'css',
-                    'group' => __( 'Design options', 'my-text-domain' ),
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
                 ),   
 ) );
 vc_map( array(
@@ -392,10 +733,49 @@ vc_map( array(
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                    'type' => 'css_editor',
-                    'heading' => __( 'Css', 'my-text-domain' ),
-                    'param_name' => 'css',
-                    'group' => __( 'Design options', 'my-text-domain' ),
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
                 ),   
 ) );
 vc_map( array(
@@ -408,10 +788,49 @@ vc_map( array(
     //"js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-                    'type' => 'css_editor',
-                    'heading' => __( 'Css', 'my-text-domain' ),
-                    'param_name' => 'css',
-                    'group' => __( 'Design options', 'my-text-domain' ),
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
                 ),   
 ) );
 
