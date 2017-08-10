@@ -344,9 +344,9 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             ) );
         }
         else{//use the excerpt
-            
+            //clinical_cms_theme_excerpt_length
         }
-        clinical_cms_theme_excerpt_length
+        
         //$postContent = ob_get_contents();
         //ob_end_clean();
         return $postContent;
