@@ -383,7 +383,7 @@ if( !function_exists('clinical_cms_theme_blog_tools') ) {
 if( !function_exists('clinical_cms_theme_blog_comments') ) {
     function clinical_cms_theme_blog_comments( $atts, $content = null ) { 
         
-        echo "COMMENTSSSSSSS!!!";
+        echo $output =  "COMMENTSSSSSSS!!!";
         
         extract(shortcode_atts(array(
             'text-before'		=> '',
@@ -404,7 +404,7 @@ if( !function_exists('clinical_cms_theme_blog_comments') ) {
         if($color) $styles .= 'color:' . $color  . ';';
         
         $count = wp_count_comments();
-        $output =  "<div style='" . $styles . "'>" . $text-before . $count->approved . text-after . "</div>";
+        //$output =  "<div style='" . $styles . "'>" . $text-before . $count->approved . text-after . "</div>";
         return $output; 
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Comments','clinical_cms_theme_blog_comments'); 
@@ -963,7 +963,7 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
     }
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Tools extends WPBakeryShortCode {
     }
-    class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Comment extends WPBakeryShortCode {
+    class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Comments extends WPBakeryShortCode {
     }
     
 }
