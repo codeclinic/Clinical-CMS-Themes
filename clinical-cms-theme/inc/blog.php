@@ -404,7 +404,7 @@ if( !function_exists('clinical_cms_theme_blog_comments') ) {
         if($color) $styles .= 'color:' . $color  . ';';
         
         $count = wp_count_comments();
-        $output =  "<div style='" . $styles . "'>" . $text-before . $count . text-after . "</div>";
+        $output =  "<div style='" . $styles . "'>" . $text-before . $count . $text-after . "</div>";
         return $output; 
     }
     add_shortcode('Clinical_Cms_Theme_Blog_Comments','clinical_cms_theme_blog_comments'); 
