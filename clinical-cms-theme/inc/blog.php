@@ -385,14 +385,16 @@ if( !function_exists('clinical_cms_theme_blog_tools') ) {
 if( !function_exists('clinical_cms_theme_blog_comments') ) {
     function clinical_cms_theme_blog_comments( $atts, $content = null ) { 
         
+        global $post;
+        
         extract(shortcode_atts(array(
-            'text-before'		=> '',
-            'text-after'		=> ' comments',
-            'position'			=> 'left',
+            'before'            => '',
+            'after'             => ' comments',
+            'position'          => 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '0',
-            'padding'		=> '0',
+            'margin'		    => '0',
+            'padding'		    => '0',
             'class'				=> ''
             ), $atts));
         
@@ -404,7 +406,7 @@ if( !function_exists('clinical_cms_theme_blog_comments') ) {
         if($color) $styles .= 'color:' . $color  . ';';
         
         $count = wp_count_comments( $post->ID );
-        $output =  "<div style='" . $styles . "'>" . $text-before . $count->approved . $text-after . "</div>";
+        $output =  "<div style='" . $styles . "'>" . $before . $count->approved . $after . "</div>";
         return $output; 
     }
     add_shortcode('Clinical_Cms_Theme_Blog_Comments','clinical_cms_theme_blog_comments'); 
@@ -960,7 +962,7 @@ vc_map( array(
 			"type" => "textfield",
 			"heading" => __("Text Before Count", "clinical-cms-theme"),
             "description" => __("eg: 'This post has '"),
-			"param_name" => "text-before",
+			"param_name" => "before",
 			"value" => "",
 			),	
     
@@ -968,7 +970,7 @@ vc_map( array(
 			"type" => "textfield",
 			"heading" => __("Text After Count", "clinical-cms-theme"),
             "description" => __("eg: ' user comments'"),
-			"param_name" => "text-after",
+			"param_name" => "after",
 			"value" => "",
 			),	
     
