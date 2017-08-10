@@ -427,42 +427,42 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
@@ -482,42 +482,42 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
@@ -537,42 +537,42 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
@@ -604,49 +604,49 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
 
 		array(
 			"type" => "checkbox",
-			"heading" => __("Link To Post? ", "themeum"),
+			"heading" => __("Link To Post? ", "clinical-cms-theme"),
 			"param_name" => "link",
 			"value" => 0,
 			),
@@ -666,42 +666,42 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
@@ -721,42 +721,42 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
@@ -776,42 +776,42 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
@@ -831,42 +831,42 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
@@ -874,7 +874,6 @@ vc_map( array(
                 ),   
 ) );
 //COMMENT COUNTS
-/*
 vc_map( array(
     "name" => __("Clinical Post Comment Count", "clinical-cms-theme"),
     "base" => "Clinical_Cms_Theme_Blog_Comments",
@@ -888,7 +887,7 @@ vc_map( array(
     
 		array(
 			"type" => "textfield",
-			"heading" => __("Text Before Count", "themeum"),
+			"heading" => __("Text Before Count", "clinical-cms-theme"),
             "description" => __("eg: 'This post has '"),
 			"param_name" => "text-before",
 			"value" => "",
@@ -896,7 +895,7 @@ vc_map( array(
     
 		array(
 			"type" => "textfield",
-			"heading" => __("Text After Count", "themeum"),
+			"heading" => __("Text After Count", "clinical-cms-theme"),
             "description" => __("eg: ' user comments'"),
 			"param_name" => "text-after",
 			"value" => "",
@@ -904,49 +903,49 @@ vc_map( array(
 
 		array(
 			"type" => "dropdown",
-			"heading" => __("Text Alignment", "themeum"),
+			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
 			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
 			),	
     
         array(
 			"type" => "textfield",
-			"heading" => __("Font Size", "themeum"),
+			"heading" => __("Font Size", "clinical-cms-theme"),
 			"param_name" => "size",
 			"value" => "",
 			),					
 
 		array(
 			"type" => "colorpicker",
-			"heading" => __("Font Color", "themeum"),
+			"heading" => __("Font Color", "clinical-cms-theme"),
 			"param_name" => "color",
 			"value" => "",
 			),			
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Margin", "themeum"),
+			"heading" => __("Margin", "clinical-cms-theme"),
 			"param_name" => "margin",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Padding", "themeum"),
+			"heading" => __("Padding", "clinical-cms-theme"),
 			"param_name" => "padding",
 			"value" => "",
 			),
 
 		array(
 			"type" => "textfield",
-			"heading" => __("Custom Class ", "themeum"),
+			"heading" => __("Custom Class ", "clinical-cms-theme"),
 			"param_name" => "class",
 			"value" => "",
 			),
     
                 ),   
 ) );
-*/
+
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header extends WPBakeryShortCodesContainer {
     } 
