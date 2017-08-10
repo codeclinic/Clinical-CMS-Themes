@@ -957,6 +957,22 @@ vc_map( array(
     "params" => array(
 
 		array(
+			"type" => "textfield",
+			"heading" => __("Text Before Count", "clinical-cms-theme"),
+            "description" => __("eg: 'This post has '"),
+			"param_name" => "text-before",
+			"value" => "",
+			),	
+    
+		array(
+			"type" => "textfield",
+			"heading" => __("Text After Count", "clinical-cms-theme"),
+            "description" => __("eg: ' user comments'"),
+			"param_name" => "text-after",
+			"value" => "",
+			),	
+    
+		array(
 			"type" => "dropdown",
 			"heading" => __("Text Alignment", "clinical-cms-theme"),
 			"param_name" => "position",
