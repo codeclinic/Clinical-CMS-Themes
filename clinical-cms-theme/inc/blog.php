@@ -308,7 +308,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         
         extract(shortcode_atts(array(
             'type'              => 'content',
-            'more'              => 'Continue reading',
+            'more'              => 'Continue reading'
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
@@ -329,7 +329,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                 get_the_content( sprintf(
                 wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
-                    __( 'Continue reading1<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
+                    __( 'Continue reading<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                     array(
                         'span' => array(
                         'class' => array(),
@@ -338,15 +338,21 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                 ),
                 get_the_title()
              ) );
-            wp_link_pages( array(
-                'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
-                'after'  => '</div>',
-            ) );
+            //Apply 'the_conter()' filters
+            $postContent = apply_filters( 'the_content', $postContent );
+            $postContent = str_replace( ']]>', ']]&gt;', $postContent );
+            
         }
-        else{//use the excerpt
+        else {
             //clinical_cms_theme_excerpt_length
-        }
+            $postContent = clinical_cms_theme_excerpt_max_charlength(  );
+        } 
         
+        wp_link_pages( array(
+            'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
+            'after'  => '</div>',
+        ) );
+        //
         //$postContent = ob_get_contents();
         //ob_end_clean();
         return $postContent;
