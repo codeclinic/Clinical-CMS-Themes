@@ -344,8 +344,8 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
     add_shortcode('Clinical_CMS_Theme_Blog_Contents', 'clinical_cms_theme_blog_contents');
 }
 //COMMENT COUNT
-if( !function_exists('clinical_cms_theme_comment_count') ) {
-    function clinical_cms_theme_comment_count( $atts, $content = null ) { 
+if( !function_exists('clinical_cms_theme_blog_comment') ) {
+    function clinical_cms_theme_blog_comment( $atts, $content = null ) { 
         
         extract(shortcode_atts(array(
             'text-before'		=> '',
@@ -366,10 +366,10 @@ if( !function_exists('clinical_cms_theme_comment_count') ) {
         if($color) $styles .= 'color:' . $color  . ';';
         
         $count = wp_count_comments();
-        $output =  $text-before . $comments_count->approved . text-after;
-        return $message; 
+        $output =  "<div style='" . $styles . "'>" . $text-before . $count->approved . text-after "</div>";
+        return $output; 
     }
-    add_shortcode('Clinical_CMS_Theme_Comment_Count','clinical_cms_theme_comment_count'); 
+    add_shortcode('Clinical_CMS_Theme_Blog_Comment','clinical_cms_theme_blog_comment'); 
 }
 //FOOTER CONTENT
 if( !function_exists('clinical_cms_theme_blog_footer') ) {
@@ -961,7 +961,7 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
     }
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Tools extends WPBakeryShortCode {
     }
-    class WPBakeryShortCode_Clinical_Cms_Theme_Comment_Count extends WPBakeryShortCode {
+    class WPBakeryShortCode_Clinical_Cms_Theme_Blog_Comment extends WPBakeryShortCode {
     }
     
 }
