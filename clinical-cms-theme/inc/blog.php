@@ -405,7 +405,7 @@ if( !function_exists('Clinical_Cms_Theme_Blog_Comments') ) {
         $output =  "<div style='" . $styles . "'>" . $text-before . $count->approved . text-after . "</div>";
         return $output; 
     }
-    add_shortcode('Clinical_CMS_Theme_Blog_Commenta','Clinical_Cms_Theme_Blog_Comments'); 
+    add_shortcode('Clinical_CMS_Theme_Blog_Comments','Clinical_Cms_Theme_Blog_Comments'); 
 }
 
 
@@ -413,7 +413,7 @@ if( !function_exists('Clinical_Cms_Theme_Blog_Comments') ) {
 vc_map( array(
     "name" => __("Clinical Post Header", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Header",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb, Clinical_CMS_Theme_Blog_Tools Clinical_Cms_Theme_Blog_Comments,'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb, Clinical_CMS_Theme_Blog_Tools, Clinical_Cms_Theme_Blog_Comments'),
     "content_element" => true,
     "show_settings_on_create" => true,
     "is_container" => true,
