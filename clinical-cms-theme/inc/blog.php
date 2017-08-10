@@ -380,8 +380,8 @@ if( !function_exists('clinical_cms_theme_blog_tools') ) {
     add_shortcode('Clinical_CMS_Theme_Blog_Tools', 'clinical_cms_theme_blog_tools');
 }
 //COMMENT COUNT
-if( !function_exists('Clinical_Cms_Theme_Blog_Comments') ) {
-    function Clinical_Cms_Theme_Blog_Comments( $atts, $content = null ) { 
+if( !function_exists('clinical_cms_theme_blog_comments') ) {
+    function clinical_cms_theme_blog_comments( $atts, $content = null ) { 
         
         extract(shortcode_atts(array(
             'text-before'		=> '',
@@ -405,7 +405,7 @@ if( !function_exists('Clinical_Cms_Theme_Blog_Comments') ) {
         $output =  "<div style='" . $styles . "'>" . $text-before . $count->approved . text-after . "</div>";
         return $output; 
     }
-    add_shortcode('Clinical_CMS_Theme_Blog_Comments','Clinical_Cms_Theme_Blog_Comments'); 
+    add_shortcode('Clinical_CMS_Theme_Blog_Comments','clinical_cms_theme_blog_comments'); 
 }
 
 
