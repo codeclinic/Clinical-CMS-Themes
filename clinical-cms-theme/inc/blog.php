@@ -343,7 +343,34 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Contents', 'clinical_cms_theme_blog_contents');
 }
-
+//COMMENT COUNT
+if( !function_exists('clinical_cms_theme_comment_count') ) {
+    function clinical_cms_theme_comment_count( $atts, $content = null ) { 
+        
+        extract(shortcode_atts(array(
+            'text-before'		=> '',
+            'text-after'		=> ' comments',
+            'position'			=> 'left',
+            'color'				=> '#333',
+            'size'				=> '16px',
+            'margin'		=> '0',
+            'padding'		=> '0',
+            'class'				=> ''
+            ), $atts));
+        
+        $styles ='';
+        if(margin) $styles .= 'margin:' . $margin .';';
+        if(padding) $styles .= 'padding:' . $padding .';';
+        if($position) $styles .= 'text-align:'. $position .';';
+        if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
+        if($color) $styles .= 'color:' . $color  . ';';
+        
+        $count = wp_count_comments();
+        $output =  $text-before . $comments_count->approved . text-after;
+        return $message; 
+    }
+    add_shortcode('Clinical_CMS_Theme_Comment_Count','clinical_cms_theme_comment_count'); 
+}
 //FOOTER CONTENT
 if( !function_exists('clinical_cms_theme_blog_footer') ) {
     function clinical_cms_theme_blog_footer( $atts, $content = null ) {
@@ -386,7 +413,7 @@ if( !function_exists('clinical_cms_theme_blog_tools') ) {
 vc_map( array(
     "name" => __("Clinical Post Header", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Header",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb, Clinical_CMS_Theme_Blog_Tools'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Title, Clinical_CMS_Theme_Blog_Meta, Clinical_CMS_Theme_Blog_Thumb, Clinical_Cms_Theme_Comment_Count, Clinical_CMS_Theme_Blog_Tools'),
     "content_element" => true,
     "show_settings_on_create" => true,
     "is_container" => true,
@@ -625,7 +652,7 @@ vc_map( array(
 vc_map( array(
     "name" => __("Clinical Post Body", "clinical-cms-theme"), 
     "base" => "Clinical_CMS_Theme_Blog_Body",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Contents'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Contents, Clinical_Cms_Theme_Comment_Count'),
     "content_element" => true,
     "show_settings_on_create" => true,
     "is_container" => true,
@@ -735,7 +762,7 @@ vc_map( array(
 vc_map( array(
     "name" => __("Clinical Post Footer", "clinical-cms-theme"),
     "base" => "Clinical_CMS_Theme_Blog_Footer",
-    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Tools'),
+    "as_parent" => array('only' => 'Clinical_CMS_Theme_Blog_Tools, Clinical_Cms_Theme_Comment_Count'),
     "content_element" => true, // set this parameter when element will have content
     "show_settings_on_create" => true,
     "is_container" => true, // set this param when you need to add a content element in this element
@@ -842,6 +869,78 @@ vc_map( array(
     
                 ),   
 ) );
+//COMMENT COUNTS
+vc_map( array(
+    "name" => __("Clinical Post Comment Count", "clinical-cms-theme"),
+    "base" => "Clinical_Cms_Theme_Comment_Count",
+    "as_child" => array('only' => 'Clinical_CMS_Theme_Blog_Header, Clinical_CMS_Theme_Blog_Body, Clinical_CMS_Theme_Blog_Footer'),
+    //"content_element" => false, // set this parameter when element will have content
+    "show_settings_on_create" => true,
+    //"is_container" => false, // set this param when you need to add a content element in this element
+    //"js_view" => 'VcColumnView',
+    "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
+    "params" => array(
+    
+		array(
+			"type" => "textfield",
+			"heading" => __("Text Before Count", "themeum"),
+            "description" => __("eg: 'This post has '"),
+			"param_name" => "text-before",
+			"value" => "",
+			),	
+    
+		array(
+			"type" => "textfield",
+			"heading" => __("Text After Count", "themeum"),
+            "description" => __("eg: ' user comments'"),
+			"param_name" => "text-after",
+			"value" => "",
+			),	
+
+		array(
+			"type" => "dropdown",
+			"heading" => __("Text Alignment", "themeum"),
+			"param_name" => "position",
+			"value" => array('Left'=>'left','Center'=>'center','Right'=>'right'),
+			),	
+    
+        array(
+			"type" => "textfield",
+			"heading" => __("Font Size", "themeum"),
+			"param_name" => "size",
+			"value" => "",
+			),					
+
+		array(
+			"type" => "colorpicker",
+			"heading" => __("Font Color", "themeum"),
+			"param_name" => "color",
+			"value" => "",
+			),			
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Margin", "themeum"),
+			"param_name" => "margin",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Padding", "themeum"),
+			"param_name" => "padding",
+			"value" => "",
+			),
+
+		array(
+			"type" => "textfield",
+			"heading" => __("Custom Class ", "themeum"),
+			"param_name" => "class",
+			"value" => "",
+			),
+    
+                ),   
+) );
 
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header extends WPBakeryShortCodesContainer {
@@ -862,6 +961,9 @@ if ( class_exists( 'WPBakeryShortCode' ) ) {
     }
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Tools extends WPBakeryShortCode {
     }
+    class WPBakeryShortCode_Clinical_Cms_Theme_Comment_Count extends WPBakeryShortCode {
+    }
+    
 }
 
 ?>
