@@ -308,7 +308,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         
         extract(shortcode_atts(array(
             'type'              => 'content',
-            'more'              => 'Continue reading'
+            'more'              => 'Continue reading',
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
