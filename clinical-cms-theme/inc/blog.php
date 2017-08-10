@@ -403,7 +403,7 @@ if( !function_exists('clinical_cms_theme_blog_comments') ) {
         if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
-        $count = wp_count_comments();
+        $count = wp_count_comments( $post->ID );
         $output =  "<div style='" . $styles . "'>" . $text-before . $count->approved . $text-after . "</div>";
         return $output; 
     }
