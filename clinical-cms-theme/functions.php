@@ -83,7 +83,16 @@ function clinical_cms_theme_content_width() {
 }
 add_action( 'after_setup_theme', 'clinical_cms_theme_content_width', 0 );
 
-
+/**
+ * Filter the except length to 55 words.
+ *
+ * @param int $length Excerpt length.
+ * @return int (Maybe) modified excerpt length.
+ */
+function wpdocs_custom_excerpt_length( $length ) {
+    return 55;
+}
+add_filter( 'excerpt_length', 'clinical_cms_theme_excerpt_length', 99 );
 
 /**
  * Enqueue scripts and styles.

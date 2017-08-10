@@ -308,6 +308,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         
         extract(shortcode_atts(array(
             'type'              => 'content',
+            'more'              => 'Continue reading'
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
@@ -323,24 +324,29 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
-        //ob_start();
-        //the_content( sprintf(
-        $postContent = get_the_content( sprintf(
-            wp_kses(
-                /* translators: %s: Name of current post. Only visible to screen readers */
-                __( 'Continue reading<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
-                array(
-                    'span' => array(
-                    'class' => array(),
-                    ),
-                )
-            ),
-            get_the_title()
-         ) );
-        wp_link_pages( array(
-            'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
-            'after'  => '</div>',
-        ) );
+        if( $type === 'content' ){
+            $postContent = 
+                get_the_content( sprintf(
+                wp_kses(
+                    /* translators: %s: Name of current post. Only visible to screen readers */
+                    __( 'Continue reading1<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
+                    array(
+                        'span' => array(
+                        'class' => array(),
+                        ),
+                    )
+                ),
+                get_the_title()
+             ) );
+            wp_link_pages( array(
+                'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
+                'after'  => '</div>',
+            ) );
+        }
+        else{//use the excerpt
+            
+        }
+        clinical_cms_theme_excerpt_length
         //$postContent = ob_get_contents();
         //ob_end_clean();
         return $postContent;
