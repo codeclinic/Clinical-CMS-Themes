@@ -383,6 +383,8 @@ if( !function_exists('clinical_cms_theme_blog_tools') ) {
 if( !function_exists('clinical_cms_theme_blog_comments') ) {
     function clinical_cms_theme_blog_comments( $atts, $content = null ) { 
         
+        echo "COMMENTSSSSSSS!!!";
+        
         extract(shortcode_atts(array(
             'text-before'		=> '',
             'text-after'		=> ' comments',
