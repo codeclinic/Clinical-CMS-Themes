@@ -874,6 +874,7 @@ vc_map( array(
                 ),   
 ) );
 //COMMENT COUNTS
+/*
 vc_map( array(
     "name" => __("Clinical Post Comment Count", "clinical-cms-theme"),
     "base" => "Clinical_Cms_Theme_Blog_Comments",
@@ -945,7 +946,7 @@ vc_map( array(
     
                 ),   
 ) );
-
+*/
 if ( class_exists( 'WPBakeryShortCodesContainer' ) ) {
     class WPBakeryShortCode_Clinical_CMS_Theme_Blog_Header extends WPBakeryShortCodesContainer {
     } 
