@@ -210,9 +210,9 @@ if(!function_exists('clinical_cms_theme_blog_title')) {
         if($color) $styles .= 'color:' . $color  . ';';
         
         if ( is_singular() ) :
-			return '<h1 class="entry-title ' . $css_class . '" style="' . $styles . '">' . get_the_title() . '</h1>';
+			return '<h1 class="entry-title ' . $class . '" style="' . $styles . '">' . get_the_title() . '</h1>';
 		else :
-			return '<h2 class="entry-title ' . $css_class . '" style="' . $styles . '"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
+			return '<h2 class="entry-title ' . $class . '" style="' . $styles . '"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . get_the_title() . '</a></h2>';
 		endif;
 	}
 	add_shortcode('Clinical_CMS_Theme_Blog_Title', 'clinical_cms_theme_blog_title');		
@@ -249,6 +249,8 @@ if( !function_exists('clinical_cms_theme_blog_meta') ) {
 }
 if( !function_exists('clinical_cms_theme_blog_thumb') ) {
 	function clinical_cms_theme_blog_thumb( $atts, $content =  null) {
+        
+        global $post;
         
         extract(shortcode_atts(array(
             'position'			=> 'left',
