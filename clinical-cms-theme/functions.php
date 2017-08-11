@@ -84,36 +84,6 @@ function clinical_cms_theme_content_width() {
 add_action( 'after_setup_theme', 'clinical_cms_theme_content_width', 0 );
 
 /**
- * Filter the except length to n words.
- *
- * @param int $length Excerpt length.
- * @return int (Maybe) modified excerpt length.
- */
-function clinical_cms_theme_excerpt_max_charlength( $charlength, $postID = '' ) {
-    if($postID != ''){//get excerpt by ID
-	   $excerpt = get_the_excerpt( $postID );
-    }
-    else {
-	   $excerpt = get_the_excerpt();
-    }
-	$charlength++;
-
-	if ( mb_strlen( $excerpt ) > $charlength ) {
-		$subex = mb_substr( $excerpt, 0, $charlength - 5 );
-		$exwords = explode( ' ', $subex );
-		$excut = - ( mb_strlen( $exwords[ count( $exwords ) - 1 ] ) );
-		if ( $excut < 0 ) {
-			echo mb_substr( $subex, 0, $excut );
-		} else {
-			echo $subex;
-		}
-		echo '[...]';
-	} else {
-		echo $excerpt;
-	}
-}
-
-/**
  * Enqueue scripts and styles.
  */
 function clinical_cms_theme_scripts() {

@@ -308,12 +308,13 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         
         extract(shortcode_atts(array(
             'type'              => 'content',
-            'more'              => 'Continue reading'
+            'more'              => 'Continue reading',
+            'length'            => '',
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
-            'margin'		=> '0',
-            'padding'		=> '0',
+            'margin'		    => '0',
+            'padding'		    => '0',
             'class'				=> ''
             ), $atts));
         
@@ -325,11 +326,20 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($color) $styles .= 'color:' . $color  . ';';
         
         if( $type === 'content' ){
-            $postContent = 
-                get_the_content( sprintf(
+            $postContent = get_the_content();
+            //Apply 'the_conter()' filters
+            $postContent = apply_filters( 'the_content', $postContent );
+            $postContent = str_replace( ']]>', ']]&gt;', $postContent );
+        }
+        else {
+            //clinical_cms_theme_excerpt_length
+            $postContent = get_the_excerpt();
+        } 
+        
+        $postContent = wp_trim_words( $postContent, $length, sprintf(
                 wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
-                    __( 'Continue reading<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
+                    __( $more . '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                     array(
                         'span' => array(
                         'class' => array(),
@@ -337,17 +347,8 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                     )
                 ),
                 get_the_title()
-             ) );
-            //Apply 'the_conter()' filters
-            $postContent = apply_filters( 'the_content', $postContent );
-            $postContent = str_replace( ']]>', ']]&gt;', $postContent );
-            
-        }
-        else {
-            //clinical_cms_theme_excerpt_length
-            $postContent = clinical_cms_theme_excerpt_max_charlength(  );
-        } 
-        
+             )
+        );
         wp_link_pages( array(
             'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
             'after'  => '</div>',
