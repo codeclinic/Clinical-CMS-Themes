@@ -340,7 +340,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             $postContent = get_the_excerpt();
         } 
         */
-        if( $type === 'content' ){
+        if( $type == 'content' ){
             /*
             ob_start();
             the_content( sprintf(
