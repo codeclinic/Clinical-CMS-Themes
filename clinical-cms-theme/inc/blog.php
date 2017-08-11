@@ -326,7 +326,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($color) $styles .= 'color:' . $color  . ';';
         
         
-        if( $source === 'content' ){
+        if( $source == 'content' ){
             $postContent = get_the_content();
             //Apply 'the_conter()' filters
             $postContent = apply_filters( 'the_content', $postContent );
@@ -337,17 +337,17 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             $postContent = get_the_excerpt();
         } 
         
-        $postContent = wp_trim_words( $postContent, $length, sprintf(  
-            '<a href="' . get_permalink() . '" title="\"%s\"">' .
+        $postContent = wp_trim_words( $postContent, $length, sprintf( 
             wp_kses(
+                    '<a href="' . get_permalink() . '" title="\"%s\"">' . $more .
                     /* translators: %s: Name of current post. Only visible to screen readers */
-                    $more . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
+                    __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                     array(
                         'span' => array(
                         'class' => array(),
                         ),
-                    )
-                ) . '</a>',
+                    ) . '</a>',
+                ),
                 get_the_title()
              )
         );
