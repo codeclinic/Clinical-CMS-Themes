@@ -326,7 +326,6 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($color) $styles .= 'color:' . $color  . ';';
         
         
-                /*
         if( $type === 'content' ){
             $postContent = get_the_content();
             //Apply 'the_conter()' filters
@@ -337,11 +336,10 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             //clinical_cms_theme_excerpt_length
             $postContent = get_the_excerpt();
         } 
-        */
-        if( $source === 'content' ){
-            ob_start();
-            the_content( sprintf(
-                wp_kses(
+        
+        $postContent = wp_trim_words( $postContent, $length, sprintf(  
+            //'<a href="' . get_permalink() . '" title="\"%s\"">' .
+            wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
                     $more . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                     array(
@@ -349,17 +347,10 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                         'class' => array(),
                         ),
                     )
-                ),
+                ) . '</a>',
                 get_the_title()
-             ) );
-            
-            $postContent = ob_get_contents();
-            ob_end_clean();
-        }
-        else {//get excerpt instead
-            $postContent = get_the_excerpt();
-            $postContent = wp_trim_words( $postContent, $length, $more);
-        } 
+             )
+        );
         
         
         ob_start();
