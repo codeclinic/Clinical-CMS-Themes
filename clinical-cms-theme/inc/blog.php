@@ -338,7 +338,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         } 
         */
         if( $type === 'content' ){
-            ob_start;
+            ob_start();
             the_content( sprintf(
                 wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
@@ -361,7 +361,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         } 
         
         
-        ob_start;
+        ob_start();
         wp_link_pages( array(
             'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
             'after'  => '</div>',
