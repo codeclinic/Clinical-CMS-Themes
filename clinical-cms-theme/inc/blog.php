@@ -307,7 +307,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
     function clinical_cms_theme_blog_contents( $atts, $content = null ) {
         
         extract(shortcode_atts(array(
-            'type'              => 'content',
+            'source'              => 'content',
             'more'              => 'Continue reading',
             'length'            => '55',
             'position'			=> 'left',
@@ -737,14 +737,14 @@ vc_map( array(
         array(
 			"type" => "dropdown",
 			"heading" => __("Content Source", "clinical-cms-theme"),
-			"param_name" => "position",
+			"param_name" => "source",
 			"value" => array('content'=>'content','excerpt'=>'excerpt'),
 			),	
 
         array(
 			"type" => "textfield",
 			"heading" => __("Max Length", "clinical-cms-theme"),
-			"param_name" => "size",
+			"param_name" => "length",
 			"value" => "",
 			),	
 
@@ -752,7 +752,7 @@ vc_map( array(
 			"type" => "textfield",
 			"heading" => __("Read More Label", "clinical-cms-theme"),
             "description" => __("The text used to link to full content.", "clinical-cms-theme"),
-			"param_name" => "size",
+			"param_name" => "more",
 			"value" => "",
 			),	
     
