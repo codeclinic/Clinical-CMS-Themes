@@ -309,7 +309,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         extract(shortcode_atts(array(
             'type'              => 'content',
             'more'              => 'Continue reading',
-            'length'            => '',
+            'length'            => '55',
             'position'			=> 'left',
             'color'				=> '#333',
             'size'				=> '16px',
@@ -605,6 +605,13 @@ vc_map( array(
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
     
+		array(
+			"type" => "checkbox",
+			"heading" => __("Link To Post? ", "clinical-cms-theme"),
+			"param_name" => "link",
+			"value" => 0,
+			),
+    
         array(
             "type" => "dropdown",
             "holder" => "div",
@@ -658,13 +665,6 @@ vc_map( array(
 			"param_name" => "class",
 			"value" => "",
 			),
-
-		array(
-			"type" => "checkbox",
-			"heading" => __("Link To Post? ", "clinical-cms-theme"),
-			"param_name" => "link",
-			"value" => 0,
-			),
     
                 ),      
 ) );
@@ -678,7 +678,7 @@ vc_map( array(
     "js_view" => 'VcColumnView',
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
-
+    
 		array(
 			"type" => "dropdown",
 			"heading" => __("Text Alignment", "clinical-cms-theme"),
@@ -734,6 +734,28 @@ vc_map( array(
     "category" => __( "Clinical CMS Theme", "clinical-cms-theme"),
     "params" => array(
 
+        array(
+			"type" => "dropdown",
+			"heading" => __("Content Source", "clinical-cms-theme"),
+			"param_name" => "position",
+			"value" => array('content'=>'content','excerpt'=>'excerpt'),
+			),	
+
+        array(
+			"type" => "textfield",
+			"heading" => __("Max Length", "clinical-cms-theme"),
+			"param_name" => "size",
+			"value" => "",
+			),	
+
+        array(
+			"type" => "textfield",
+			"heading" => __("Read More Label", "clinical-cms-theme"),
+            "description" => __("The text used to link to full content.", "clinical-cms-theme"),
+			"param_name" => "size",
+			"value" => "",
+			),	
+    
 		array(
 			"type" => "dropdown",
 			"heading" => __("Text Alignment", "clinical-cms-theme"),
