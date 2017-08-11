@@ -346,7 +346,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                         'span' => array(
                         'class' => array(),
                         ),
-                    ) . '</a>',
+                    ) . '</a>'
                 ),
                 get_the_title()
              )
