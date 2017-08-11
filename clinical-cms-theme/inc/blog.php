@@ -366,7 +366,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
             'after'  => '</div>',
         ) );
-        $postContent = ob_get_contents();
+        $postContent .= ob_get_contents();
         ob_end_clean();
         
         return $postContent;
