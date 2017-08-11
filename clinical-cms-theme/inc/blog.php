@@ -339,7 +339,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         $postContent = wp_trim_words( $postContent, $length, sprintf(
                 wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
-                    __( $more . '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
+                    __( '<a href="' . get_permalink() . '" title="\"%s\"">' . $more . '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span></a>', 'clinical-cms-theme' ),
                     array(
                         'span' => array(
                         'class' => array(),
