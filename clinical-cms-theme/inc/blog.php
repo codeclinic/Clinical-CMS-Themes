@@ -318,6 +318,9 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             'class'				=> ''
             ), $atts));
         
+        
+        echo "SOURCE: " . $source . " | MORE: " . $more . " | LENGTH: " . $length;
+        
         $styles ='';
         if(margin) $styles .= 'margin:' . $margin .';';
         if(padding) $styles .= 'padding:' . $padding .';';
