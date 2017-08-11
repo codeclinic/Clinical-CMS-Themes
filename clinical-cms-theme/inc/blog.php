@@ -326,7 +326,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($color) $styles .= 'color:' . $color  . ';';
         
         
-        if( $type === 'content' ){
+        if( $source === 'content' ){
             $postContent = get_the_content();
             //Apply 'the_conter()' filters
             $postContent = apply_filters( 'the_content', $postContent );
