@@ -308,7 +308,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         
         extract(shortcode_atts(array(
             'source'              => 'content',
-            'more'              => 'Continue reading',
+            'more'              => __('Continue reading', 'clinical-cms-theme' ),
             'length'            => '55',
             'position'			=> 'left',
             'color'				=> '#333',
@@ -325,6 +325,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
+        /*
         if( $type === 'content' ){
             $postContent = get_the_content();
             //Apply 'the_conter()' filters
@@ -335,11 +336,13 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             //clinical_cms_theme_excerpt_length
             $postContent = get_the_excerpt();
         } 
-        
-        $postContent = wp_trim_words( $postContent, $length, sprintf(
+        */
+        if( $type === 'content' ){
+            ob_start;
+            the_content( sprintf(
                 wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
-                    __( '<a href="' . get_permalink() . '" title="' . get_the_title() . '">' . $more . '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span></a>', 'clinical-cms-theme' ),
+                    $more . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                     array(
                         'span' => array(
                         'class' => array(),
@@ -347,15 +350,25 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                     )
                 ),
                 get_the_title()
-             )
-        );
+             ) );
+            
+            $postContent = ob_get_contents();
+            ob_end_clean();
+        }
+        else {//get excerpt instead
+            $postContent = get_the_excerpt();
+            $postContent = wp_trim_words( $postContent, $length, $more);
+        } 
+        
+        
+        ob_start;
         wp_link_pages( array(
             'before' => '<div class="page-links" style="' . $styles . '">' . esc_html__( 'Pages:', 'clinical-cms-theme' ),
             'after'  => '</div>',
         ) );
-        //
-        //$postContent = ob_get_contents();
-        //ob_end_clean();
+        $postContent = ob_get_contents();
+        ob_end_clean();
+        
         return $postContent;
     }
     add_shortcode('Clinical_CMS_Theme_Blog_Contents', 'clinical_cms_theme_blog_contents');
