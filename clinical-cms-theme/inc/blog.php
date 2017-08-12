@@ -340,7 +340,8 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             $postContent = get_the_excerpt();
         } 
         
-        echo "MORE: " . $tmpMore = sprintf( 
+        //echo "MORE: " . 
+            $tmpMore = sprintf( 
             wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
                     __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
