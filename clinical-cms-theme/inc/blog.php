@@ -328,7 +328,18 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         
         if( $source == 'content' ){
             ob_start();
-            the_content();
+            the_content(sprintf( 
+                wp_kses(
+                        /* translators: %s: Name of current post. Only visible to screen readers */
+                        __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
+                        array(
+                            'span' => array(
+                            'class' => array(),
+                            ),
+                        )
+                    ),
+                    get_the_title()
+             );
             $postContent = ob_get_contents();
             ob_end_clean();
             //Apply 'the_conter()' filters
@@ -341,18 +352,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         } 
         
         //echo "MORE: " . 
-            $tmpMore = sprintf( 
-            wp_kses(
-                    /* translators: %s: Name of current post. Only visible to screen readers */
-                    __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
-                    array(
-                        'span' => array(
-                        'class' => array(),
-                        ),
-                    )
-                ),
-                get_the_title()
-             );
+            
         
         //$postContent = wp_trim_words( $postContent, $length, $tmpMore);
         
