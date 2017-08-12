@@ -340,7 +340,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         
         if( $source == 'content' ){
             ob_start();
-            the_content( §tmpLink );
+            the_content( $tmpLink );
             $postContent = ob_get_contents();
             ob_end_clean();
             //Apply 'the_conter()' filters
