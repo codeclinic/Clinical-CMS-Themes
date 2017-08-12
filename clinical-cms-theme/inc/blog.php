@@ -326,6 +326,8 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($color) $styles .= 'color:' . $color  . ';';
         
         
+        echo "MORE: " . $source;
+        
         if( $source == 'content' ){
             ob_start();
             the_content(sprintf( 
@@ -350,8 +352,6 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             //clinical_cms_theme_excerpt_length
             $postContent = get_the_excerpt();
         } 
-        
-        //echo "MORE: " . 
             
         
         //$postContent = wp_trim_words( $postContent, $length, $tmpMore);
