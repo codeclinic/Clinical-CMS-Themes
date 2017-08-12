@@ -339,7 +339,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                         )
                     ),
                     get_the_title()
-             );
+             ));
             $postContent = ob_get_contents();
             ob_end_clean();
             //Apply 'the_conter()' filters
