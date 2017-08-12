@@ -349,7 +349,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         }
         else {
             //clinical_cms_theme_excerpt_length
-            $postContent = get_the_excerpt();
+            $postContent = get_the_excerpt( $tmpLink );
         } 
             
         
