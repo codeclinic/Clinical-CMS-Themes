@@ -325,13 +325,10 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
-        
-        if( $source == 'content' ){
-            ob_start();
-            the_content( sprintf( 
+        §tmpLink = sprintf( 
                 wp_kses(
                         /* translators: %s: Name of current post. Only visible to screen readers */
-                        esc_html( $more ) . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
+                        $more  . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                         array(
                             'span' => array(
                             'class' => array(),
@@ -339,7 +336,11 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                         )
                     ),
                     get_the_title()
-             ));
+             )
+        
+        if( $source == 'content' ){
+            ob_start();
+            the_content( §tmpLink );
             $postContent = ob_get_contents();
             ob_end_clean();
             //Apply 'the_conter()' filters
