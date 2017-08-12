@@ -336,7 +336,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                         )
                     ),
                     get_the_title()
-             )
+             );
         
         if( $source == 'content' ){
             ob_start();
