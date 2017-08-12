@@ -326,11 +326,9 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($color) $styles .= 'color:' . $color  . ';';
         
         
-        echo "MORE: " . $source;
-        
         if( $source == 'content' ){
             ob_start();
-            the_content( $more . sprintf( 
+            the_content( "\"" . $more . sprintf( 
                 wp_kses(
                         /* translators: %s: Name of current post. Only visible to screen readers */
                         __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
