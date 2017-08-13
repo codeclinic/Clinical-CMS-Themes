@@ -270,9 +270,8 @@ require get_template_directory() . '/inc/comments.php';
 /**
  * Create custom length contents & read more links.
  */
-function clinical_cms_theme_excerpt($limit = 55, $more = "...") {
-    global $post;
-      $excerpt = explode(' ', get_the_excerpt( $post->ID ), $limit);
+function clinical_cms_theme_excerpt($limit = 55, $post, $more = "...") {
+      $excerpt = explode(' ', get_the_excerpt( $post ), $limit);
       if (count($excerpt)>=$limit) {
         array_pop($excerpt);
         $excerpt = implode(" ",$excerpt) . $more;
@@ -286,9 +285,8 @@ function clinical_cms_theme_excerpt($limit = 55, $more = "...") {
 /**
  * Create custom length excerpts & read more links.
  */
-function clinical_cms_theme_content($limit = 55, $more = "...") {
-    global $post;
-      $content = explode(' ', get_the_content( $post->ID ), $limit);
+function clinical_cms_theme_content($limit = 55, $post, $more = "...") {
+      $content = explode(' ', get_the_content( $post ), $limit);
       if (count($content)>=$limit) {
         array_pop($content);
         $content = implode(" ",$content) . $more;
