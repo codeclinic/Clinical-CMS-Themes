@@ -325,7 +325,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         if($size) $styles .= 'font-size:' . (int) $size . 'px;line-height:normal;';
         if($color) $styles .= 'color:' . $color  . ';';
         
-        $tmpLink = sprintf(  
+        $safeMore = sprintf(  
                 wp_kses(
                         /* translators: %s: Name of current post. Only visible to screen readers */
                         esc_html ( $more ) . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
@@ -338,20 +338,24 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                     get_the_title()
              );
         
-        echo "TMPLINK: " . $tmpLink;
+        echo "TMPLINK: " . $safeMore;
         
         if( $source == 'content' ){
             //ob_start();
-            $postContent = get_the_content();
+            //$postContent = get_the_content();
             //$postContent = ob_get_contents();
             //ob_end_clean();
             //Apply 'the_conter()' filters
-            $postContent = apply_filters( 'the_content', $postContent );
-            $postContent = str_replace( ']]>', ']]&gt;', $postContent );
+            //$postContent = apply_filters( 'the_content', $postContent );
+            //$postContent = str_replace( ']]>', ']]&gt;', $postContent );
+            
+            $postContent .= clinical_cms_theme_content( $length, $safeMore );
         }
         else {
             //clinical_cms_theme_excerpt_length
-            $postContent = get_the_excerpt();
+            //$postContent = get_the_excerpt();
+            
+            $postContent .= clinical_cms_theme_excerpt( $length, $safeMore );
         } 
             
         echo "POSTCONTENT: " . $postContent;
