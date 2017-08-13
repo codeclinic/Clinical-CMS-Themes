@@ -327,7 +327,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         
         /*$safeMore = sprintf(  
                 wp_kses(
-                        /* translators: %s: Name of current post. Only visible to screen readers */
+                        /* translators: %s: Name of current post. Only visible to screen readers * /
                         esc_html ( $more ) . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                         array(
                             'span' => array(
