@@ -338,6 +338,8 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
                     get_the_title()
              );
         
+        echo "TMPLINK: " . $tmpLink;
+        
         if( $source == 'content' ){
             //ob_start();
             $postContent = get_the_content();
@@ -352,7 +354,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             $postContent = get_the_excerpt();
         } 
             
-        $postContent = wp_trim_words( $postContent, $length, $tmpLink );
+        $postContent = wp_trim_words( $postContent, $length, "More >>" );
         
         //$postContent = wp_trim_words( $postContent, $length, $tmpMore);
         
