@@ -328,7 +328,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
         $tmpLink = sprintf(  
                 wp_kses(
                         /* translators: %s: Name of current post. Only visible to screen readers */
-                        $more  . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
+                        esc_html ( $more ) . __( '<span class="screen-reader-text" style="' . $styles . '"> "%s"</span>', 'clinical-cms-theme' ),
                         array(
                             'span' => array(
                             'class' => array(),
