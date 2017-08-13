@@ -349,13 +349,13 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             //$postContent = apply_filters( 'the_content', $postContent );
             //$postContent = str_replace( ']]>', ']]&gt;', $postContent );
             
-            $postContent = clinical_cms_theme_content( $length, $safeMore );
+            $postContent = clinical_cms_theme_content( $length );
         }
         else {
             //clinical_cms_theme_excerpt_length
             //$postContent = get_the_excerpt();
             
-            $postContent = clinical_cms_theme_excerpt( $length, $safeMore );
+            $postContent = clinical_cms_theme_excerpt( $length );
         } 
             
         echo "POSTCONTENT: " . $postContent;
