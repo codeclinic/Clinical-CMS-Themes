@@ -272,7 +272,7 @@ require get_template_directory() . '/inc/comments.php';
  */
 function clinical_cms_theme_excerpt($limit = 55, $more = "...") {
     global $post;
-      $excerpt = explode(' ', get_the_excerpt( $post->id ), $limit);
+      $excerpt = explode(' ', get_the_excerpt( $post->ID ), $limit);
       if (count($excerpt)>=$limit) {
         array_pop($excerpt);
         $excerpt = implode(" ",$excerpt) . $more;
@@ -288,7 +288,7 @@ function clinical_cms_theme_excerpt($limit = 55, $more = "...") {
  */
 function clinical_cms_theme_content($limit = 55, $more = "...") {
     global $post;
-      $content = explode(' ', get_the_content( $post->id ), $limit);
+      $content = explode(' ', get_the_content( $post->ID ), $limit);
       if (count($content)>=$limit) {
         array_pop($content);
         $content = implode(" ",$content) . $more;
