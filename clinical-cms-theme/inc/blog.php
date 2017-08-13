@@ -352,7 +352,7 @@ if(!function_exists('clinical_cms_theme_blog_contents')){
             $postContent = get_the_excerpt();
         } 
             
-        $postContent = wp_trim_words( $postContent, $length, $tmpLink )
+        $postContent = wp_trim_words( $postContent, $length, $tmpLink );
         
         //$postContent = wp_trim_words( $postContent, $length, $tmpMore);
         
